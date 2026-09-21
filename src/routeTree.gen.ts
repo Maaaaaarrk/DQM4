@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BuildRouteImport } from './routes/build'
+import { Route as GetRouteImport } from './routes/get'
+import { Route as MonstersRouteImport } from './routes/monsters'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuildRoute = BuildRouteImport.update({
+  id: '/build',
+  path: '/build',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetRoute = GetRouteImport.update({
+  id: '/get',
+  path: '/get',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MonstersRoute = MonstersRouteImport.update({
+  id: '/monsters',
+  path: '/monsters',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/build': typeof BuildRoute
+  '/get': typeof GetRoute
+  '/monsters': typeof MonstersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/build': typeof BuildRoute
+  '/get': typeof GetRoute
+  '/monsters': typeof MonstersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/build': typeof BuildRoute
+  '/get': typeof GetRoute
+  '/monsters': typeof MonstersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/build' | '/get' | '/monsters'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/build' | '/get' | '/monsters'
+  id: '__root__' | '/' | '/build' | '/get' | '/monsters'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuildRoute: typeof BuildRoute
+  GetRoute: typeof GetRoute
+  MonstersRoute: typeof MonstersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/build': {
+      id: '/build'
+      path: '/build'
+      fullPath: '/build'
+      preLoaderRoute: typeof BuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get': {
+      id: '/get'
+      path: '/get'
+      fullPath: '/get'
+      preLoaderRoute: typeof GetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/monsters': {
+      id: '/monsters'
+      path: '/monsters'
+      fullPath: '/monsters'
+      preLoaderRoute: typeof MonstersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuildRoute: BuildRoute,
+  GetRoute: GetRoute,
+  MonstersRoute: MonstersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

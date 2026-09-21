@@ -111,7 +111,12 @@ function main(argv) {
     process.exit(2);
   }
   const env = mergeAppEnv(readAppEnv(projectRoot()), process.env);
-  const child = spawn(command, args, { stdio: "inherit", env });
+  // Windows npm shims are `vite.cmd`. Node's spawn does not search PATHEXT, so
+  // `spawn("vite")` fails with ENOENT unless it goes through cmd.exe. Full
+  // executable paths (the wrapper's own tests spawn node.exe) stay direct.
+  const shell =
+    process.platform === "win32" && !command.includes("\\") && !command.includes("/");
+  const child = spawn(command, args, { stdio: "inherit", env, shell });
   // The dev server is long-running and is stopped by signalling this wrapper.
   for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
     process.on(signal, () => child.kill(signal));

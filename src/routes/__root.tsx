@@ -4,7 +4,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { publicAsset } from "@/lib/utils";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Withered Dex";
+const APP_NAME = "Synthline - DQM4 Synthesis Guides";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#3E250C" },
       {
         name: "description",
-        content: "Monster avatar cards and synthesis family trees.",
+        content: "Synthline guides for Dragon Quest Monsters: The Dark Prince synthesis.",
       },
     ],
     links: [

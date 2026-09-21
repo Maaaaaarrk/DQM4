@@ -27,6 +27,8 @@ export type Monster = {
   family: Family;
   rank: Rank;
   synthOnly: boolean;
+  /** False when the source row has not been checked. */
+  verified: boolean;
   parents: [ParentRef, ParentRef] | [];
 };
 
@@ -37,6 +39,7 @@ type RawMonster = {
   Number: number | null;
   Name: string;
   Identifier: string;
+  IsVerified: boolean;
 };
 
 type RawFamily = { FamilyId: number; Identifier: string; Name: string };
@@ -124,6 +127,7 @@ function toMonster(raw: RawMonster): Monster {
     family: asFamily(raw.FamilyId),
     rank: asRank(raw.RankId),
     synthOnly: !scouted.has(raw.MonsterId),
+    verified: raw.IsVerified === true,
     parents: pickParents(raw.MonsterId),
   };
 }
@@ -150,6 +154,86 @@ const FEATURED_NAMES = [
 export const ROOT_OPTIONS = FEATURED_NAMES.map(
   (name) => SPECIES.find((m) => m.name === name)?.id,
 ).filter((id): id is string => Boolean(id));
+
+export const FAMILY_ORDER: Family[] = [
+  "slime",
+  "dragon",
+  "nature",
+  "beast",
+  "material",
+  "demon",
+  "undead",
+  "boss",
+];
+
+/** Scout ranks, low to high. "Any" is only a synthesis wildcard. */
+export const RANK_ORDER: Rank[] = ["G", "F", "E", "D", "C", "B", "A", "S", "X"];
+
+export type BuildOption = {
+  resultId: string;
+  partner: ParentRef;
+};
+
+const buildsBySpecies = new Map<string, BuildOption[]>();
+const buildsByFamilyRank = new Map<string, BuildOption[]>();
+
+function pushBuild(map: Map<string, BuildOption[]>, key: string, option: BuildOption) {
+  const list = map.get(key);
+  if (list) list.push(option);
+  else map.set(key, [option]);
+}
+
+for (const row of synthesisRows as RawSynth[]) {
+  const result = rawById.get(row.MonsterResultId);
+  const parent1 = rawById.get(row.MonsterParent1Id);
+  const parent2 = rawById.get(row.MonsterParent2Id);
+  if (!result || !parent1 || !parent2 || isFamilyToken(result)) continue;
+  const resultId = result.Identifier;
+  const left: BuildOption = { resultId, partner: toRef(parent2) };
+  const right: BuildOption = { resultId, partner: toRef(parent1) };
+  if (isFamilyToken(parent1)) {
+    pushBuild(buildsByFamilyRank, `${asFamily(parent1.FamilyId)}:${asRank(parent1.RankId)}`, left);
+  } else {
+    pushBuild(buildsBySpecies, parent1.Identifier, left);
+  }
+  if (isFamilyToken(parent2)) {
+    pushBuild(buildsByFamilyRank, `${asFamily(parent2.FamilyId)}:${asRank(parent2.RankId)}`, right);
+  } else {
+    pushBuild(buildsBySpecies, parent2.Identifier, right);
+  }
+}
+
+function rankIndex(rank: Rank): number {
+  const i = RANK_ORDER.indexOf(rank);
+  return i === -1 ? RANK_ORDER.length : i;
+}
+
+/** Syntheses that use this monster as one parent. The partner is the other parent. */
+export function buildsFrom(id: string): BuildOption[] {
+  const self = monster(id);
+  const hits = [
+    ...(buildsBySpecies.get(id) ?? []),
+    ...(buildsByFamilyRank.get(`${self.family}:${self.rank}`) ?? []),
+    ...(buildsByFamilyRank.get(`${self.family}:Any`) ?? []),
+  ];
+  const seen = new Set<string>();
+  const options: BuildOption[] = [];
+  for (const hit of hits) {
+    const key = `${hit.resultId}:${parentKey(hit.partner)}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    options.push(hit);
+  }
+  return options.sort((a, b) => {
+    const resultA = monster(a.resultId);
+    const resultB = monster(b.resultId);
+    const byRank = rankIndex(resultA.rank) - rankIndex(resultB.rank);
+    if (byRank !== 0) return byRank;
+    const byName = resultA.name.localeCompare(resultB.name);
+    if (byName !== 0) return byName;
+    return parentKey(a.partner).localeCompare(parentKey(b.partner));
+  });
+}
 
 export function monster(id: string): Monster {
   const m = MONSTERS[id];

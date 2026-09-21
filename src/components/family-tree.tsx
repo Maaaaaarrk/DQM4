@@ -18,8 +18,7 @@ type Metrics = Record<string, Size>;
 type Picks = Record<string, string>;
 
 type NodeKind =
-  | { type: "species"; id: string }
-  | { type: "family"; tokenId: string; family: Family; rank: Rank };
+  { type: "species"; id: string } | { type: "family"; tokenId: string; family: Family; rank: Rank };
 
 type Box = {
   path: string;
@@ -94,12 +93,7 @@ function sz(path: string, metrics: Metrics): Size {
   return metrics[path] ?? FALLBACK;
 }
 
-function canOpen(
-  node: NodeKind,
-  path: string,
-  picks: Picks,
-  ancestors: Set<string>,
-): boolean {
+function canOpen(node: NodeKind, path: string, picks: Picks, ancestors: Set<string>): boolean {
   const id = speciesId(node, path, picks);
   if (!id || !hasParents(id) || ancestors.has(id)) return false;
   return true;
@@ -245,11 +239,7 @@ function layoutSubtree(
   card.x = childX;
   card.y = pH + ROW_GAP;
   return {
-    boxes: [
-      ...translate(L.boxes, lX, pH - L.h),
-      ...translate(R.boxes, rX, pH - R.h),
-      card,
-    ],
+    boxes: [...translate(L.boxes, lX, pH - L.h), ...translate(R.boxes, rX, pH - R.h), card],
     w: totalW,
     h: pH + ROW_GAP + self.h,
     cardX: childX,
@@ -277,9 +267,13 @@ function buildWires(rootId: string, boxes: Box[], orient: TreeOrient): Wire[] {
       const by = p2.y + p2.ay;
       const x0 = focus.x + focus.w;
       const y0 = focus.y + focus.ay;
-      let railX = Math.min(ax, bx);
-      const minRail = x0 + MIN_LINE;
-      if (railX < minRail) railX = minRail;
+      // Keep the rail in the gutter left of the parent cards. Anchoring it on
+      // the portrait center draws the join through the cards, so after a
+      // collapse it looks like a stub that never reaches the focus.
+      const parentsLeft = Math.min(p1.x, p2.x);
+      let railX = (x0 + parentsLeft) / 2;
+      if (parentsLeft - x0 < 16) railX = x0 + Math.max(0, parentsLeft - x0) / 2;
+      else railX = Math.min(Math.max(railX, x0 + 8), parentsLeft - 8);
       wires.push({
         type: "root",
         x0,
@@ -369,7 +363,15 @@ function layout(
     const path1 = childPath(rootPath, "up", parentKey(p1));
     const path2 = childPath(rootPath, "dn", parentKey(p2));
     const seen = new Set([rootId]);
-    const L = layoutSubtree(n1, path1, orient === "vertical" ? "down" : "up", open, metrics, picks, seen);
+    const L = layoutSubtree(
+      n1,
+      path1,
+      orient === "vertical" ? "down" : "up",
+      open,
+      metrics,
+      picks,
+      seen,
+    );
     const R = layoutSubtree(n2, path2, "down", open, metrics, picks, seen);
 
     if (orient === "vertical") {
@@ -526,16 +528,17 @@ function readSize(el: HTMLElement): Size {
   const w = Math.ceil(el.offsetWidth);
   const h = Math.ceil(el.offsetHeight);
   const anchor = el.querySelector("[data-anchor]");
-  if (!(anchor instanceof HTMLElement)) {
+  if (!(anchor instanceof HTMLElement) || w === 0 || h === 0) {
     return { w, h, ax: 42, ay: h / 2 };
   }
-  const cr = el.getBoundingClientRect();
-  const ar = anchor.getBoundingClientRect();
+  // offsetLeft/Top ignore the viewport's CSS zoom. Screen rects do not, and
+  // once the tree is larger than the screen those rects get clipped, so the
+  // next expand draws the wires off the portraits.
   return {
     w,
     h,
-    ax: Math.round(ar.left + ar.width / 2 - cr.left),
-    ay: Math.round(ar.top + ar.height / 2 - cr.top),
+    ax: Math.round(anchor.offsetLeft + anchor.offsetWidth / 2),
+    ay: Math.round(anchor.offsetTop + anchor.offsetHeight / 2),
   };
 }
 
@@ -550,10 +553,13 @@ export function FamilyTree({
   rootId,
   orient = "horizontal",
   expandCommand,
+  onStructureChange,
 }: {
   rootId: string;
   orient?: TreeOrient;
   expandCommand?: ExpandCommand;
+  /** Fired after expand/minimize. `path` is the toggled card; omitted for the whole tree. */
+  onStructureChange?: (path?: string) => void;
 }) {
   const [open, setOpen] = useState<Set<string>>(() => {
     const s = new Set<string>();
@@ -574,6 +580,13 @@ export function FamilyTree({
   const [picks, setPicks] = useState<Picks>({});
   const [metrics, setMetrics] = useState<Metrics>({});
   const nodeRefs = useRef(new Map<string, HTMLDivElement>());
+  const pendingFrame = useRef<string | null | undefined>(undefined);
+  const onStructureChangeRef = useRef(onStructureChange);
+  onStructureChangeRef.current = onStructureChange;
+
+  function requestRecenter(path?: string) {
+    pendingFrame.current = path ?? null;
+  }
 
   const { boxes, wires, width, height } = useMemo(
     () => layout(rootId, open, metrics, picks, orient),
@@ -586,6 +599,7 @@ export function FamilyTree({
     else if (expandCommand.action === "scoutable") {
       setOpen(expandScoutablePaths(rootId, picks));
     } else setOpen(expandAllPaths(rootId, picks));
+    requestRecenter();
   }, [expandCommand, rootId]);
 
   useLayoutEffect(() => {
@@ -600,7 +614,15 @@ export function FamilyTree({
         changed = true;
       }
     }
-    if (changed) setMetrics(next);
+    if (changed) {
+      setMetrics(next);
+      return;
+    }
+    if (pendingFrame.current !== undefined) {
+      const path = pendingFrame.current ?? undefined;
+      pendingFrame.current = undefined;
+      onStructureChangeRef.current?.(path);
+    }
   }, [boxes, metrics]);
 
   function toggle(path: string) {
@@ -615,6 +637,7 @@ export function FamilyTree({
       }
       return next;
     });
+    requestRecenter(path);
   }
 
   function pick(path: string, id: string) {
@@ -632,6 +655,7 @@ export function FamilyTree({
       if (!id) next.delete(path);
       return next;
     });
+    requestRecenter(path);
   }
 
   return (
@@ -688,6 +712,7 @@ export function FamilyTree({
       {boxes.map((b) => (
         <div
           key={b.path}
+          data-path={b.path}
           className="absolute"
           style={{ left: b.x, top: b.y }}
           ref={(el) => {

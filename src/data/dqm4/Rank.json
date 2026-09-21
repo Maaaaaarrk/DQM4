@@ -1,0 +1,62 @@
+[
+  {
+    "RankId": 7,
+    "Name": "A",
+    "Identifier": "a",
+    "MaxPlus": 75
+  },
+  {
+    "RankId": 10,
+    "Name": "Any",
+    "Identifier": "any",
+    "MaxPlus": null
+  },
+  {
+    "RankId": 6,
+    "Name": "B",
+    "Identifier": "b",
+    "MaxPlus": 50
+  },
+  {
+    "RankId": 5,
+    "Name": "C",
+    "Identifier": "c",
+    "MaxPlus": 35
+  },
+  {
+    "RankId": 4,
+    "Name": "D",
+    "Identifier": "d",
+    "MaxPlus": 20
+  },
+  {
+    "RankId": 3,
+    "Name": "E",
+    "Identifier": "e",
+    "MaxPlus": 10
+  },
+  {
+    "RankId": 2,
+    "Name": "F",
+    "Identifier": "f",
+    "MaxPlus": 5
+  },
+  {
+    "RankId": 1,
+    "Name": "G",
+    "Identifier": "g",
+    "MaxPlus": 3
+  },
+  {
+    "RankId": 8,
+    "Name": "S",
+    "Identifier": "s",
+    "MaxPlus": 100
+  },
+  {
+    "RankId": 9,
+    "Name": "X",
+    "Identifier": "x",
+    "MaxPlus": 100
+  }
+]

@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", "Trebuchet MS", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Nunito", "Trebuchet MS", ui-sans-serif, system-ui, sans-serif;
+
+  --color-parchment: #f3e4b8;
+  --color-parchment-deep: #edd9a4;
+  --color-dot: #f7ebb0;
+  --color-ink: #2a1c10;
+  --color-muted: #6b5340;
+  --color-chrome: #3e250c;
+  --color-chrome-hi: #6a4218;
+  --color-gold: #e2b657;
+  --color-gold-ring: #c9a056;
+  --color-line: #8a5a28;
+  --color-focus: #1d5a32;
+  --color-focus-edge: #0d2a18;
+  --color-focus-fg: #fff8e8;
+  --color-parent: #5eae74;
+  --color-parent-edge: #2f7a45;
+  --color-parent-fg: #f4fff6;
+  --color-rank: #d87818;
+  --color-size-badge: #3aa0e8;
+  --color-synth: #6b3fa0;
+  --color-synth-fg: #f4ecff;
+
+  --color-family-slime: #2f9e6a;
+  --color-family-dragon: #c94b3c;
+  --color-family-nature: #5a9c32;
+  --color-family-beast: #c4842a;
+  --color-family-material: #6a7b8c;
+  --color-family-demon: #8b4cb0;
+  --color-family-undead: #4a8a8a;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+    background: var(--color-chrome);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .chrome-bar {
+    background: linear-gradient(#6a4218, #3e250c);
+  }
+
+  .stage-field {
+    background-color: var(--color-parchment);
+    background-image: radial-gradient(
+      circle at 18px 18px,
+      var(--color-dot) 2px,
+      transparent 2.6px
+    );
+    background-size: 36px 36px;
+  }
+}

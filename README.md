@@ -2,9 +2,9 @@
 
 Interactive **Dragon Quest Monsters: The Dark Prince / Withered World (DQM4)** family tree.
 
-Synthesis pedigrees with in-game-style cards, MetalKid sprite portraits, pan/zoom, and expand-until-scoutable.
+Synthesis pedigrees with in-game-style cards, portraits, pan/zoom, and expand-until-scoutable.
 
-Data is from [MetalKid Databases](https://github.com/MetalKid/Databases) (DQM4). Sprites are sliced from their `monsters-sprite.jpg` sheet.
+English names are from [MetalKid Databases](https://github.com/MetalKid/Databases).
 
 ## Run locally
 

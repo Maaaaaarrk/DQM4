@@ -1,8 +1,12 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FamilyIcon, familyLabel } from "@/components/family-icon";
+import { RankBadge } from "@/components/rank-badge";
+import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import { MonsterSprite } from "@/components/monster-sprite";
+import { StatsLink } from "@/components/stats-link";
+import { ScoutIcon } from "@/components/scout-icon";
 import { SynthIcon } from "@/components/synth-icon";
 import { cn } from "@/lib/utils";
 import {
@@ -21,18 +25,16 @@ function MonsterList() {
   const [family, setFamily] = useState<Family | "all">("all");
   const [rank, setRank] = useState<Rank | "all">("all");
   const [obtain, setObtain] = useState<"both" | "scoutable" | "synth">("both");
-  const [verifiedOnly, setVerifiedOnly] = useState(true);
 
   const shown = useMemo(() => {
     return searchSpecies(query).filter((m) => {
-      if (verifiedOnly && !m.verified) return false;
       if (family !== "all" && m.family !== family) return false;
       if (rank !== "all" && m.rank !== rank) return false;
       if (obtain === "scoutable" && m.synthOnly) return false;
       if (obtain === "synth" && !m.synthOnly) return false;
       return true;
     });
-  }, [query, family, rank, obtain, verifiedOnly]);
+  }, [query, family, rank, obtain]);
 
   return (
     <div className="flex min-h-screen flex-col bg-chrome text-ink">
@@ -63,9 +65,6 @@ function MonsterList() {
             </FilterChip>
             <FilterChip pressed={obtain === "synth"} onClick={() => setObtain("synth")}>
               Synthesis only
-            </FilterChip>
-            <FilterChip pressed={verifiedOnly} onClick={() => setVerifiedOnly((on) => !on)}>
-              Verified
             </FilterChip>
           </FilterRow>
           <FilterRow label="Rank">
@@ -113,38 +112,34 @@ function MonsterList() {
               {shown.map((m) => (
                 <li
                   key={m.id}
-                  className={cn(
-                    "flex items-center gap-3 rounded-2xl border-2 px-3 py-2",
-                    m.verified
-                      ? "border-gold/70 bg-chrome text-gold"
-                      : "border-zinc-600/40 bg-zinc-900/70 text-zinc-500 grayscale",
-                  )}
+                  className="flex items-center gap-3 rounded-2xl border-2 border-gold/70 bg-chrome px-3 py-2 text-gold"
                 >
-                  <MonsterSprite id={m.id} family={m.family} size={48} alt="" />
+                  <span className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-[14px] bg-parchment ring-[3px] ring-white shadow-[3px_4px_0_rgb(0_0_0_/0.12),0_0_0_2px_var(--color-gold-ring)]">
+                    <MonsterSprite id={m.id} family={m.family} size={64} alt="" />
+                  </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-display text-lg font-extrabold leading-tight">
                       {m.name}
                     </span>
                     <span className="mt-1 flex items-center gap-1.5">
-                      <span className="rounded bg-rank px-1 text-[10px] font-black text-white">
-                        {m.rank}
-                      </span>
+                      <RankBadge rank={m.rank} />
                       <FamilyIcon family={m.family} size="sm" />
-                      {m.synthOnly ? <SynthIcon size="sm" /> : null}
+                      {m.synthOnly ? <SynthIcon size="sm" /> : <ScoutIcon size="sm" />}
+                      <StatsLink id={m.id} />
                     </span>
                   </span>
                   <span className="flex shrink-0 flex-col gap-1 text-right font-display text-xs font-extrabold">
                     <Link
                       to="/get"
                       search={{ monster: m.id }}
-                      className={m.verified ? "hover:text-parchment" : "hover:text-zinc-300"}
+                      className="hover:text-parchment"
                     >
                       How to get
                     </Link>
                     <Link
                       to="/build"
                       search={{ monster: m.id }}
-                      className={m.verified ? "hover:text-parchment" : "hover:text-zinc-300"}
+                      className="hover:text-parchment"
                     >
                       What it builds
                     </Link>
@@ -155,11 +150,7 @@ function MonsterList() {
           )}
         </div>
       </main>
-      <footer className="border-t-[3px] border-chrome-hi bg-chrome px-3 py-2">
-        <p className="text-center font-display text-xs font-extrabold tracking-[0.18em] text-gold">
-          Scout. Synth. Repeat.
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

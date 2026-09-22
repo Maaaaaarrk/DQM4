@@ -1,9 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TreeViewport, type TreeViewportHandle } from "@/components/tree-viewport";
 import { FamilyIcon, familyLabel } from "@/components/family-icon";
+import { RankBadge } from "@/components/rank-badge";
+import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import { MonsterSprite } from "@/components/monster-sprite";
+import { StatsLink } from "@/components/stats-link";
+import { ScoutIcon } from "@/components/scout-icon";
 import { SynthIcon } from "@/components/synth-icon";
 import { cn } from "@/lib/utils";
 import {
@@ -51,19 +55,17 @@ function BuildGuide() {
   const [path, setPath] = useState<ClimbStep[]>([
     { id: initial, partner: null, picks: {}, open: [] },
   ]);
+  useEffect(() => {
+    if (!requested || !(requested in MONSTERS)) return;
+    setLockedId(requested);
+    setPath([{ id: requested, partner: null, picks: {}, open: [] }]);
+  }, [requested]);
   const [query, setQuery] = useState("");
-  const [verifiedOnly, setVerifiedOnly] = useState(true);
-  const matches = useMemo(() => {
-    return searchSpecies(query)
-      .filter((m) => !verifiedOnly || m.verified)
-      .slice(0, 80);
-  }, [query, verifiedOnly]);
+  const matches = useMemo(() => searchSpecies(query).slice(0, 80), [query]);
   const options = useMemo(() => {
-    const list = query.trim() ? matches : matches;
-    const filtered = verifiedOnly ? list.filter((m) => m.verified || m.id === lockedId) : list;
-    if (!filtered.some((m) => m.id === lockedId)) return [monster(lockedId), ...filtered];
-    return filtered;
-  }, [matches, lockedId, verifiedOnly]);
+    if (!matches.some((m) => m.id === lockedId)) return [monster(lockedId), ...matches];
+    return matches;
+  }, [matches, lockedId]);
 
   const tip = path[path.length - 1] ?? { id: lockedId, partner: null };
   const choices = useMemo(() => buildsFrom(tip.id), [tip.id]);
@@ -141,17 +143,6 @@ function BuildGuide() {
             placeholder="Lock a monster you have"
             className="w-40 rounded-lg border-2 border-gold bg-chrome px-2 py-1 font-display text-sm font-bold text-gold placeholder:text-gold/50 md:w-64"
           />
-          <button
-            type="button"
-            aria-pressed={verifiedOnly}
-            onClick={() => setVerifiedOnly((on) => !on)}
-            className={cn(
-              "shrink-0 rounded-lg border-2 border-gold px-2 py-1 font-display text-xs font-extrabold",
-              verifiedOnly ? "bg-gold text-chrome" : "text-gold hover:bg-chrome-hi",
-            )}
-          >
-            Verified
-          </button>
           <label className="sr-only" htmlFor="build-root">
             Locked monster
           </label>
@@ -163,7 +154,7 @@ function BuildGuide() {
           >
             {options.map((m) => (
               <option key={m.id} value={m.id}>
-                {m.name}
+                {m.name} · {m.synthOnly ? "Synthesis only" : "Scoutable"}
               </option>
             ))}
           </select>
@@ -184,11 +175,7 @@ function BuildGuide() {
           />
         </TreeViewport>
       </main>
-      <footer className="border-t-[3px] border-chrome-hi bg-chrome px-3 py-2">
-        <p className="text-center font-display text-xs font-extrabold tracking-[0.18em] text-gold">
-          Scout. Synth. Repeat.
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
@@ -439,6 +426,17 @@ function ClimbCanvas({
   );
 }
 
+function PortraitFrame({ children }: { children: ReactNode }) {
+  return (
+    <span
+      className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-[14px] bg-parchment ring-[3px] ring-white shadow-[3px_4px_0_rgb(0_0_0_/0.12),0_0_0_2px_var(--color-gold-ring)]"
+      aria-hidden
+    >
+      {children}
+    </span>
+  );
+}
+
 function ChoiceCard({
   option,
   box,
@@ -452,28 +450,42 @@ function ChoiceCard({
 }) {
   const result = monster(option.resultId);
   return (
-    <button
-      type="button"
-      disabled={disabled}
-      onClick={onPick}
-      className="absolute flex items-center gap-2 overflow-hidden rounded-2xl border-2 border-gold bg-chrome px-2.5 py-2 text-left text-gold enabled:hover:bg-chrome-hi disabled:opacity-50"
+    <div
+      className={cn(
+        "absolute flex items-center gap-2 overflow-hidden rounded-2xl border-2 border-gold bg-chrome px-2.5 py-2 text-left text-gold",
+        disabled && "opacity-50",
+      )}
       style={{ left: box.x, top: box.y, width: CARD_W, height: CARD_H }}
     >
-      <MonsterSprite id={result.id} family={result.family} size={44} alt="" />
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={onPick}
+        aria-label={`Climb to ${result.name}`}
+        className="absolute inset-0 rounded-2xl enabled:hover:bg-chrome-hi"
+      />
+      <div className="pointer-events-none relative flex min-w-0 flex-1 items-center gap-2">
+      <PortraitFrame>
+        <MonsterSprite id={result.id} family={result.family} size={64} alt="" />
+      </PortraitFrame>
       <span className="min-w-0">
         <span className="block truncate font-display text-base font-extrabold leading-tight">
           {result.name}
         </span>
         <span className="mt-1 flex items-center gap-1">
-          <span className="rounded bg-rank px-1 text-[10px] font-black text-white">{result.rank}</span>
+          <RankBadge rank={result.rank} />
           <FamilyIcon family={result.family} size="sm" />
-          {result.synthOnly ? <SynthIcon size="sm" /> : null}
+          {result.synthOnly ? <SynthIcon size="sm" /> : <ScoutIcon size="sm" />}
+          <span className="pointer-events-auto">
+            <StatsLink id={result.id} />
+          </span>
         </span>
         <span className="mt-1 block truncate text-xs font-bold text-parchment">
           {disabled ? "Already in this line" : `Needs ${partnerLabel(option.partner)}`}
         </span>
       </span>
-    </button>
+      </div>
+    </div>
   );
 }
 
@@ -506,15 +518,18 @@ function ClimbTile({
       )}
       style={{ left: box.x, top: box.y, width: CARD_W, height: CARD_H }}
     >
-      <MonsterSprite id={current.id} family={current.family} size={52} alt="" />
+      <PortraitFrame>
+        <MonsterSprite id={current.id} family={current.family} size={64} alt="" />
+      </PortraitFrame>
       <span className="min-w-0 flex-1">
         <span className="block truncate font-display text-lg font-extrabold leading-none">
           {current.name}
         </span>
         <span className="mt-1 flex items-center gap-1.5 text-xs font-bold">
-          <span className="rounded bg-rank px-1 text-white">{current.rank}</span>
+          <RankBadge rank={current.rank} />
           <FamilyIcon family={current.family} size="sm" />
-          {current.synthOnly ? <SynthIcon size="sm" /> : null}
+          {current.synthOnly ? <SynthIcon size="sm" /> : <ScoutIcon size="sm" />}
+          <StatsLink id={current.id} />
         </span>
       </span>
       {isTip && !isStart ? (
@@ -556,9 +571,13 @@ function PartnerCard({
       style={{ left: node.x, top: node.y, width: CARD_W, height: CARD_H }}
     >
       {species ? (
-        <MonsterSprite id={species.id} family={species.family} size={48} alt="" />
+        <PortraitFrame>
+          <MonsterSprite id={species.id} family={species.family} size={64} alt="" />
+        </PortraitFrame>
       ) : node.ref.type === "family" ? (
-        <FamilyIcon family={node.ref.family} size="lg" />
+        <PortraitFrame>
+          <FamilyIcon family={node.ref.family} size="lg" framed={false} />
+        </PortraitFrame>
       ) : null}
       <span className="min-w-0 flex-1">
         <span className="block truncate font-display text-base font-extrabold leading-none">
@@ -566,10 +585,13 @@ function PartnerCard({
         </span>
         <span className="mt-1 flex items-center gap-1">
           {species ? (
-            <span className="rounded bg-rank px-1 text-[10px] font-black text-white">{species.rank}</span>
+            <RankBadge rank={species.rank} />
           ) : null}
           {species ? <FamilyIcon family={species.family} size="sm" /> : null}
-          {species?.synthOnly ? <SynthIcon size="sm" /> : null}
+          {species ? (
+            species.synthOnly ? <SynthIcon size="sm" /> : <ScoutIcon size="sm" />
+          ) : null}
+          {species ? <StatsLink id={species.id} /> : null}
         </span>
         {node.ref.type === "family" ? (
           <select

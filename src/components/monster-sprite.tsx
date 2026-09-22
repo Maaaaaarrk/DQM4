@@ -1,16 +1,9 @@
-import spriteMap from "@/data/dqm4/sprite-map.json";
+import portraitIds from "@/data/dqm4/portrait-ids.json";
 import { FamilyIcon } from "@/components/family-icon";
 import type { Family } from "@/lib/monsters";
 import { publicAsset } from "@/lib/utils";
 
-const POS = spriteMap as unknown as Record<string, [number, number]>;
-const TILE = 75;
-const SHEET = 1800;
-const SRC = publicAsset("dqm4/monsters-sprite.jpg");
-
-export function hasSprite(id: string): boolean {
-  return Boolean(POS[id]);
-}
+const HAVE_PORTRAIT = new Set(portraitIds as string[]);
 
 export function MonsterSprite({
   id,
@@ -23,24 +16,18 @@ export function MonsterSprite({
   size?: number;
   alt?: string;
 }) {
-  const pos = id ? POS[id] : undefined;
-  if (!pos) {
+  if (!id || !HAVE_PORTRAIT.has(id)) {
     return <FamilyIcon family={family} size="lg" framed={false} />;
   }
-  const scale = size / TILE;
   return (
-    <span
-      className="block shrink-0"
-      style={{
-        width: size,
-        height: size,
-        backgroundImage: `url(${SRC})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: `${SHEET * scale}px ${SHEET * scale}px`,
-        backgroundPosition: `${pos[0] * scale}px ${pos[1] * scale}px`,
-      }}
-      role="img"
-      aria-label={alt}
+    <img
+      src={publicAsset(`portraits/${id}.png`)}
+      alt={alt}
+      width={size}
+      height={size}
+      draggable={false}
+      className="block shrink-0 object-contain"
+      style={{ width: size, height: size }}
     />
   );
 }

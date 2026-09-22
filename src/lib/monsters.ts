@@ -1,8 +1,10 @@
 import familyRows from "@/data/dqm4/Family.json";
-import locationRows from "@/data/dqm4/MonsterLocation.json";
 import monsterRows from "@/data/dqm4/Monster.json";
-import synthesisRows from "@/data/dqm4/MonsterSynthesis.json";
 import rankRows from "@/data/dqm4/Rank.json";
+import scoutRows from "@/data/dqm4/ScoutSpot.json";
+import skillRows from "@/data/dqm4/Skill.json";
+import synthesisRows from "@/data/dqm4/MonsterSynthesis.json";
+import traitRows from "@/data/dqm4/Trait.json";
 
 export type Family =
   | "slime"
@@ -20,16 +22,115 @@ export type ParentRef =
   | { type: "species"; id: string }
   | { type: "family"; tokenId: string; family: Family; rank: Rank };
 
+export type GrowthCurves = {
+  exp: number;
+  hp: number;
+  mp: number;
+  attack: number;
+  defence: number;
+  agility: number;
+  wisdom: number;
+};
+
+export type Resistances = {
+  fire: number;
+  water: number;
+  wind: number;
+  earth: number;
+  explosion: number;
+  freeze: number;
+  thunder: number;
+  light: number;
+  darkness: number;
+  weakness: number;
+  hit: number;
+  seal: number;
+  drainMp: number;
+  confusion: number;
+  sleep: number;
+  paralysis: number;
+  rest: number;
+  poison: number;
+  suddenDeath: number;
+};
+
+export type MonsterTrait = {
+  key: string;
+  /** Null when the trait is available from the start. */
+  level: number | null;
+  largeOnly: boolean;
+  boss: boolean;
+};
+
+export type MonsterDrop = {
+  name: string | null;
+  nameJa: string | null;
+  description: string | null;
+  rate: number;
+};
+
+export type TraitInfo = {
+  key: string;
+  name: string | null;
+  nameJa: string | null;
+  description: string | null;
+  descriptionJa: string | null;
+};
+
+export type SkillInfo = {
+  key: string;
+  name: string | null;
+  nameJa: string | null;
+  description: string | null;
+  descriptionJa: string | null;
+};
+
+export type ScoutSpot = {
+  area: string;
+  areaJa: string;
+  /** Day or Night when the spawn is limited. Null when it is out at both. */
+  time: "Day" | "Night" | null;
+  /** Null on the ground. Low air, in water, or underground otherwise. */
+  where: string | null;
+};
+
 export type Monster = {
   id: string;
   monsterId: number;
   name: string;
   family: Family;
   rank: Rank;
+  /** Japanese name, when the row has one. */
+  japanese?: string;
   synthOnly: boolean;
+  /** Field places. Empty when the monster is synthesis only. */
+  habitats: ScoutSpot[];
   /** False when the source row has not been checked. */
   verified: boolean;
   parents: [ParentRef, ParentRef] | [];
+  /** Max caps. Order is HP, MP, attack, defence, agility, wisdom. */
+  maxHp: number | null;
+  maxMp: number | null;
+  maxAtt: number | null;
+  maxDef: number | null;
+  maxAgi: number | null;
+  maxWis: number | null;
+  /** Characteristic slots. Trait text is in TRAITS. */
+  traits: MonsterTrait[];
+  /** Innate skill key. Skill text is in SKILLS. */
+  skill: string | null;
+  /** Growth-table ids. */
+  growthCurves: GrowthCurves | null;
+  /** Named resistance values. */
+  resistances: Resistances | null;
+  drops: MonsterDrop[];
+};
+
+type RawDrop = {
+  Name: string | null;
+  NameJa?: string | null;
+  Description?: string | null;
+  Rate: number;
 };
 
 type RawMonster = {
@@ -38,8 +139,64 @@ type RawMonster = {
   RankId: number;
   Number: number | null;
   Name: string;
+  JapaneseName?: string | null;
   Identifier: string;
   IsVerified: boolean;
+  MaxHP?: number | null;
+  MaxMP?: number | null;
+  MaxAtt?: number | null;
+  MaxDef?: number | null;
+  MaxAgi?: number | null;
+  MaxWis?: number | null;
+  Traits?: { Key: string; Level: number | null; LargeOnly: boolean; Boss?: boolean }[];
+  Skill?: string | null;
+  GrowthCurves?: {
+    Exp: number;
+    HP: number;
+    MP: number;
+    Attack: number;
+    Defence: number;
+    Agility: number;
+    Wisdom: number;
+  } | null;
+  Resistances?: {
+    Fire: number;
+    Water: number;
+    Wind: number;
+    Earth: number;
+    Explosion: number;
+    Freeze: number;
+    Thunder: number;
+    Light: number;
+    Darkness: number;
+    Weakness: number;
+    Hit: number;
+    Seal: number;
+    DrainMp: number;
+    Confusion: number;
+    Sleep: number;
+    Paralysis: number;
+    Rest: number;
+    Poison: number;
+    SuddenDeath: number;
+  } | null;
+  Drops?: RawDrop[];
+};
+
+type RawTrait = {
+  Key: string;
+  Name: string | null;
+  NameJa: string | null;
+  Description: string | null;
+  DescriptionJa: string | null;
+};
+
+type RawSkill = {
+  Key: string;
+  Name: string | null;
+  NameJa: string | null;
+  Description: string | null;
+  DescriptionJa: string | null;
 };
 
 type RawFamily = { FamilyId: number; Identifier: string; Name: string };
@@ -49,7 +206,26 @@ type RawSynth = {
   MonsterParent1Id: number;
   MonsterParent2Id: number;
 };
-type RawLoc = { MonsterId: number };
+type RawSpot = {
+  MonsterId: number;
+  Area: string;
+  AreaJa: string;
+  Time: "Day" | "Night" | null;
+  Where: string | null;
+};
+
+const spotsByMonster = new Map<number, ScoutSpot[]>();
+for (const row of scoutRows as RawSpot[]) {
+  const spot: ScoutSpot = {
+    area: row.Area,
+    areaJa: row.AreaJa,
+    time: row.Time,
+    where: row.Where,
+  };
+  const list = spotsByMonster.get(row.MonsterId);
+  if (list) list.push(spot);
+  else spotsByMonster.set(row.MonsterId, [spot]);
+}
 
 const FAMILIES_BY_ID = new Map<number, Family>(
   (familyRows as RawFamily[]).map((f) => [f.FamilyId, f.Identifier as Family]),
@@ -74,7 +250,7 @@ function asRank(id: number): Rank {
 const rawById = new Map<number, RawMonster>(
   (monsterRows as RawMonster[]).map((m) => [m.MonsterId, m]),
 );
-const scouted = new Set((locationRows as RawLoc[]).map((r) => r.MonsterId));
+const scouted = new Set(spotsByMonster.keys());
 
 const SPECIES_RAW = (monsterRows as RawMonster[]).filter((m) => !isFamilyToken(m));
 
@@ -126,11 +302,92 @@ function toMonster(raw: RawMonster): Monster {
     name: raw.Name,
     family: asFamily(raw.FamilyId),
     rank: asRank(raw.RankId),
+    japanese: raw.JapaneseName || undefined,
     synthOnly: !scouted.has(raw.MonsterId),
+    habitats: spotsByMonster.get(raw.MonsterId) ?? [],
     verified: raw.IsVerified === true,
     parents: pickParents(raw.MonsterId),
+    maxHp: raw.MaxHP ?? null,
+    maxMp: raw.MaxMP ?? null,
+    maxAtt: raw.MaxAtt ?? null,
+    maxDef: raw.MaxDef ?? null,
+    maxAgi: raw.MaxAgi ?? null,
+    maxWis: raw.MaxWis ?? null,
+    traits: (raw.Traits ?? []).map((trait) => ({
+      key: trait.Key,
+      level: trait.Level,
+      largeOnly: trait.LargeOnly,
+      boss: trait.Boss === true,
+    })),
+    skill: raw.Skill ?? null,
+    growthCurves: raw.GrowthCurves
+      ? {
+          exp: raw.GrowthCurves.Exp,
+          hp: raw.GrowthCurves.HP,
+          mp: raw.GrowthCurves.MP,
+          attack: raw.GrowthCurves.Attack,
+          defence: raw.GrowthCurves.Defence,
+          agility: raw.GrowthCurves.Agility,
+          wisdom: raw.GrowthCurves.Wisdom,
+        }
+      : null,
+    resistances: raw.Resistances
+      ? {
+          fire: raw.Resistances.Fire,
+          water: raw.Resistances.Water,
+          wind: raw.Resistances.Wind,
+          earth: raw.Resistances.Earth,
+          explosion: raw.Resistances.Explosion,
+          freeze: raw.Resistances.Freeze,
+          thunder: raw.Resistances.Thunder,
+          light: raw.Resistances.Light,
+          darkness: raw.Resistances.Darkness,
+          weakness: raw.Resistances.Weakness,
+          hit: raw.Resistances.Hit,
+          seal: raw.Resistances.Seal,
+          drainMp: raw.Resistances.DrainMp,
+          confusion: raw.Resistances.Confusion,
+          sleep: raw.Resistances.Sleep,
+          paralysis: raw.Resistances.Paralysis,
+          rest: raw.Resistances.Rest,
+          poison: raw.Resistances.Poison,
+          suddenDeath: raw.Resistances.SuddenDeath,
+        }
+      : null,
+    drops: (raw.Drops ?? []).map((drop) => ({
+      name: drop.Name,
+      nameJa: drop.NameJa ?? null,
+      description: drop.Description ?? null,
+      rate: drop.Rate,
+    })),
   };
 }
+
+export const TRAITS: Record<string, TraitInfo> = Object.fromEntries(
+  (traitRows as RawTrait[]).map((row) => [
+    row.Key,
+    {
+      key: row.Key,
+      name: row.Name,
+      nameJa: row.NameJa,
+      description: row.Description,
+      descriptionJa: row.DescriptionJa,
+    },
+  ]),
+);
+
+export const SKILLS: Record<string, SkillInfo> = Object.fromEntries(
+  (skillRows as RawSkill[]).map((row) => [
+    row.Key,
+    {
+      key: row.Key,
+      name: row.Name,
+      nameJa: row.NameJa,
+      description: row.Description,
+      descriptionJa: row.DescriptionJa,
+    },
+  ]),
+);
 
 export const SPECIES: Monster[] = SPECIES_RAW.map(toMonster).sort((a, b) =>
   a.name.localeCompare(b.name),
@@ -144,7 +401,7 @@ const FEATURED_NAMES = [
   "Hunter Mech",
   "Warhog",
   "Gold Golem",
-  "Beshemoth Slime",
+  "Healslime",
   "Dessert Demon",
   "Slime Knight",
   "Jargon",
@@ -264,6 +521,9 @@ export function searchSpecies(query: string): Monster[] {
   const q = query.trim().toLowerCase();
   if (!q) return SPECIES;
   return SPECIES.filter(
-    (m) => m.name.toLowerCase().includes(q) || m.id.includes(q),
+    (m) =>
+      m.name.toLowerCase().includes(q) ||
+      m.id.includes(q) ||
+      (m.japanese?.toLowerCase().includes(q) ?? false),
   );
 }

@@ -1,6 +1,10 @@
 import { Minus, Plus } from "lucide-react";
 import { FamilyIcon, familyLabel } from "@/components/family-icon";
+import { RankBadge } from "@/components/rank-badge";
 import { MonsterSprite } from "@/components/monster-sprite";
+import { ScoutIcon } from "@/components/scout-icon";
+import { StatsLink } from "@/components/stats-link";
+import { SynthIcon } from "@/components/synth-icon";
 import type { Family, Monster, Rank } from "@/lib/monsters";
 import { cn } from "@/lib/utils";
 
@@ -49,13 +53,12 @@ export function WildcardCard({
           {title}
         </span>
         <span className="flex items-center gap-1.5">
-          <span
-            className="min-w-6 rounded bg-rank px-1 text-center font-display text-[11px] font-black leading-5 text-white ring-2 ring-white"
-            title={`Rank ${rank}`}
-          >
-            {rank === "Any" ? "*" : rank}
-          </span>
+          <RankBadge rank={rank === "Any" ? "*" : rank} />
           <FamilyIcon family={family} size="sm" />
+          {picked ? (
+            picked.synthOnly ? <SynthIcon size="sm" /> : <ScoutIcon size="sm" />
+          ) : null}
+          {picked ? <StatsLink id={picked.id} /> : null}
           <select
             value={value}
             onChange={(e) => onChange(e.target.value)}
@@ -66,8 +69,7 @@ export function WildcardCard({
             <option value="">Pick one…</option>
             {members.map((m) => (
               <option key={m.id} value={m.id}>
-                {m.name}
-                {m.synthOnly ? "" : " · wild"}
+                {m.name} · {m.synthOnly ? "Synthesis only" : "Scoutable"}
               </option>
             ))}
           </select>

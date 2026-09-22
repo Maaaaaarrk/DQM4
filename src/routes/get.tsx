@@ -2,8 +2,11 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { toBlob } from "html-to-image";
 import { FamilyIcon, familyLabel } from "@/components/family-icon";
+import { RankBadge } from "@/components/rank-badge";
+import { SiteDisclaimer } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import { FamilyTree, type ExpandCommand, type TreeOrient } from "@/components/family-tree";
+import { ScoutIcon } from "@/components/scout-icon";
 import { SynthIcon } from "@/components/synth-icon";
 import { TreeViewport, type TreeViewportHandle } from "@/components/tree-viewport";
 import { cn } from "@/lib/utils";
@@ -66,7 +69,6 @@ function GetGuide() {
     requested && requested in MONSTERS ? requested : (ROOT_OPTIONS[0] ?? SPECIES[0].id);
   const [rootId, setRootId] = useState<string>(defaultRoot);
   const [query, setQuery] = useState("");
-  const [verifiedOnly, setVerifiedOnly] = useState(true);
   const [orient, setOrient] = useState<TreeOrient>("horizontal");
   const [expandCommand, setExpandCommand] = useState<ExpandCommand>({
     action: "none",
@@ -78,21 +80,14 @@ function GetGuide() {
   const recenterTree = useCallback((path?: string) => {
     viewportRef.current?.frame(path);
   }, []);
-  const matches = useMemo(() => {
-    return searchSpecies(query)
-      .filter((m) => !verifiedOnly || m.verified)
-      .slice(0, 80);
-  }, [query, verifiedOnly]);
+  const matches = useMemo(() => searchSpecies(query).slice(0, 80), [query]);
   const options = useMemo(() => {
     const list = query.trim()
       ? matches
       : [...ROOT_OPTIONS.map(monster), ...matches.filter((m) => !ROOT_OPTIONS.includes(m.id))];
-    const filtered = verifiedOnly ? list.filter((m) => m.verified || m.id === rootId) : list;
-    if (!filtered.some((m) => m.id === rootId)) {
-      return [monster(rootId), ...filtered];
-    }
-    return filtered;
-  }, [query, matches, rootId, verifiedOnly]);
+    if (!list.some((m) => m.id === rootId)) return [monster(rootId), ...list];
+    return list;
+  }, [query, matches, rootId]);
 
   return (
     <div className="flex min-h-screen flex-col bg-chrome text-ink">
@@ -177,17 +172,6 @@ function GetGuide() {
             placeholder={`Search ${SPECIES.length} monsters`}
             className="w-36 rounded-lg border-2 border-gold bg-chrome px-2 py-1 font-display text-sm font-bold text-gold placeholder:text-gold/50 md:w-56"
           />
-          <button
-            type="button"
-            aria-pressed={verifiedOnly}
-            onClick={() => setVerifiedOnly((on) => !on)}
-            className={cn(
-              "shrink-0 rounded-lg border-2 border-gold px-2 py-1 font-display text-xs font-extrabold",
-              verifiedOnly ? "bg-gold text-chrome" : "text-gold hover:bg-chrome-hi",
-            )}
-          >
-            Verified
-          </button>
           <label className="sr-only" htmlFor="root">
             Root monster
           </label>
@@ -199,7 +183,7 @@ function GetGuide() {
           >
             {options.map((m) => (
               <option key={m.id} value={m.id}>
-                {m.name}
+                {m.name} · {m.synthOnly ? "Synthesis only" : "Scoutable"}
               </option>
             ))}
           </select>
@@ -222,14 +206,16 @@ function GetGuide() {
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 rounded-lg border-2 border-gold bg-chrome-hi/50 px-3 py-1.5">
           <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm font-bold text-gold">
             <li className="flex items-center gap-1.5">
-              <span className="grid h-5 min-w-5 place-items-center rounded bg-rank px-0.5 text-center text-[10px] font-black leading-none text-white ring-2 ring-white">
-                F
-              </span>
+              <RankBadge rank="F" />
               Rank
             </li>
             <li className="flex items-center gap-1.5">
+              <ScoutIcon size="sm" />
+              Scoutable
+            </li>
+            <li className="flex items-center gap-1.5">
               <SynthIcon size="sm" />
-              Synthesis Only
+              Synthesis only
             </li>
             <li className="flex items-center gap-1.5">
               <span className="grid size-5 place-items-center rounded-md bg-line text-parchment ring-2 ring-white">
@@ -264,13 +250,14 @@ function GetGuide() {
             href={METALKID_REPO}
             className="font-display text-xs font-bold text-gold underline decoration-gold/50 underline-offset-2 hover:text-parchment"
           >
-            Data from MetalKid Databases · DQM4
+            English names from MetalKid Databases
           </a>
           <span className="hidden h-4 w-px bg-gold/40 sm:block" aria-hidden />
           <span className="font-display text-xs font-extrabold tracking-[0.18em] text-gold">
             Scout. Synth. Repeat.
           </span>
         </div>
+        <SiteDisclaimer />
       </footer>
     </div>
   );

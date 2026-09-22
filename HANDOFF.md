@@ -16,7 +16,7 @@ MetalKid's site has the data but the synthesis UI is hard to use. User (slime-fa
 2. Never-ending expand through synth-only monsters
 3. Family+rank wildcards the **user** picks (not auto-resolved)
 4. Scoutable vs synthesis-only
-5. Real portraits from the sprite sheet
+5. Real portraits
 
 ## File map
 
@@ -27,18 +27,17 @@ MetalKid's site has the data but the synthesis UI is hard to use. User (slime-fa
 | `src/components/tree-viewport.tsx` | Wheel zoom (cursor-anchored), drag pan, no text-select |
 | `src/components/monster-card.tsx` | Portrait + name + rank/family/synth/expand |
 | `src/components/wildcard-card.tsx` | Family − Rank title, member `<select>` |
-| `src/components/monster-sprite.tsx` | 75px tile from sprite sheet |
+| `src/components/monster-sprite.tsx` | Portrait, or the family icon when none exists |
 | `src/components/family-icon.tsx` | Family PNG badges (`public/families/*.png`) |
-| `src/lib/monsters.ts` | Index MetalKid JSON, `pickParents`, `familyMembers` |
-| `src/data/dqm4/*.json` | Copied from MetalKid GitHub `DragonQuestMonsters4/data` |
-| `src/data/dqm4/sprite-map.json` | identifier → `[bgX, bgY]` from MetalKid CSS |
-| `public/dqm4/monsters-sprite.jpg` | 1800×1800 sheet, 24×24 of 75px |
+| `src/lib/monsters.ts` | Index the JSON, `pickParents`, `familyMembers` |
+| `src/data/dqm4/*.json` | Roster, recipes, traits, skills, growth, resistances, scout places |
+| `public/portraits/{id}.png` | Species portraits. Missing ids use the family icon |
 | `src/styles.css` | Parchment / chrome / gold / green tokens |
 
 ## Data rules (`monsters.ts`)
 
 - Species = rows in `Monster.json` whose name does **not** contain `Family (`.
-- `synthOnly` = monster id **not** in `MonsterLocation.json`.
+- `synthOnly` = species with no row in `ScoutSpot.json`.
 - `pickParents(resultId)`:
   1. Prefer a **specific** (non-family) pair.
   2. If the result is catchable, return `[]` rather than a family wildcard (so scoutable mons are leaves unless they have a concrete recipe).
@@ -71,15 +70,11 @@ MetalKid's site has the data but the synthesis UI is hard to use. User (slime-fa
 - Pan: pointerdown records origin; **only after >6px move** call `setPointerCapture`. Immediate capture stole card clicks.
 - `user-select: none` + `selectstart` preventDefault so drag doesn't highlight names.
 
-## Sprites
+## Portraits
 
-MetalKid CSS: `.dqm4-{identifier}-thumb { width:75px; height:75px; background-position: X Y }` on `monsters-sprite.jpg` (1800×1800).
+`MonsterSprite` loads `public/portraits/{identifier}.png` when `portrait-ids.json` lists that id. Otherwise it shows the family icon.
 
-Some positions omit `px` on `0` (`background-position:-750px 0`). Parser must allow optional `px`.
-
-Display: scale 64/75 into the 64px portrait well. Missing id → family icon.
-
-Wildcard cards: family icon until a species is picked, then that sprite.
+Wildcard cards: family icon until a species is picked, then that portrait.
 
 ## Visual contract
 
@@ -101,7 +96,7 @@ Wildcard cards: family icon until a species is picked, then that sprite.
 ## Suggested first tasks in a new session
 
 1. Confirm `npm install && npm run dev` and expand Hunter Mech → Avian Android.
-2. Monsterpedia route using the same cards + MetalKid JSON (`HP`/`Att`/etc. already on `Monster.json`).
+2. Monster details already live at `/monster`. Stats, traits, skills, drops, growth, resistances, and habitats are on that page.
 3. Optional: recipe switcher when `recipesByResult` has more than one specific pair.
 
 ## Commands

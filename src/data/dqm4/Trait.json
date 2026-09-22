@@ -1,0 +1,1444 @@
+[
+  {
+    "Key": "MP吸収ガード大",
+    "Name": "Ultra Drain Blocker",
+    "NameJa": "ＭＰ吸収ガード大",
+    "Description": "Greatly increases resistance to MP absorption.",
+    "DescriptionJa": "ＭＰを　かなり吸収されにくくなる"
+  },
+  {
+    "Key": "MP吸収ブレイク大",
+    "Name": "Ultra Crafty Magic Drainer",
+    "NameJa": "ＭＰ吸収ブレイク大",
+    "Description": "Makes it much easier to absorb MP.",
+    "DescriptionJa": "ＭＰを吸収する攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "いきなりインテ",
+    "Name": "Insta-Ping",
+    "NameJa": "いきなりインテ",
+    "Description": "Monster sometimes casts Ping on itself at the start of battle.",
+    "DescriptionJa": "戦闘開始時　たまに\n自分に　インテを使う"
+  },
+  {
+    "Key": "いきなりスカラ",
+    "Name": "Insta-Buff",
+    "NameJa": "いきなりスカラ",
+    "Description": "Monster sometimes casts Buff on itself at the start of battle.",
+    "DescriptionJa": "戦闘開始時　たまに\n自分に　スカラを使う"
+  },
+  {
+    "Key": "いきなりバイキルト",
+    "Name": "Insta-Oomph",
+    "NameJa": "いきなりバイキルト",
+    "Description": "Monster sometimes casts Oomph on itself at the start of battle.",
+    "DescriptionJa": "戦闘開始時　たまに\n自分に　バイキルトを使う"
+  },
+  {
+    "Key": "いきなりピオラ",
+    "Name": "Insta-Accel",
+    "NameJa": "いきなりピオラ",
+    "Description": "Monster sometimes casts Accelerate on itself at the start of battle.",
+    "DescriptionJa": "戦闘開始時　たまに\n自分に　ピオラを使う"
+  },
+  {
+    "Key": "いきなりマホカンタ",
+    "Name": "Insta-Bounce",
+    "NameJa": "いきなりマホカンタ",
+    "Description": "Monster sometimes casts Bounce on itself at the start of battle.",
+    "DescriptionJa": "戦闘開始時　たまに\n自分に　マホカンタを使う"
+  },
+  {
+    "Key": "いやがらせ",
+    "Name": "Major Downer",
+    "NameJa": "いやがらせ",
+    "Description": "Extends the duration of skills that lower the strength, defence, agility or wisdom of enemies to 5 turns. In addition, randomly prevents breath attacks, critical hits or the casting of magic, or bedazzles the enemy.",
+    "DescriptionJa": "敵の　攻撃力　守備力　すばやさ\nかしこさを　下げたとき\n効果が　５ターン長持ちする\nさらに　呪文封じ　息封じ　会心封じ\n幻惑状態の　どれかを与える"
+  },
+  {
+    "Key": "おいうち",
+    "Name": "Insult to Injury",
+    "NameJa": "おいうち",
+    "Description": "Increases damage inflicted on enemies that are poisoned, severely poisoned, stunned, asleep, confused or paralysed.",
+    "DescriptionJa": "敵が　毒　猛毒　休み　眠り　混乱　マヒの\nいずれかの状態のとき\n与えるダメージが増える"
+  },
+  {
+    "Key": "おだてじょうず",
+    "Name": "Bigger Upper",
+    "NameJa": "おだてじょうず",
+    "Description": "Extends the duration of skills that raise the strength, defence, agility or wisdom of allies to 5 turns. In addition, randomly grants invincibility, the ability to reflect spells or breath attacks, or raises evasion.",
+    "DescriptionJa": "仲間の　攻撃力　守備力　すばやさ\nかしこさを　上げたとき\n効果が　５ターン長持ちする\nさらに　呪文反射　ブレス反射　全行動無効\n回避率を上げる効果の　どれかを与える"
+  },
+  {
+    "Key": "かいひほんのう",
+    "Name": "Evasive Impulse",
+    "NameJa": "かいひほんのう",
+    "Description": "Sometimes increases evasion and greatly increases agility during battle when HP has dropped to 1/2. Only activates once per battle.",
+    "DescriptionJa": "戦闘中　ＨＰが半分以下のとき\nたまに　すばやさが　かなり上がり\n身をかわす確率も上がる\n１戦闘で　１回だけしか発動しない"
+  },
+  {
+    "Key": "かしこさプラス１６",
+    "Name": "Wisdom +16",
+    "NameJa": "かしこさ＋１６",
+    "Description": "Raises wisdom by 16.",
+    "DescriptionJa": "かしこさが　１６上がる"
+  },
+  {
+    "Key": "かしこさプラス２４",
+    "Name": "Wisdom +24",
+    "NameJa": "かしこさ＋２４",
+    "Description": "Raises wisdom by 24.",
+    "DescriptionJa": "かしこさが　２４上がる"
+  },
+  {
+    "Key": "かしこさプラス３２",
+    "Name": "Wisdom +32",
+    "NameJa": "かしこさ＋３２",
+    "Description": "Raises wisdom by 32.",
+    "DescriptionJa": "かしこさが　３２上がる"
+  },
+  {
+    "Key": "かしこさプラス４",
+    "Name": "Wisdom +4",
+    "NameJa": "かしこさ＋４",
+    "Description": "Raises wisdom by 4.",
+    "DescriptionJa": "かしこさが　４上がる"
+  },
+  {
+    "Key": "かしこさプラス４０",
+    "Name": "Wisdom +40",
+    "NameJa": "かしこさ＋４０",
+    "Description": "Raises wisdom by 40.",
+    "DescriptionJa": "かしこさが　４０上がる"
+  },
+  {
+    "Key": "かしこさプラス４８",
+    "Name": "Wisdom +48",
+    "NameJa": "かしこさ＋４８",
+    "Description": "Raises wisdom by 48.",
+    "DescriptionJa": "かしこさが　４８上がる"
+  },
+  {
+    "Key": "かしこさプラス６０",
+    "Name": "Wisdom +60",
+    "NameJa": "かしこさ＋６０",
+    "Description": "Raises wisdom by 60.",
+    "DescriptionJa": "かしこさが　６０上がる"
+  },
+  {
+    "Key": "かしこさプラス７２",
+    "Name": "Wisdom +72",
+    "NameJa": "かしこさ＋７２",
+    "Description": "Raises wisdom by 72.",
+    "DescriptionJa": "かしこさが　７２上がる"
+  },
+  {
+    "Key": "かしこさプラス８",
+    "Name": "Wisdom +8",
+    "NameJa": "かしこさ＋８",
+    "Description": "Raises wisdom by 8.",
+    "DescriptionJa": "かしこさが　８上がる"
+  },
+  {
+    "Key": "かしこさプラス９６",
+    "Name": "Wisdom +96",
+    "NameJa": "かしこさ＋９６",
+    "Description": "Raises wisdom by 96.",
+    "DescriptionJa": "かしこさが　９６上がる"
+  },
+  {
+    "Key": "きょうせんし",
+    "Name": "Agent of Chaos",
+    "NameJa": "きょうせんし",
+    "Description": "Always attacks an enemy when the monster is confused. Successful strikes inflict critical hits.",
+    "DescriptionJa": "混乱したときでも　必ず敵を攻撃する\nしかも　当たれば　会心のいちげきになる"
+  },
+  {
+    "Key": "くじけぬ心",
+    "Name": "Close Scraper",
+    "NameJa": "くじけぬ心",
+    "Description": "Sometimes allows the monster to survive at 1 HP after suffering an attack that would otherwise kill it.",
+    "DescriptionJa": "死んでしまうダメージを受けたときでも\nＨＰ１で　たまに生き残る"
+  },
+  {
+    "Key": "ぐるぐるボディ",
+    "Name": "Stupefying Skin",
+    "NameJa": "ぐるぐるボディ",
+    "Description": "Sometimes confuses enemies that inflict direct attacks.",
+    "DescriptionJa": "直接攻撃してきた敵を\nたまに　混乱状態にする"
+  },
+  {
+    "Key": "こんらん攻撃",
+    "Name": "Confusing Touch",
+    "NameJa": "こんらん攻撃",
+    "Description": "Regular attacks sometimes confuse the enemy.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手を　混乱状態にする"
+  },
+  {
+    "Key": "しっぺがえし",
+    "Name": "Tit for Tat",
+    "NameJa": "しっぺがえし",
+    "Description": "When a monster is inflicted with a status ailment, the attacking enemy will have the same ailment inflicted back on them.",
+    "DescriptionJa": "状態異常にされたとき\nその相手も　同じ状態異常にする"
+  },
+  {
+    "Key": "しょうひＭＰ半分",
+    "Name": "Castslasher",
+    "NameJa": "消費ＭＰ半分",
+    "Description": "Reduces MP consumption by 1/2.",
+    "DescriptionJa": "消費ＭＰが　半分になる"
+  },
+  {
+    "Key": "すばやさプラス１２",
+    "Name": "Agility +12",
+    "NameJa": "すばやさ＋１２",
+    "Description": "Raises agility by 12.",
+    "DescriptionJa": "すばやさが　１２上がる"
+  },
+  {
+    "Key": "すばやさプラス１６",
+    "Name": "Agility +16",
+    "NameJa": "すばやさ＋１６",
+    "Description": "Raises agility by 16.",
+    "DescriptionJa": "すばやさが　１６上がる"
+  },
+  {
+    "Key": "すばやさプラス２",
+    "Name": "Agility +2",
+    "NameJa": "すばやさ＋２",
+    "Description": "Raises agility by 2.",
+    "DescriptionJa": "すばやさが　２上がる"
+  },
+  {
+    "Key": "すばやさプラス２０",
+    "Name": "Agility +20",
+    "NameJa": "すばやさ＋２０",
+    "Description": "Raises agility by 20.",
+    "DescriptionJa": "すばやさが　２０上がる"
+  },
+  {
+    "Key": "すばやさプラス２４",
+    "Name": "Agility +24",
+    "NameJa": "すばやさ＋２４",
+    "Description": "Raises agility by 24.",
+    "DescriptionJa": "すばやさが　２４上がる"
+  },
+  {
+    "Key": "すばやさプラス３０",
+    "Name": "Agility +30",
+    "NameJa": "すばやさ＋３０",
+    "Description": "Raises agility by 30.",
+    "DescriptionJa": "すばやさが　３０上がる"
+  },
+  {
+    "Key": "すばやさプラス３６",
+    "Name": "Agility +36",
+    "NameJa": "すばやさ＋３６",
+    "Description": "Raises agility by 36.",
+    "DescriptionJa": "すばやさが　３６上がる"
+  },
+  {
+    "Key": "すばやさプラス４",
+    "Name": "Agility +4",
+    "NameJa": "すばやさ＋４",
+    "Description": "Raises agility by 4.",
+    "DescriptionJa": "すばやさが　４上がる"
+  },
+  {
+    "Key": "すばやさプラス４８",
+    "Name": "Agility +48",
+    "NameJa": "すばやさ＋４８",
+    "Description": "Raises agility by 48.",
+    "DescriptionJa": "すばやさが　４８上がる"
+  },
+  {
+    "Key": "すばやさプラス８",
+    "Name": "Agility +8",
+    "NameJa": "すばやさ＋８",
+    "Description": "Raises agility by 8.",
+    "DescriptionJa": "すばやさが　８上がる"
+  },
+  {
+    "Key": "たいでんたいしつ",
+    "Name": "Static Discharge",
+    "NameJa": "たいでんたいしつ",
+    "Description": "Sometimes paralyses enemies that inflict direct attacks when the monster is paralysed itself.",
+    "DescriptionJa": "マヒしているとき\n直接攻撃してきた敵を\nたまに　マヒさせる"
+  },
+  {
+    "Key": "ちからため",
+    "Name": "Rando-Muster",
+    "NameJa": "ちからため",
+    "Description": "Sometimes uses Muster Strength during battle.",
+    "DescriptionJa": "戦闘中　ときどき\nちからをためる"
+  },
+  {
+    "Key": "てんしのきまぐれ",
+    "Name": "Saving Grace",
+    "NameJa": "てんしのきまぐれ",
+    "Description": "Monster is sometimes resurrected after it dies.",
+    "DescriptionJa": "死んでしまっても　たまに生き返る"
+  },
+  {
+    "Key": "てんしの音色",
+    "Name": "Zinger Zongwriter",
+    "NameJa": "てんしの音色",
+    "Description": "If the monster dies, it casts Prezing on a single ally.",
+    "DescriptionJa": "死亡したとき\n仲間の誰かに　リザオラルを使う"
+  },
+  {
+    "Key": "とうそうほんのう",
+    "Name": "Attacking Impulse",
+    "NameJa": "とうそうほんのう",
+    "Description": "Increases damage inflicted when HP drop to 1/2.",
+    "DescriptionJa": "ＨＰが　半分以下のとき\n与えるダメージが増える"
+  },
+  {
+    "Key": "ときどきまもりの霧",
+    "Name": "Rando-Mister",
+    "NameJa": "ときどきまもりの霧",
+    "Description": "Monster sometimes uses Mist Me on itself during battle.",
+    "DescriptionJa": "戦闘中　たまに\n自分に　まもりの霧を使う"
+  },
+  {
+    "Key": "ときどきインテ",
+    "Name": "Rando-Ping",
+    "NameJa": "ときどきインテ",
+    "Description": "Monster sometimes casts Ping on itself during battle.",
+    "DescriptionJa": "戦闘中　たまに\n自分に　インテを使う"
+  },
+  {
+    "Key": "ときどきスカラ",
+    "Name": "Rando-Buff",
+    "NameJa": "ときどきスカラ",
+    "Description": "Monster sometimes casts Buff on itself during battle.",
+    "DescriptionJa": "戦闘中　たまに\n自分に　スカラを使う"
+  },
+  {
+    "Key": "ときどきバイキルト",
+    "Name": "Rando-Oomph",
+    "NameJa": "ときどきバイキルト",
+    "Description": "Monster sometimes casts Oomph on itself during battle.",
+    "DescriptionJa": "戦闘中　たまに\n自分に　バイキルトを使う"
+  },
+  {
+    "Key": "ときどきピオラ",
+    "Name": "Rando-Accel",
+    "NameJa": "ときどきピオラ",
+    "Description": "Monster sometimes casts Accelerate on itself during battle.",
+    "DescriptionJa": "戦闘中　たまに\n自分に　ピオラを使う"
+  },
+  {
+    "Key": "どくどくボディ",
+    "Name": "Infected Skin",
+    "NameJa": "どくどくボディ",
+    "Description": "Sometimes poisons enemies that inflict direct attacks.",
+    "DescriptionJa": "直接攻撃してきた敵を\nたまに　毒状態にする"
+  },
+  {
+    "Key": "どく攻撃",
+    "Name": "Poisonous Touch",
+    "NameJa": "どく攻撃",
+    "Description": "Regular attacks sometimes poison the enemy.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手を　毒状態にする"
+  },
+  {
+    "Key": "ねがえり",
+    "Name": "Sleep Twitch",
+    "NameJa": "ねがえり",
+    "Description": "Attacks all enemies when the monster is asleep.",
+    "DescriptionJa": "眠っているとき　敵全体を攻撃する"
+  },
+  {
+    "Key": "ねむり攻撃",
+    "Name": "Sleepy Touch",
+    "NameJa": "ねむり攻撃",
+    "Description": "Regular attacks sometimes put the enemy to sleep.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手を　眠り状態にする"
+  },
+  {
+    "Key": "ひかりのはどう",
+    "Name": "Rando-Relief",
+    "NameJa": "ひかりのはどう",
+    "Description": "Sometimes uses Wave of Relief during battle.",
+    "DescriptionJa": "戦闘中　たまに\nひかりのはどうを使う"
+  },
+  {
+    "Key": "ふっかつの祈り",
+    "Name": "Last Gasp",
+    "NameJa": "ふっかつの祈り",
+    "Description": "Revives a single ally after it falls in battle. Only works once per battle.",
+    "DescriptionJa": "チカラ尽きた仲間を　生き返らせる\nただし　１回の戦闘で１体まで"
+  },
+  {
+    "Key": "ぼうえいほんのう",
+    "Name": "Defensive Impulse",
+    "NameJa": "ぼうえいほんのう",
+    "Description": "Reduces damage received when HP drop to 1/2.",
+    "DescriptionJa": "ＨＰが　半分以下のとき\n受けるダメージが減る"
+  },
+  {
+    "Key": "みかわしアップ大",
+    "Name": "Ace Evader",
+    "NameJa": "みかわしアップ大",
+    "Description": "Makes it somewhat easier to avoid enemy attacks.",
+    "DescriptionJa": "敵からの攻撃を\n結構　かわしやすくなる"
+  },
+  {
+    "Key": "やいばのボディ",
+    "Name": "Spiky Skin",
+    "NameJa": "やいばのボディ",
+    "Description": "Returns 1/4 of the damage suffered from direct attacks back at the attacking enemy.",
+    "DescriptionJa": "直接攻撃のダメージの　１/４を\n攻撃してきた敵に　はね返す"
+  },
+  {
+    "Key": "やまびこ",
+    "Name": "Echonomist",
+    "NameJa": "やまびこ",
+    "Description": "Sometimes casts the same spell twice. Consumes slightly more MP than usual.",
+    "DescriptionJa": "たまに　呪文が　２回発動する\n消費ＭＰは　少し増える"
+  },
+  {
+    "Key": "やみのはどう",
+    "Name": "Rando-Panic",
+    "NameJa": "やみのはどう",
+    "Description": "Sometimes uses Wave of Panic during battle.",
+    "DescriptionJa": "戦闘中　たまに\nやみのはどうを使う"
+  },
+  {
+    "Key": "れんぞく",
+    "Name": "Hit Squad x2",
+    "NameJa": "れんぞく×２",
+    "Description": "Direct attacks hit multiple times, but the damage per hit decreases as the number of hits increases.",
+    "DescriptionJa": "直接攻撃が　連続でヒットする\nただし　１回ごとのダメージは\n連続攻撃の回数に応じて　減少する"
+  },
+  {
+    "Key": "れんぞく３",
+    "Name": "Hit Squad x3",
+    "NameJa": "れんぞく×３",
+    "Description": "Direct attacks hit multiple times, but the damage per hit decreases as the number of hits increases.",
+    "DescriptionJa": "直接攻撃が　連続でヒットする\nただし　１回ごとのダメージは\n連続攻撃の回数に応じて　減少する"
+  },
+  {
+    "Key": "れんぞく４",
+    "Name": "Hit Squad x4",
+    "NameJa": "れんぞく×４",
+    "Description": "Direct attacks hit multiple times, but the damage per hit decreases as the number of hits increases.",
+    "DescriptionJa": "直接攻撃が　連続でヒットする\nただし　１回ごとのダメージは\n連続攻撃の回数に応じて　減少する"
+  },
+  {
+    "Key": "れんぞく６",
+    "Name": "Hit Squad x6",
+    "NameJa": "れんぞく×６",
+    "Description": "Direct attacks hit multiple times, but the damage per hit decreases as the number of hits increases.",
+    "DescriptionJa": "直接攻撃が　連続でヒットする\nただし　１回ごとのダメージは\n連続攻撃の回数に応じて　減少する"
+  },
+  {
+    "Key": "わるあがき",
+    "Name": "Snappy Comeback",
+    "NameJa": "わるあがき",
+    "Description": "Inflicts damage back on an enemy that lands a killer blow. The amount inflicted is proportional to the excess damage suffered after the monster's HP are reduced to zero.",
+    "DescriptionJa": "死亡したとき\n攻撃してきた相手にダメージを与える\nＨＰ０をオーバーした分のダメージが\n大きいほど　大ダメージになる"
+  },
+  {
+    "Key": "アンチみかわし",
+    "Name": "Dodge Denier",
+    "NameJa": "アンチみかわし",
+    "Description": "Ensures the enemy cannot avoid attacks.",
+    "DescriptionJa": "敵のみかわしを無効化する"
+  },
+  {
+    "Key": "キラキラボディ",
+    "Name": "Glowing Skin",
+    "NameJa": "キラキラボディ",
+    "Description": "Sometimes nullifies status ailments inflicted by enemies.",
+    "DescriptionJa": "相手から受ける　悪い効果を\nたまに　防ぐ"
+  },
+  {
+    "Key": "ギャンブルボディ",
+    "Name": "Slick Skin",
+    "NameJa": "ギャンブルボディ",
+    "Description": "Sometimes renders an enemy's direct attacks ineffective.",
+    "DescriptionJa": "敵の　直接攻撃が\nたまに　無効になる"
+  },
+  {
+    "Key": "ザキ攻撃",
+    "Name": "Deadly Touch",
+    "NameJa": "ザキ攻撃",
+    "Description": "Regular attacks sometimes kill the enemy instantly.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手を　即死させる"
+  },
+  {
+    "Key": "ショック攻撃",
+    "Name": "Stunning Touch",
+    "NameJa": "ショック攻撃",
+    "Description": "Regular attacks sometimes stun the enemy for 1 turn.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手を　１ターン行動不能にする"
+  },
+  {
+    "Key": "スモールキラー",
+    "Name": "Little Menace",
+    "NameJa": "スモールキラー",
+    "Description": "Increases damage inflicted on S-size monsters.",
+    "DescriptionJa": "Ｓサイズのモンスターに\n与えるダメージが増える"
+  },
+  {
+    "Key": "スヤスヤボディ",
+    "Name": "Somnolent Skin",
+    "NameJa": "スヤスヤボディ",
+    "Description": "Sometimes puts enemies that inflict direct attacks to sleep.",
+    "DescriptionJa": "直接攻撃してきた敵を\nたまに　眠り状態にする"
+  },
+  {
+    "Key": "セラピー",
+    "Name": "Detox",
+    "NameJa": "セラピー",
+    "Description": "Sometimes cures allies of poison, severe poison, paralysis and stun.",
+    "DescriptionJa": "たまに　仲間の毒　猛毒　マヒ　休みを治す"
+  },
+  {
+    "Key": "ツッコミ",
+    "Name": "Sobering Slap",
+    "NameJa": "ツッコミ",
+    "Description": "Sometimes cures allies of sleep and confusion.",
+    "DescriptionJa": "たまに　仲間の眠りと混乱を治す"
+  },
+  {
+    "Key": "パワードレイン",
+    "Name": "Weedy Touch",
+    "NameJa": "パワードレイン",
+    "Description": "Regular attacks sometimes absorb a portion of the enemy's attack, defence, agility, wisdom, or resistance attributes.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手の攻撃力　守備力　すばやさ\nかしこさ　耐性の　いずれかを下げて\n自分のものにする"
+  },
+  {
+    "Key": "ビリビリボディ",
+    "Name": "Insensitive Skin",
+    "NameJa": "ビリビリボディ",
+    "Description": "Sometimes paralyses enemies that inflict direct attacks.",
+    "DescriptionJa": "直接攻撃してきた敵を\nたまに　マヒ状態にする"
+  },
+  {
+    "Key": "ピンチで会心",
+    "Name": "Critical Moment",
+    "NameJa": "ピンチで会心",
+    "Description": "Makes it easier to inflict critical hits when HP drops to 1/2, and even more so when HP drops to 1/4.",
+    "DescriptionJa": "ＨＰが　半分以下のとき\n会心のいちげきが　出やすくなる\nＨＰが　１/４以下のときは\nさらに確率アップ！"
+  },
+  {
+    "Key": "ピンチで呪文会心",
+    "Name": "Magical Moment",
+    "NameJa": "ピンチで魔力暴走",
+    "Description": "Makes it easier to cast critical spells when HP drops to 1/2 or less<--->even more so when HP drops to 1/4 or less!",
+    "DescriptionJa": "ＨＰが　半分以下のとき\n魔力の暴走が発生しやすくなる\nＨＰが　１/４以下のときは\nさらに確率アップ！"
+  },
+  {
+    "Key": "ファイターズハイ",
+    "Name": "Adrenaline Rush",
+    "NameJa": "ファイターズハイ",
+    "Description": "Greatly increases attack after inflicting a critical hit.",
+    "DescriptionJa": "会心のいちげきを出したとき\n攻撃力が　かなり上がる"
+  },
+  {
+    "Key": "プレッシャー",
+    "Name": "Intimidating",
+    "NameJa": "プレッシャー",
+    "Description": "Sometimes stuns the enemy during battle for 1 turn.",
+    "DescriptionJa": "戦闘中　たまに\n敵を　１ターン行動不能にする"
+  },
+  {
+    "Key": "ヘロヘロボディ",
+    "Name": "Stunning Skin",
+    "NameJa": "ヘロヘロボディ",
+    "Description": "Sometimes stuns enemies that inflict direct attacks for 1 turn.",
+    "DescriptionJa": "直接攻撃してきた敵を\nたまに　１ターン動けなくする"
+  },
+  {
+    "Key": "マジシャンズハイ",
+    "Name": "Trance State",
+    "NameJa": "マジシャンズハイ",
+    "Description": "Greatly increases wisdom after casting a critical spell.",
+    "DescriptionJa": "魔力が暴走したとき\nかしこさが　かなり上がる"
+  },
+  {
+    "Key": "マヒガード大",
+    "Name": "Ultra Fidget",
+    "NameJa": "マヒガード大",
+    "Description": "Greatly increases resistance to paralysis.",
+    "DescriptionJa": "マヒ状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "マヒブレイク大",
+    "Name": "Ultra Crafty Paralyser",
+    "NameJa": "マヒブレイク大",
+    "Description": "Makes it much easier to paralyse the enemy.",
+    "DescriptionJa": "マヒ状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "マヒ攻撃",
+    "Name": "Paralysing Touch",
+    "NameJa": "マヒ攻撃",
+    "Description": "Regular attacks sometimes paralyse the enemy.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手を　マヒ状態にする"
+  },
+  {
+    "Key": "マホキテボディ",
+    "Name": "Spongy Skin",
+    "NameJa": "マホキテボディ",
+    "Description": "Sometimes absorbs MP from enemies that inflict direct attacks.",
+    "DescriptionJa": "直接攻撃してきた敵から\nたまに　ＭＰを吸収する"
+  },
+  {
+    "Key": "マホトラ攻撃",
+    "Name": "Absorbent Touch",
+    "NameJa": "マホトラ攻撃",
+    "Description": "Regular attacks sometimes absorb a portion of the enemy's MP.",
+    "DescriptionJa": "通常攻撃をしたとき　たまに\n相手のＭＰを吸収する"
+  },
+  {
+    "Key": "ミラクル攻撃",
+    "Name": "Miraculous Touch",
+    "NameJa": "ミラクル攻撃",
+    "Description": "Regular attacks restore 1/2 of the damage they inflict on the enemy as HP.",
+    "DescriptionJa": "通常攻撃をしたとき\n与えたダメージの半分だけ\n自分のＨＰが回復する"
+  },
+  {
+    "Key": "メタルキラー",
+    "Name": "Metal Medley",
+    "NameJa": "メタルキラー",
+    "Description": "Ignores the damage-reducing effect that the Metal Skin trait provides.",
+    "DescriptionJa": "メタルボディを持つ敵への攻撃も\n与えるダメージが減らない"
+  },
+  {
+    "Key": "メタルハンター",
+    "Name": "Metal Beater",
+    "NameJa": "メタルハンター",
+    "Description": "Inflicts additional damage on enemies. A higher level increases the effect. Works on enemies with the Metal Skin trait.",
+    "DescriptionJa": "レベルが高いほど\n敵に与えるダメージが増える\nメタルボディを持つ敵にも有効"
+  },
+  {
+    "Key": "ラストスタンド",
+    "Name": "Last Legs",
+    "NameJa": "ラストスタンド",
+    "Description": "Allows the monster to survive at 1 HP after suffering an attack that would otherwise kill it.",
+    "DescriptionJa": "死んでしまうダメージを受けたときでも\n１回だけ　ＨＰ１で生き残る"
+  },
+  {
+    "Key": "ラブリー",
+    "Name": "Strangely Alluring",
+    "NameJa": "ラブリー",
+    "Description": "Sometimes stuns the enemy during battle for 1 turn.",
+    "DescriptionJa": "戦闘中　たまに\n敵を　１ターン行動不能にする"
+  },
+  {
+    "Key": "ラージキラー",
+    "Name": "Big Bully",
+    "NameJa": "ラージキラー",
+    "Description": "Increases damage inflicted on L-size monsters.",
+    "DescriptionJa": "Ｌサイズのモンスターに\n与えるダメージが増える"
+  },
+  {
+    "Key": "ロケットスタート",
+    "Name": "Strong Starter",
+    "NameJa": "ロケットスタート",
+    "Description": "Raises damage inflicted on enemies up to round 3, but lowers it from round 4 onwards.",
+    "DescriptionJa": "敵に与えるダメージが\n３ラウンド目まで増え\n４ラウンド目以降は減ってしまう"
+  },
+  {
+    "Key": "休みガード大",
+    "Name": "Ultra Granite Chin",
+    "NameJa": "休みガード大",
+    "Description": "Greatly increases resistance to being stunned.",
+    "DescriptionJa": "休み状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "休みブレイク大",
+    "Name": "Ultra Crafty Stunner",
+    "NameJa": "休みブレイク大",
+    "Description": "Makes it much easier to stun the enemy.",
+    "DescriptionJa": "休み状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "会心かんぜんガード",
+    "Name": "Desperate Measures",
+    "NameJa": "会心完全ガード",
+    "Description": "Negates all damage suffered from critical hits and critical spells.",
+    "DescriptionJa": "会心のいちげきや\n魔力暴走のダメージを\nすべて無効化する"
+  },
+  {
+    "Key": "会心率アップ大",
+    "Name": "Critical Triumph",
+    "NameJa": "会心率アップ大",
+    "Description": "Makes it somewhat easier to inflict critical hits.",
+    "DescriptionJa": "会心のいちげきが\n結構　出やすくなる"
+  },
+  {
+    "Key": "光のコツ",
+    "Name": "Sizzmeister",
+    "NameJa": "光のコツ",
+    "Description": "Increases the potency of light-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "光属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "光ガード大",
+    "Name": "Ultra Sizz Ward",
+    "NameJa": "光ガード大",
+    "Description": "Greatly increases resistance to light-elemental attacks.",
+    "DescriptionJa": "光属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "全ガードブレイク",
+    "Name": "Crafty Devil",
+    "NameJa": "全ガードブレイク",
+    "Description": "Lowers all of an enemy monster's resistances.",
+    "DescriptionJa": "相手のすべての耐性値を\n下げて判定する"
+  },
+  {
+    "Key": "全体攻撃",
+    "Name": "Collective Punishment",
+    "NameJa": "全体攻撃",
+    "Description": "Attacks that do more damage as the attack attribute increases and strike a single target will strike all enemies instead.",
+    "DescriptionJa": "攻撃力を使う敵１体が対象の攻撃が\n敵全体対象になる"
+  },
+  {
+    "Key": "医術士",
+    "Name": "Decontaminate",
+    "NameJa": "医術士",
+    "Description": "Sometimes cures allies of sleep, confusion, poison, severe poison, paralysis and stun.",
+    "DescriptionJa": "たまに　仲間の眠り　混乱\n毒　猛毒　マヒ　休みを治す"
+  },
+  {
+    "Key": "即死ガード大",
+    "Name": "Ultra Death Defier",
+    "NameJa": "即死ガード大",
+    "Description": "Greatly increases resistance to instant death.",
+    "DescriptionJa": "かなり　即死しにくくなる"
+  },
+  {
+    "Key": "即死ブレイク大",
+    "Name": "Ultra Crafty Whacker",
+    "NameJa": "即死ブレイク大",
+    "Description": "Makes it much easier to kill the enemy instantly.",
+    "DescriptionJa": "即死させる攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "呪文会心率アップ大",
+    "Name": "Critical Theorist",
+    "NameJa": "魔力暴走率アップ大",
+    "Description": "Makes it somewhat easier to cast critical spells.",
+    "DescriptionJa": "魔力の暴走が\n発生しやすくなる"
+  },
+  {
+    "Key": "回復のコツ",
+    "Name": "Health Professional",
+    "NameJa": "回復のコツ",
+    "Description": "Increases the potency of healing skills and decreases their MP consumption.",
+    "DescriptionJa": "回復特技の効果が上がり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "地のコツ",
+    "Name": "Cragmeister",
+    "NameJa": "地のコツ",
+    "Description": "Increases the potency of earth-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "地属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "地ガード大",
+    "Name": "Ultra Crag Ward",
+    "NameJa": "地ガード大",
+    "Description": "Greatly increases resistance to earth-elemental attacks.",
+    "DescriptionJa": "地属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "地ブレイク大",
+    "Name": "Ultra Crafty Cragger",
+    "NameJa": "地ブレイク大",
+    "Description": "Greatly increases the damage inflicted by earth-elemental attacks.",
+    "DescriptionJa": "地属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "守備力プラス１６",
+    "Name": "Defence +16",
+    "NameJa": "守備力＋１６",
+    "Description": "Raises defence by 16.",
+    "DescriptionJa": "守備力が　１６上がる"
+  },
+  {
+    "Key": "守備力プラス２４",
+    "Name": "Defence +24",
+    "NameJa": "守備力＋２４",
+    "Description": "Raises defence by 24.",
+    "DescriptionJa": "守備力が　２４上がる"
+  },
+  {
+    "Key": "守備力プラス３２",
+    "Name": "Defence +32",
+    "NameJa": "守備力＋３２",
+    "Description": "Raises defence by 32.",
+    "DescriptionJa": "守備力が　３２上がる"
+  },
+  {
+    "Key": "守備力プラス４",
+    "Name": "Defence +4",
+    "NameJa": "守備力＋４",
+    "Description": "Raises defence by 4.",
+    "DescriptionJa": "守備力が　４上がる"
+  },
+  {
+    "Key": "守備力プラス４０",
+    "Name": "Defence +40",
+    "NameJa": "守備力＋４０",
+    "Description": "Raises defence by 40.",
+    "DescriptionJa": "守備力が　４０上がる"
+  },
+  {
+    "Key": "守備力プラス４８",
+    "Name": "Defence +48",
+    "NameJa": "守備力＋４８",
+    "Description": "Raises defence by 48.",
+    "DescriptionJa": "守備力が　４８上がる"
+  },
+  {
+    "Key": "守備力プラス６０",
+    "Name": "Defence +60",
+    "NameJa": "守備力＋６０",
+    "Description": "Raises defence by 60.",
+    "DescriptionJa": "守備力が　６０上がる"
+  },
+  {
+    "Key": "守備力プラス７２",
+    "Name": "Defence +72",
+    "NameJa": "守備力＋７２",
+    "Description": "Raises defence by 72.",
+    "DescriptionJa": "守備力が　７２上がる"
+  },
+  {
+    "Key": "守備力プラス８",
+    "Name": "Defence +8",
+    "NameJa": "守備力＋８",
+    "Description": "Raises defence by 8.",
+    "DescriptionJa": "守備力が　８上がる"
+  },
+  {
+    "Key": "守備力プラス９６",
+    "Name": "Defence +96",
+    "NameJa": "守備力＋９６",
+    "Description": "Raises defence by 96.",
+    "DescriptionJa": "守備力が　９６上がる"
+  },
+  {
+    "Key": "封じガード大",
+    "Name": "Ultra Spellbinder",
+    "NameJa": "封じガード大",
+    "Description": "Greatly increases resistance to antimagic.",
+    "DescriptionJa": "封じ状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "封じブレイク大",
+    "Name": "Ultra Crafty Spellbinder",
+    "NameJa": "封じブレイク大",
+    "Description": "Makes it much easier to prevent spellcasting.",
+    "DescriptionJa": "封じ状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "幻惑ガード大",
+    "Name": "Ultra Visionary",
+    "NameJa": "幻惑ガード大",
+    "Description": "Greatly increases resistance to bedazzlement.",
+    "DescriptionJa": "幻惑状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "幻惑ブレイク大",
+    "Name": "Ultra Crafty Dazzler",
+    "NameJa": "幻惑ブレイク大",
+    "Description": "Makes it much easier to bedazzle the enemy.",
+    "DescriptionJa": "幻惑状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "弱体化ガード大",
+    "Name": "Ultra Tough Customer",
+    "NameJa": "弱体化ガード大",
+    "Description": "Greatly increases resistance to debilitation.",
+    "DescriptionJa": "弱体化攻撃に　かなり　強くなる"
+  },
+  {
+    "Key": "弱体化ブレイク大",
+    "Name": "Ultra Crafty Debilitator",
+    "NameJa": "弱体化ブレイク大",
+    "Description": "Makes it much easier to reduce an enemy's attack, defence, agility or wisdom.",
+    "DescriptionJa": "敵の　攻撃力　守備力　すばやさ\nかしこさを下げる攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "徒手空拳",
+    "Name": "Naked Ambition",
+    "NameJa": "徒手空拳",
+    "Description": "Increases the likelihood of critical hits and critical spells if no accessory is equipped.",
+    "DescriptionJa": "アクセサリーを装備していないとき\n会心のいちげきと　魔力の暴走が\n少し　発生しやすくなる"
+  },
+  {
+    "Key": "怒りの泉",
+    "Name": "Bubbling Rage",
+    "NameJa": "怒りの泉",
+    "Description": "Sometimes raises the Rage Gauge during battle.",
+    "DescriptionJa": "怒りの泉　※説明文不要"
+  },
+  {
+    "Key": "攻撃力プラス１２",
+    "Name": "Attack +12",
+    "NameJa": "攻撃力＋１２",
+    "Description": "Raises attack by 12.",
+    "DescriptionJa": "攻撃力が　１２上がる"
+  },
+  {
+    "Key": "攻撃力プラス１６",
+    "Name": "Attack +16",
+    "NameJa": "攻撃力＋１６",
+    "Description": "Raises attack by 16.",
+    "DescriptionJa": "攻撃力が　１６上がる"
+  },
+  {
+    "Key": "攻撃力プラス２",
+    "Name": "Attack +2",
+    "NameJa": "攻撃力＋２",
+    "Description": "Raises attack by 2.",
+    "DescriptionJa": "攻撃力が　２上がる"
+  },
+  {
+    "Key": "攻撃力プラス２０",
+    "Name": "Attack +20",
+    "NameJa": "攻撃力＋２０",
+    "Description": "Raises attack by 20.",
+    "DescriptionJa": "攻撃力が　２０上がる"
+  },
+  {
+    "Key": "攻撃力プラス２４",
+    "Name": "Attack +24",
+    "NameJa": "攻撃力＋２４",
+    "Description": "Raises attack by 24.",
+    "DescriptionJa": "攻撃力が　２４上がる"
+  },
+  {
+    "Key": "攻撃力プラス３０",
+    "Name": "Attack +30",
+    "NameJa": "攻撃力＋３０",
+    "Description": "Raises attack by 30.",
+    "DescriptionJa": "攻撃力が　３０上がる"
+  },
+  {
+    "Key": "攻撃力プラス３６",
+    "Name": "Attack +36",
+    "NameJa": "攻撃力＋３６",
+    "Description": "Raises attack by 36.",
+    "DescriptionJa": "攻撃力が　３６上がる"
+  },
+  {
+    "Key": "攻撃力プラス４",
+    "Name": "Attack +4",
+    "NameJa": "攻撃力＋４",
+    "Description": "Raises attack by 4.",
+    "DescriptionJa": "攻撃力が　４上がる"
+  },
+  {
+    "Key": "攻撃力プラス４８",
+    "Name": "Attack +48",
+    "NameJa": "攻撃力＋４８",
+    "Description": "Raises attack by 48.",
+    "DescriptionJa": "攻撃力が　４８上がる"
+  },
+  {
+    "Key": "攻撃力プラス８",
+    "Name": "Attack +8",
+    "NameJa": "攻撃力＋８",
+    "Description": "Raises attack by 8.",
+    "DescriptionJa": "攻撃力が　８上がる"
+  },
+  {
+    "Key": "星のおくりもの",
+    "Name": "Heaven-Sent",
+    "NameJa": "星のおくりもの",
+    "Description": "Sometimes greatly increases attack, defence, agility or wisdom.",
+    "DescriptionJa": "たまに　攻撃力　守備力　すばやさ　かしこさの\nいずれかが　かなり上がる"
+  },
+  {
+    "Key": "最大HPプラス１２",
+    "Name": "Max. HP +12",
+    "NameJa": "最大ＨＰ＋１２",
+    "Description": "Raises max. HP by 12.",
+    "DescriptionJa": "最大ＨＰが　１２上がる"
+  },
+  {
+    "Key": "最大HPプラス１６",
+    "Name": "Max. HP +16",
+    "NameJa": "最大ＨＰ＋１６",
+    "Description": "Raises max. HP by 16.",
+    "DescriptionJa": "最大ＨＰが　１６上がる"
+  },
+  {
+    "Key": "最大HPプラス２",
+    "Name": "Max. HP +2",
+    "NameJa": "最大ＨＰ＋２",
+    "Description": "Raises max. HP by 2.",
+    "DescriptionJa": "最大ＨＰが　２上がる"
+  },
+  {
+    "Key": "最大HPプラス２０",
+    "Name": "Max. HP +20",
+    "NameJa": "最大ＨＰ＋２０",
+    "Description": "Raises max. HP by 20.",
+    "DescriptionJa": "最大ＨＰが　２０上がる"
+  },
+  {
+    "Key": "最大HPプラス２４",
+    "Name": "Max. HP +24",
+    "NameJa": "最大ＨＰ＋２４",
+    "Description": "Raises max. HP by 24.",
+    "DescriptionJa": "最大ＨＰが　２４上がる"
+  },
+  {
+    "Key": "最大HPプラス３０",
+    "Name": "Max. HP +30",
+    "NameJa": "最大ＨＰ＋３０",
+    "Description": "Raises max. HP by 30.",
+    "DescriptionJa": "最大ＨＰが　３０上がる"
+  },
+  {
+    "Key": "最大HPプラス３６",
+    "Name": "Max. HP +36",
+    "NameJa": "最大ＨＰ＋３６",
+    "Description": "Raises max. HP by 36",
+    "DescriptionJa": "最大ＨＰが　３６上がる"
+  },
+  {
+    "Key": "最大HPプラス４",
+    "Name": "Max. HP +4",
+    "NameJa": "最大ＨＰ＋４",
+    "Description": "Raises max. HP by 4.",
+    "DescriptionJa": "最大ＨＰが　４上がる"
+  },
+  {
+    "Key": "最大HPプラス４８",
+    "Name": "Max. HP +48",
+    "NameJa": "最大ＨＰ＋４８",
+    "Description": "Raises max. HP by 48.",
+    "DescriptionJa": "最大ＨＰが　４８上がる"
+  },
+  {
+    "Key": "最大HPプラス８",
+    "Name": "Max. HP +8",
+    "NameJa": "最大ＨＰ＋８",
+    "Description": "Raises max. HP by 8.",
+    "DescriptionJa": "最大ＨＰが　８上がる"
+  },
+  {
+    "Key": "最大MPプラス１２",
+    "Name": "Max. MP +12",
+    "NameJa": "最大ＭＰ＋１２",
+    "Description": "Raises max. MP by 12.",
+    "DescriptionJa": "最大ＭＰが　１２上がる"
+  },
+  {
+    "Key": "最大MPプラス１６",
+    "Name": "Max. MP +16",
+    "NameJa": "最大ＭＰ＋１６",
+    "Description": "Raises max. MP by 16.",
+    "DescriptionJa": "最大ＭＰが　１６上がる"
+  },
+  {
+    "Key": "最大MPプラス２４",
+    "Name": "Max. MP +24",
+    "NameJa": "最大ＭＰ＋２４",
+    "Description": "Raises max. MP by 24.",
+    "DescriptionJa": "最大ＭＰが　２４上がる"
+  },
+  {
+    "Key": "最大MPプラス３２",
+    "Name": "Max. MP +32",
+    "NameJa": "最大ＭＰ＋３２",
+    "Description": "Raises max. MP by 32.",
+    "DescriptionJa": "最大ＭＰが　３２上がる"
+  },
+  {
+    "Key": "最大MPプラス４",
+    "Name": "Max. MP +4",
+    "NameJa": "最大ＭＰ＋４",
+    "Description": "Raises max. MP by 4.",
+    "DescriptionJa": "最大ＭＰが　４上がる"
+  },
+  {
+    "Key": "最大MPプラス４０",
+    "Name": "Max. MP +40",
+    "NameJa": "最大ＭＰ＋４０",
+    "Description": "Raises max. MP by 40.",
+    "DescriptionJa": "最大ＭＰが　４０上がる"
+  },
+  {
+    "Key": "最大MPプラス４８",
+    "Name": "Max. MP +48",
+    "NameJa": "最大ＭＰ＋４８",
+    "Description": "Raises max. MP by 48.",
+    "DescriptionJa": "最大ＭＰが　４８上がる"
+  },
+  {
+    "Key": "最大MPプラス６０",
+    "Name": "Max. MP +60",
+    "NameJa": "最大ＭＰ＋６０",
+    "Description": "Raises max. MP by 60.",
+    "DescriptionJa": "最大ＭＰが　６０上がる"
+  },
+  {
+    "Key": "最大MPプラス７２",
+    "Name": "Max. MP +72",
+    "NameJa": "最大ＭＰ＋７２",
+    "Description": "Raises max. MP by 72.",
+    "DescriptionJa": "最大ＭＰが　７２上がる"
+  },
+  {
+    "Key": "最大MPプラス８",
+    "Name": "Max. MP +8",
+    "NameJa": "最大ＭＰ＋８",
+    "Description": "Raises max. MP by 8.",
+    "DescriptionJa": "最大ＭＰが　８上がる"
+  },
+  {
+    "Key": "最大MPプラス９６",
+    "Name": "Max. MP +96",
+    "NameJa": "最大ＭＰ＋９６",
+    "Description": "Raises max. MP by 96.",
+    "DescriptionJa": "最大ＭＰが　９６上がる"
+  },
+  {
+    "Key": "最後のあがき",
+    "Name": "Parting Gift",
+    "NameJa": "最後のあがき",
+    "Description": "Inflicts damage back on all enemies when the monster dies. The amount inflicted is proportional to the excess damage suffered after the monster's HP are reduced to zero.",
+    "DescriptionJa": "死亡したとき\n敵全体にダメージを与える\nＨＰ０をオーバーした分のダメージが\n大きいほど　大ダメージになる"
+  },
+  {
+    "Key": "最後の息吹",
+    "Name": "Benefaction",
+    "NameJa": "最後の息吹",
+    "Description": "Massively increases the attack, defence, agility and wisdom of allies when the monster dies.",
+    "DescriptionJa": "死亡したとき\n仲間の　攻撃力　守備力\nすばやさ　かしこさを　すごく上げる"
+  },
+  {
+    "Key": "根に持つタイプ",
+    "Name": "Personal Grudge",
+    "NameJa": "根に持つタイプ",
+    "Description": "Greatly decreases the attack, defence, agility and wisdom of an enemy that lands a killer blow, and stuns them for the next turn. Only activates once per battle.",
+    "DescriptionJa": "自分を倒した敵を　次のターン行動不能にし\nさらに　攻撃力　守備力　すばやさ　かしこさを\nかなり下げる\n１戦闘で　１回だけしか発動しない"
+  },
+  {
+    "Key": "毒ガード大",
+    "Name": "Ultra Antitoxidant",
+    "NameJa": "どくガード大",
+    "Description": "Greatly increases resistance to poison and severe poison.",
+    "DescriptionJa": "毒　猛毒状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "毒ブレイク大",
+    "Name": "Ultra Crafty Poisoner",
+    "NameJa": "どくブレイク大",
+    "Description": "Makes it much easier to poison or severely poison the enemy.",
+    "DescriptionJa": "毒　猛毒状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "水のコツ",
+    "Name": "Splishmeister",
+    "NameJa": "水のコツ",
+    "Description": "Increases the potency of water-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "水属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "水ガード大",
+    "Name": "Ultra Splish Ward",
+    "NameJa": "水ガード大",
+    "Description": "Greatly increases resistance to water-elemental attacks.",
+    "DescriptionJa": "水属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "水ブレイク大",
+    "Name": "Ultra Crafty Splasher",
+    "NameJa": "水ブレイク大",
+    "Description": "Greatly increases the damage inflicted by water-elemental attacks.",
+    "DescriptionJa": "水属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "氷結のコツ",
+    "Name": "Crackmeister",
+    "NameJa": "氷結のコツ",
+    "Description": "Increases the potency of ice-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "氷結属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "氷結ガード大",
+    "Name": "Ultra Crack Ward",
+    "NameJa": "氷結ガード大",
+    "Description": "Greatly increases resistance to ice-elemental attacks.",
+    "DescriptionJa": "氷結属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "氷結ブレイク大",
+    "Name": "Ultra Crafty Cracker",
+    "NameJa": "氷結ブレイク大",
+    "Description": "Greatly increases the damage inflicted by ice-elemental attacks.",
+    "DescriptionJa": "氷結属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "混乱ガード大",
+    "Name": "Ultra Clear Thinker",
+    "NameJa": "こんらんガード大",
+    "Description": "Greatly increases resistance to confusion.",
+    "DescriptionJa": "混乱状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "混乱ブレイク大",
+    "Name": "Ultra Crafty Confuser",
+    "NameJa": "こんらんブレイク大",
+    "Description": "Makes it much easier to confuse the enemy.",
+    "DescriptionJa": "混乱状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "火のコツ",
+    "Name": "Frizzmeister",
+    "NameJa": "火のコツ",
+    "Description": "Increases the potency of fire-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "火属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "火ガード大",
+    "Name": "Ultra Frizz Ward",
+    "NameJa": "火ガード大",
+    "Description": "Greatly increases resistance to fire-elemental attacks.",
+    "DescriptionJa": "火属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "火ブレイク大",
+    "Name": "Ultra Crafty Frizzer",
+    "NameJa": "火ブレイク大",
+    "Description": "Greatly increases the damage inflicted by fire-elemental attacks.",
+    "DescriptionJa": "火属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "爆発のコツ",
+    "Name": "Bangmeister",
+    "NameJa": "爆発のコツ",
+    "Description": "Increases the potency of explosive attacks and decreases their MP consumption.",
+    "DescriptionJa": "爆発属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "爆発ガード大",
+    "Name": "Ultra Bang Ward",
+    "NameJa": "爆発ガード大",
+    "Description": "Greatly increases resistance to explosive attacks.",
+    "DescriptionJa": "爆発属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "爆発ブレイク大",
+    "Name": "Ultra Crafty Banger",
+    "NameJa": "爆発ブレイク大",
+    "Description": "Greatly increases the damage inflicted by explosive attacks.",
+    "DescriptionJa": "爆発属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "癒しの力",
+    "Name": "Low Heal",
+    "NameJa": "癒やしの力",
+    "Description": "Sometimes restores 30 or more HP to all allies during battle. Higher wisdom makes the healing effect more powerful.",
+    "DescriptionJa": "戦闘中　たまに\n仲間全員のＨＰを　３０～回復する\nかしこさが高いほど　回復量が上がる"
+  },
+  {
+    "Key": "癒しの大力",
+    "Name": "High Heal",
+    "NameJa": "癒やしの大力",
+    "Description": "Sometimes restores 80 or more HP to all allies during battle. Higher wisdom makes the healing effect more powerful.",
+    "DescriptionJa": "戦闘中　たまに\n仲間全員のＨＰを　８０～回復する\nかしこさが高いほど　回復量が上がる"
+  },
+  {
+    "Key": "眠りガード大",
+    "Name": "Ultra Insomniac",
+    "NameJa": "ねむりガード大",
+    "Description": "Greatly increases resistance to being put to sleep.",
+    "DescriptionJa": "眠り状態に　かなり　なりにくくなる"
+  },
+  {
+    "Key": "眠りブレイク大",
+    "Name": "Ultra Crafty Sleeper",
+    "NameJa": "ねむりブレイク大",
+    "Description": "Makes it much easier to put the enemy to sleep.",
+    "DescriptionJa": "眠り状態にする攻撃が\nかなり　効きやすくなる"
+  },
+  {
+    "Key": "秘めたるチカラ",
+    "Name": "Late Bloomer",
+    "NameJa": "秘めたるチカラ",
+    "Description": "Increases attack, defence, agility and wisdom from round 3 onwards, and even more so from round 6.",
+    "DescriptionJa": "３ラウンド目から　攻撃力　守備力\nすばやさ　かしこさが上がる\n６ラウンド目以降は　さらに効果アップ"
+  },
+  {
+    "Key": "背水の陣",
+    "Name": "Unhealthy Advantage",
+    "NameJa": "背水の陣",
+    "Description": "Inflicts increasing amounts of damage as remaining HP gets lower.",
+    "DescriptionJa": "残りのＨＰが少ないほど\n敵に与えるダメージが増える"
+  },
+  {
+    "Key": "自動HP回復",
+    "Name": "Auto-Restora",
+    "NameJa": "自動ＨＰ回復",
+    "Description": "Restores a small amount of HP after each action.",
+    "DescriptionJa": "行動した後　少しだけＨＰが回復する"
+  },
+  {
+    "Key": "自動MP回復",
+    "Name": "Auto-Cadabra",
+    "NameJa": "自動ＭＰ回復",
+    "Description": "Restores a small amount of MP after each action.",
+    "DescriptionJa": "行動した後　少しだけＭＰが回復する"
+  },
+  {
+    "Key": "行動回数１から２",
+    "Name": "Tactical Trooper",
+    "NameJa": "１～２回行動",
+    "Description": "Sometimes performs 2 actions in a row. The number of actions is not affected if you don't issue specific orders. Very slightly lowers the monster's max. attributes.",
+    "DescriptionJa": "たまに　２回連続で行動する\n命令してもしなくても\n行動回数は変わらない\n能力値の上限が　ほんの少し下がる"
+  },
+  {
+    "Key": "行動回数１から３",
+    "Name": "Tactical Genius",
+    "NameJa": "１～３回行動",
+    "Description": "Sometimes performs 2 or 3 actions in a row. The number of actions is not affected if you don't issue specific orders. Slightly lowers the monster's max. attributes.",
+    "DescriptionJa": "たまに　２～３回連続で行動する\n命令してもしなくても\n行動回数は変わらない\n能力値の上限が　少し下がる"
+  },
+  {
+    "Key": "行動回数２",
+    "Name": "Tactical Commander",
+    "NameJa": "２回行動",
+    "Description": "Performs 2 actions in a row. The number of actions is not affected if you don't issue specific orders. Slightly lowers the monster's max. attributes.",
+    "DescriptionJa": "２回連続で行動する\n命令してもしなくても\n行動回数は変わらない\n能力値の上限が　少し下がる"
+  },
+  {
+    "Key": "行動回数２から３",
+    "Name": "Tactical Titan",
+    "NameJa": "２～３回行動",
+    "Description": "Performs 2 or 3 actions in a row. The number of actions is not affected if you don't issue specific orders. Lowers the monster's max. attributes.",
+    "DescriptionJa": "２～３回連続で行動する\n命令してもしなくても\n行動回数は変わらない\n能力値の上限が下がる"
+  },
+  {
+    "Key": "超みかわしアップ",
+    "Name": "Supreme Sidestepper",
+    "NameJa": "みかわしアップ超",
+    "Description": "Makes it much easier to avoid enemy attacks.",
+    "DescriptionJa": "敵からの攻撃を\nかなり　かわしやすくなる"
+  },
+  {
+    "Key": "超会心率アップ",
+    "Name": "Critical Sensation",
+    "NameJa": "会心率アップ超",
+    "Description": "Makes it much easier to inflict critical hits.",
+    "DescriptionJa": "会心のいちげきが\nかなり　出やすくなる"
+  },
+  {
+    "Key": "超呪文会心率アップ",
+    "Name": "Critical Mastermind",
+    "NameJa": "魔力暴走率アップ超",
+    "Description": "Makes it much easier to cast critical spells.",
+    "DescriptionJa": "魔力の暴走が\nかなり　発生しやすくなる"
+  },
+  {
+    "Key": "超悪魔キラー",
+    "Name": "Über Demonsbane",
+    "NameJa": "超悪魔キラー",
+    "Description": "Greatly increases damage inflicted on monsters from the demon family and lowers all resistances.",
+    "DescriptionJa": "悪魔系のモンスターに\n与えるダメージが　かなり増える\n相手のすべての耐性値を\n下げて判定する"
+  },
+  {
+    "Key": "超自然キラー",
+    "Name": "Über Naturesbane",
+    "NameJa": "超自然キラー",
+    "Description": "Greatly increases damage inflicted on monsters from the nature family and lowers all resistances.",
+    "DescriptionJa": "自然系のモンスターに\n与えるダメージが　かなり増える\n相手のすべての耐性値を\n下げて判定する"
+  },
+  {
+    "Key": "超魔獣キラー",
+    "Name": "Über Beastsbane",
+    "NameJa": "超魔獣キラー",
+    "Description": "Greatly increases damage inflicted on monsters from the beast family and lowers all resistances.",
+    "DescriptionJa": "魔獣系のモンスターに\n与えるダメージが　かなり増える\n相手のすべての耐性値を\n下げて判定する"
+  },
+  {
+    "Key": "闇のコツ",
+    "Name": "Zammeister",
+    "NameJa": "闇のコツ",
+    "Description": "Increases the potency of dark-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "闇属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "闇ガード大",
+    "Name": "Ultra Zam Ward",
+    "NameJa": "闇ガード大",
+    "Description": "Greatly increases resistance to dark-elemental attacks.",
+    "DescriptionJa": "闇属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "闇ブレイク大",
+    "Name": "Ultra Crafty Zammer",
+    "NameJa": "闇ブレイク大",
+    "Description": "Greatly increases the damage inflicted by dark-elemental attacks.",
+    "DescriptionJa": "闇属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "電撃のコツ",
+    "Name": "Zapmeister",
+    "NameJa": "電撃のコツ",
+    "Description": "Increases the potency of electrical attacks and decreases their MP consumption.",
+    "DescriptionJa": "電撃属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "電撃ガード大",
+    "Name": "Ultra Zap Ward",
+    "NameJa": "電撃ガード大",
+    "Description": "Greatly increases resistance to electrical attacks.",
+    "DescriptionJa": "電撃属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "電撃ブレイク大",
+    "Name": "Ultra Crafty Zapper",
+    "NameJa": "電撃ブレイク大",
+    "Description": "Greatly increases the damage inflicted by electrical attacks.",
+    "DescriptionJa": "電撃属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "風のコツ",
+    "Name": "Wooshmeister",
+    "NameJa": "風のコツ",
+    "Description": "Increases the potency of wind-elemental attacks and decreases their MP consumption.",
+    "DescriptionJa": "風属性の攻撃が強くなり\n消費ＭＰも少なくなる"
+  },
+  {
+    "Key": "風ガード大",
+    "Name": "Ultra Woosh Ward",
+    "NameJa": "風ガード大",
+    "Description": "Greatly increases resistance to wind-elemental attacks.",
+    "DescriptionJa": "風属性の攻撃に\nかなり　強くなる"
+  },
+  {
+    "Key": "風ブレイク大",
+    "Name": "Ultra Crafty Woosher",
+    "NameJa": "風ブレイク大",
+    "Description": "Greatly increases the damage inflicted by wind-elemental attacks.",
+    "DescriptionJa": "風属性の攻撃のダメージが\nかなり　上がる"
+  },
+  {
+    "Key": "魔力の強風",
+    "Name": "Wizardly Wind",
+    "NameJa": "魔力の強風",
+    "Description": "Sometimes restores 5 or more MP to all allies during battle. A higher level increases the restored amount.",
+    "DescriptionJa": "戦闘中　たまに\n仲間全員のＭＰを　５～回復する\nレベルが高いほど　回復量が上がる"
+  },
+  {
+    "Key": "魔力の風",
+    "Name": "Wizardly Waft",
+    "NameJa": "魔力の風",
+    "Description": "Sometimes restores 1 or more MP to all allies during battle. A higher level increases the restored amount.",
+    "DescriptionJa": "戦闘中　たまに\n仲間全員のＭＰを　１～回復する\nレベルが高いほど　回復量が上がる"
+  }
+]

@@ -1,0 +1,989 @@
+[
+  {
+    "Key": "HPアップ１",
+    "Name": "HP Booster I",
+    "NameJa": "ＨＰアップ１",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "HPアップ２",
+    "Name": "HP Booster II",
+    "NameJa": "ＨＰアップ２",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "HPアップ３",
+    "Name": "HP Booster III",
+    "NameJa": "ＨＰアップ３",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "HPアップ４",
+    "Name": "HP Booster IV",
+    "NameJa": "ＨＰアップ４",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "HP回復",
+    "Name": "Healer",
+    "NameJa": "ＨＰ回復",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "MPアップ１",
+    "Name": "MP Booster I",
+    "NameJa": "ＭＰアップ１",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "MPアップ２",
+    "Name": "MP Booster II",
+    "NameJa": "ＭＰアップ２",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "MPアップ３",
+    "Name": "MP Booster III",
+    "NameJa": "ＭＰアップ３",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "MPアップ４",
+    "Name": "MP Booster IV",
+    "NameJa": "ＭＰアップ４",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "MP吸収ガード",
+    "Name": "Drain Dodger",
+    "NameJa": "ＭＰ吸収ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "あくしゅう",
+    "Name": "Stinker",
+    "NameJa": "あくしゅう",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "あばれんぼう",
+    "Name": "Wild Child",
+    "NameJa": "あばれんぼう",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "いしあたま",
+    "Name": "Materialist",
+    "NameJa": "いしあたま",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "いたずら",
+    "Name": "Prankster",
+    "NameJa": "いたずら",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "かしこさアップ１",
+    "Name": "Wisdom Booster I",
+    "NameJa": "かしこさアップ１",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "かしこさアップ２",
+    "Name": "Wisdom Booster II",
+    "NameJa": "かしこさアップ２",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "かしこさアップ３",
+    "Name": "Wisdom Booster III",
+    "NameJa": "かしこさアップ３",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "かしこさアップ４",
+    "Name": "Wisdom Booster IV",
+    "NameJa": "かしこさアップ４",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "けもの道",
+    "Name": "Naturalist",
+    "NameJa": "けもの道",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "けんごうSP",
+    "Name": "Hair Splitter",
+    "NameJa": "けんごうＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "しんそく",
+    "Name": "Speedster",
+    "NameJa": "神速",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "じこぎせい",
+    "Name": "Martyr",
+    "NameJa": "じこぎせい",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "すばやさアップ１",
+    "Name": "Agility Booster I",
+    "NameJa": "すばやさアップ１",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "すばやさアップ２",
+    "Name": "Agility Booster II",
+    "NameJa": "すばやさアップ２",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "すばやさアップ３",
+    "Name": "Agility Booster III",
+    "NameJa": "すばやさアップ３",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "すばやさアップ４",
+    "Name": "Agility Booster IV",
+    "NameJa": "すばやさアップ４",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ちからもち",
+    "Name": "Power Player",
+    "NameJa": "ちからもち",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "つむじ風",
+    "Name": "Blusterer",
+    "NameJa": "つむじ風",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "てっぺき",
+    "Name": "Barricade",
+    "NameJa": "てっぺき",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ぬすっと",
+    "Name": "Cutpurse",
+    "NameJa": "ぬすっと",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ぼうぎょ",
+    "Name": "Defender",
+    "NameJa": "ぼうぎょ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "みずげい",
+    "Name": "Aquapothecary",
+    "NameJa": "みずげい",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "みわく",
+    "Name": "Charmer",
+    "NameJa": "みわく",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "むしのしらせ",
+    "Name": "Hive Mind",
+    "NameJa": "むしのしらせ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "わたぼう",
+    "Name": "Fluffy",
+    "NameJa": "わたぼう",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "アサシン",
+    "Name": "Assassin",
+    "NameJa": "アサシン",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "アッパー",
+    "Name": "Fortifier",
+    "NameJa": "アッパー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "アンチスペル",
+    "Name": "Antimagician",
+    "NameJa": "アンチスペル",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "アンチブレス",
+    "Name": "Breath Taker",
+    "NameJa": "アンチブレス",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "アンデッド",
+    "Name": "Graveheart",
+    "NameJa": "アンデッド",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "イエローソード",
+    "Name": "Stony Slasher",
+    "NameJa": "イエローソード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ウォリアー",
+    "Name": "Fighter",
+    "NameJa": "ウォリアー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "エンターテイナー",
+    "Name": "Choreographer",
+    "NameJa": "エンターテイナー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "カース",
+    "Name": "Hexcommunicator",
+    "NameJa": "カース",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "キューピット",
+    "Name": "Cupid",
+    "NameJa": "キューピッド",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "グランスペルSP",
+    "Name": "Perfect Speller",
+    "NameJa": "グランスペルＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "グランドブレスSP",
+    "Name": "Blowhard",
+    "NameJa": "グランドブレスＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "グリーンソード",
+    "Name": "Blowy Slasher",
+    "NameJa": "グリーンソード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "サポーター",
+    "Name": "Willing Helper",
+    "NameJa": "サポーター",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ジャマー",
+    "Name": "Irritant",
+    "NameJa": "ジャマー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "スイート",
+    "Name": "Sweet-Talker",
+    "NameJa": "スイート",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "スラフォース",
+    "Name": "Slimer",
+    "NameJa": "スラフォース",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "スリラー",
+    "Name": "Thrill-Seeker",
+    "NameJa": "スリラー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ソーサラー",
+    "Name": "Strong Speller",
+    "NameJa": "ソーサラー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ダウナー",
+    "Name": "Enfeebler",
+    "NameJa": "ダウナー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ダンサー",
+    "Name": "Dancer",
+    "NameJa": "ダンサー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "トリッキー",
+    "Name": "Vexologist",
+    "NameJa": "トリッキー",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "トロピカル",
+    "Name": "Hottie",
+    "NameJa": "トロピカル",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ドラゴンソウル",
+    "Name": "Dragonheart",
+    "NameJa": "ドラゴンソウル",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ナチュラル",
+    "Name": "Nature Child",
+    "NameJa": "ナチュラル",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ヌメヌメ",
+    "Name": "Tongue Twister",
+    "NameJa": "ヌメヌメ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "バンデッド",
+    "Name": "Outlaw",
+    "NameJa": "バンデッド",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "パニック",
+    "Name": "Alarmist",
+    "NameJa": "パニック",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ピピぼう",
+    "Name": "Fuzzy Thinker",
+    "NameJa": "ぴぴぼう",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ブルーソード",
+    "Name": "Soggy Slasher",
+    "NameJa": "ブルーソード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ブレスマスター",
+    "Name": "Deep Breather",
+    "NameJa": "ブレスマスター",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "プリンセス",
+    "Name": "Princess",
+    "NameJa": "プリンセス",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ヘドロ",
+    "Name": "Mudmonger",
+    "NameJa": "ヘドロ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "マヒガード",
+    "Name": "Paralysis Protector",
+    "NameJa": "マヒガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "レッドソード",
+    "Name": "Spicy Slasher",
+    "NameJa": "レッドソード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "ワルぼう",
+    "Name": "Scruffy",
+    "NameJa": "ワルぼう",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "休みガード",
+    "Name": "Stun Stopper",
+    "NameJa": "休みガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "光の心",
+    "Name": "Sizz Afficionado",
+    "NameJa": "光の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "光の極意",
+    "Name": "Sizz Virtuoso",
+    "NameJa": "光の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "光ガード",
+    "Name": "Sizz Ward",
+    "NameJa": "光ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "剣術",
+    "Name": "Blade Maven",
+    "NameJa": "剣術",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "即死ガード",
+    "Name": "Death Defier",
+    "NameJa": "即死ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "吹雪",
+    "Name": "Chilly Receptionist",
+    "NameJa": "吹雪",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "地の心",
+    "Name": "Crag Afficionado",
+    "NameJa": "地の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "地の極意",
+    "Name": "Crag Virtuoso",
+    "NameJa": "地の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "地ガード",
+    "Name": "Crag Ward",
+    "NameJa": "地ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "妖精",
+    "Name": "Soothesayer",
+    "NameJa": "妖精",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "守備力アップ１",
+    "Name": "Defence Booster I",
+    "NameJa": "守備力アップ１",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "守備力アップ２",
+    "Name": "Defence Booster II",
+    "NameJa": "守備力アップ２",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "守備力アップ３",
+    "Name": "Defence Booster III",
+    "NameJa": "守備力アップ３",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "守備力アップ４",
+    "Name": "Defence Booster IV",
+    "NameJa": "守備力アップ４",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "封じガード",
+    "Name": "Antimagic Avoider",
+    "NameJa": "封じガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "巨漢",
+    "Name": "Goliath",
+    "NameJa": "巨体",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "幻惑ガード",
+    "Name": "Bedazzlement Blocker",
+    "NameJa": "幻惑ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "弱体化ガード",
+    "Name": "Debilitation Ducker",
+    "NameJa": "弱体化ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "息吹",
+    "Name": "Shallow Breather",
+    "NameJa": "息吹",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "悪魔のささやき",
+    "Name": "Dark Artist",
+    "NameJa": "悪魔のささやき",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "攻撃力アップ１",
+    "Name": "Attack Booster I",
+    "NameJa": "攻撃力アップ１",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "攻撃力アップ２",
+    "Name": "Attack Booster II",
+    "NameJa": "攻撃力アップ２",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "攻撃力アップ３",
+    "Name": "Attack Booster III",
+    "NameJa": "攻撃力アップ３",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "攻撃力アップ４",
+    "Name": "Attack Booster IV",
+    "NameJa": "攻撃力アップ４",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "毒ガード",
+    "Name": "Poison Preventer",
+    "NameJa": "どくガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "毒舌",
+    "Name": "Toxicologist",
+    "NameJa": "毒舌",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "水の心",
+    "Name": "Splash Afficionado",
+    "NameJa": "水の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "水の極意",
+    "Name": "Splash Virtuoso",
+    "NameJa": "水の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "水ガード",
+    "Name": "Splish Ward",
+    "NameJa": "水ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "氷炎の剣技",
+    "Name": "Freezer Burner",
+    "NameJa": "氷炎の剣技",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "氷獄",
+    "Name": "Frosty Receptionist",
+    "NameJa": "氷獄",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "氷結の心",
+    "Name": "Crack Afficionado",
+    "NameJa": "氷結の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "氷結の極意",
+    "Name": "Crack Virtuoso",
+    "NameJa": "氷結の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "氷結ガード",
+    "Name": "Crack Ward",
+    "NameJa": "氷結ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "流氷ガードSP",
+    "Name": "Glacier Shield",
+    "NameJa": "流氷ガードＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "混乱ガード",
+    "Name": "Confusion Controller",
+    "NameJa": "こんらんガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "溶岩ガードSP",
+    "Name": "Magma Shield",
+    "NameJa": "溶岩ガードＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "火の心",
+    "Name": "Frizz Afficionado",
+    "NameJa": "火の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "火の極意",
+    "Name": "Frizz Virtuoso",
+    "NameJa": "火の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "火ガード",
+    "Name": "Frizz Ward",
+    "NameJa": "火ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "火炎",
+    "Name": "Blazer",
+    "NameJa": "火炎",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "火遊び",
+    "Name": "Roaster",
+    "NameJa": "火遊び",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "爆氷の剣技",
+    "Name": "Freeze Popper",
+    "NameJa": "爆氷の剣技",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "爆発の心",
+    "Name": "Bang Afficionado",
+    "NameJa": "爆発の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "爆発の極意",
+    "Name": "Bang Virtuoso",
+    "NameJa": "爆発の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "爆発ガード",
+    "Name": "Bang Ward",
+    "NameJa": "爆発ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "爆風ガードSP",
+    "Name": "Cyclone Shield",
+    "NameJa": "爆風ガードＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "獄炎",
+    "Name": "Smart Blazer",
+    "NameJa": "獄炎",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "異常回復",
+    "Name": "Paramedic",
+    "NameJa": "異常回復",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "白黒ガードSP",
+    "Name": "Chiaroscuro Shield",
+    "NameJa": "白黒ガードＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "眠りガード",
+    "Name": "Sleep Suppressor",
+    "NameJa": "ねむりガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "睡魔",
+    "Name": "Sleep Counsellor",
+    "NameJa": "睡魔",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "稲妻ガードSP",
+    "Name": "Fulgurite Shield",
+    "NameJa": "稲妻ガードＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "聖なる吹雪SP",
+    "Name": "Polariser",
+    "NameJa": "聖なる吹雪ＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "衝撃ガードSP",
+    "Name": "Tremor Shield",
+    "NameJa": "衝撃ガードＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "闇の心",
+    "Name": "Zam Afficionado",
+    "NameJa": "闇の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "闇の極意",
+    "Name": "Zam Virtuoso",
+    "NameJa": "闇の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "闇の爆炎SP",
+    "Name": "Impactor",
+    "NameJa": "闇の爆炎ＳＰ",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "闇ガード",
+    "Name": "Zam Ward",
+    "NameJa": "闇ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "電撃の心",
+    "Name": "Zap Afficionado",
+    "NameJa": "電撃の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "電撃の極意",
+    "Name": "Zap Virtuoso",
+    "NameJa": "電撃の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "電撃ガード",
+    "Name": "Zap Ward",
+    "NameJa": "電撃ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "風の心",
+    "Name": "Woosh Afficionado",
+    "NameJa": "風の心",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "風の極意",
+    "Name": "Woosh Virtuoso",
+    "NameJa": "風の極意",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "風ガード",
+    "Name": "Woosh Ward",
+    "NameJa": "風ガード",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "風炎の剣技",
+    "Name": "Air Fryer",
+    "NameJa": "風炎の剣技",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "風雷の剣技",
+    "Name": "Storm Brewer",
+    "NameJa": "風雷の剣技",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "騎士道",
+    "Name": "Good Knight",
+    "NameJa": "騎士道",
+    "Description": null,
+    "DescriptionJa": null
+  },
+  {
+    "Key": "魔術",
+    "Name": "Magic Maven",
+    "NameJa": "魔術",
+    "Description": null,
+    "DescriptionJa": null
+  }
+]

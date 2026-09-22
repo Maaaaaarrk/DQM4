@@ -39,7 +39,7 @@ export function FamilyIcon({
       title={meta.label}
       width={24}
       height={24}
-      className="size-full object-contain [image-rendering:pixelated]"
+      className="size-full object-contain"
     />
   );
 

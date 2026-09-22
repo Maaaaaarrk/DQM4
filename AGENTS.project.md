@@ -6,10 +6,10 @@ Product: DQM4 synthesis family tree. Visual target is the in-game pedigree (parc
 
 - Keep path-based React keys / open-set (`root/up:avian-android/0:mecha-mynah`). Species ids duplicate in a tree.
 - `ParentRef` is either `{type:"species",id}` or `{type:"family",tokenId,family,rank}`. Never auto-pick a wildcard species.
-- `synthOnly === !scouted` from `MonsterLocation.json`. Scoutable expand stops at `!synthOnly`.
+- `synthOnly` is true when the species has no row in `ScoutSpot.json`. Scoutable expand stops at `!synthOnly`.
 - Recipes: specific pair wins; if the result is catchable, do not fall back to family wildcards (`src/lib/monsters.ts` `pickParents`).
-- Sprite portraits from `/dqm4/monsters-sprite.jpg` + `src/data/dqm4/sprite-map.json` (75px tiles, CSS background-position). Fallback to family icon.
-- Credit MetalKid in the footer; data lives under `src/data/dqm4/`.
+- Portraits are `public/portraits/{identifier}.png`. Missing portraits fall back to the family icon.
+- The roster, recipes, and scout places live in `src/data/dqm4/`. English names are from MetalKid Databases. The How to get footer links that credit.
 
 ## Don't
 

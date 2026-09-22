@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Minus, Plus } from "lucide-react";
 import { FamilyIcon, familyLabel } from "@/components/family-icon";
 import { RankBadge } from "@/components/rank-badge";
 import { MonsterSprite } from "@/components/monster-sprite";
@@ -9,7 +10,7 @@ import { SynthIcon } from "@/components/synth-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import growthCurveRows from "@/data/dqm4/GrowthCurve.json";
-import { publicAsset } from "@/lib/utils";
+import { cn, publicAsset } from "@/lib/utils";
 import {
   SKILLS,
   SPECIES,
@@ -213,7 +214,7 @@ function DetailSheet({ id }: { id: string }) {
         )}
       </Section>
 
-      <Section title="What it builds">
+      <Section key={m.id} title="What it builds" collapsible defaultOpen={false}>
         <Builds id={m.id} />
       </Section>
 
@@ -456,11 +457,43 @@ function Builds({ id }: { id: string }) {
   );
 }
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
+function Section({
+  title,
+  children,
+  collapsible = false,
+  defaultOpen = true,
+}: {
+  title: string;
+  children: ReactNode;
+  collapsible?: boolean;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
     <section className="rounded-2xl border-2 border-gold/30 bg-parchment-deep/40 p-4">
-      <h2 className="mb-3 font-display text-xs font-extrabold tracking-widest text-chrome">{title}</h2>
-      {children}
+      <div className={cn("flex items-center justify-between gap-2", (open || !collapsible) && "mb-3")}>
+        <h2 className="font-display text-xs font-extrabold tracking-widest text-chrome">{title}</h2>
+        {collapsible ? (
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            className="inline-flex items-center gap-1.5 rounded-md border-2 border-gold px-2 py-0.5 font-display text-xs font-extrabold text-chrome hover:bg-chrome-hi/20"
+          >
+            <span
+              className={cn(
+                "grid size-5 place-items-center rounded-md text-parchment ring-2 ring-white",
+                open ? "bg-focus" : "bg-line",
+              )}
+              aria-hidden
+            >
+              {open ? <Minus className="size-2.5" strokeWidth={3} /> : <Plus className="size-2.5" strokeWidth={3} />}
+            </span>
+            {open ? "Minimize" : "Expand"}
+          </button>
+        ) : null}
+      </div>
+      {open || !collapsible ? children : null}
     </section>
   );
 }

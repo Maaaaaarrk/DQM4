@@ -15,6 +15,7 @@ import { Route as GetRouteImport } from './routes/get'
 import { Route as MapsRouteImport } from './routes/maps'
 import { Route as MonsterRouteImport } from './routes/monster'
 import { Route as MonstersRouteImport } from './routes/monsters'
+import { Route as PersonalitiesRouteImport } from './routes/personalities'
 import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as TeamRouteImport } from './routes/team'
 
@@ -48,6 +49,11 @@ const MonstersRoute = MonstersRouteImport.update({
   path: '/monsters',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PersonalitiesRoute = PersonalitiesRouteImport.update({
+  id: '/personalities',
+  path: '/personalities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
   path: '/skills',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/maps': typeof MapsRoute
   '/monster': typeof MonsterRoute
   '/monsters': typeof MonstersRoute
+  '/personalities': typeof PersonalitiesRoute
   '/skills': typeof SkillsRoute
   '/team': typeof TeamRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/maps': typeof MapsRoute
   '/monster': typeof MonsterRoute
   '/monsters': typeof MonstersRoute
+  '/personalities': typeof PersonalitiesRoute
   '/skills': typeof SkillsRoute
   '/team': typeof TeamRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/maps': typeof MapsRoute
   '/monster': typeof MonsterRoute
   '/monsters': typeof MonstersRoute
+  '/personalities': typeof PersonalitiesRoute
   '/skills': typeof SkillsRoute
   '/team': typeof TeamRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/maps'
     | '/monster'
     | '/monsters'
+    | '/personalities'
     | '/skills'
     | '/team'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/maps'
     | '/monster'
     | '/monsters'
+    | '/personalities'
     | '/skills'
     | '/team'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/maps'
     | '/monster'
     | '/monsters'
+    | '/personalities'
     | '/skills'
     | '/team'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   MapsRoute: typeof MapsRoute
   MonsterRoute: typeof MonsterRoute
   MonstersRoute: typeof MonstersRoute
+  PersonalitiesRoute: typeof PersonalitiesRoute
   SkillsRoute: typeof SkillsRoute
   TeamRoute: typeof TeamRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MonstersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/personalities': {
+      id: '/personalities'
+      path: '/personalities'
+      fullPath: '/personalities'
+      preLoaderRoute: typeof PersonalitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/skills': {
       id: '/skills'
       path: '/skills'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   MapsRoute: MapsRoute,
   MonsterRoute: MonsterRoute,
   MonstersRoute: MonstersRoute,
+  PersonalitiesRoute: PersonalitiesRoute,
   SkillsRoute: SkillsRoute,
   TeamRoute: TeamRoute,
 }

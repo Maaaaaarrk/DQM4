@@ -1,0 +1,145 @@
+[
+  {
+    "Key": "普通",
+    "Name": "Professional",
+    "NameJa": "まじめ",
+    "Hp": 0,
+    "Mp": 0,
+    "Attack": 0,
+    "Defence": 0,
+    "Agility": 0,
+    "Wisdom": 0
+  },
+  {
+    "Key": "頑張り屋",
+    "Name": "Drudge",
+    "NameJa": "がんばりや",
+    "Hp": 2,
+    "Mp": -1,
+    "Attack": 0,
+    "Defence": 0,
+    "Agility": -1,
+    "Wisdom": 0
+  },
+  {
+    "Key": "情熱家",
+    "Name": "Visionary",
+    "NameJa": "じょうねつか",
+    "Hp": 0,
+    "Mp": 2,
+    "Attack": -1,
+    "Defence": -1,
+    "Agility": 0,
+    "Wisdom": 0
+  },
+  {
+    "Key": "勇敢",
+    "Name": "Trailblazer",
+    "NameJa": "ゆうかん",
+    "Hp": -1,
+    "Mp": 0,
+    "Attack": 2,
+    "Defence": 0,
+    "Agility": 0,
+    "Wisdom": -1
+  },
+  {
+    "Key": "負けず嫌い",
+    "Name": "Sore Loser",
+    "NameJa": "まけずぎらい",
+    "Hp": 0,
+    "Mp": 0,
+    "Attack": -1,
+    "Defence": 2,
+    "Agility": 0,
+    "Wisdom": -1
+  },
+  {
+    "Key": "積極的",
+    "Name": "Go-Getter",
+    "NameJa": "せっきょくてき",
+    "Hp": -1,
+    "Mp": 1,
+    "Attack": -1,
+    "Defence": 0,
+    "Agility": 1,
+    "Wisdom": 0
+  },
+  {
+    "Key": "冷静",
+    "Name": "Cool Dude",
+    "NameJa": "れいせい",
+    "Hp": -1,
+    "Mp": 0,
+    "Attack": 0,
+    "Defence": 0,
+    "Agility": -1,
+    "Wisdom": 2
+  },
+  {
+    "Key": "命知らず",
+    "Name": "Daredevil",
+    "NameJa": "いのちしらず",
+    "Hp": 0,
+    "Mp": 0,
+    "Attack": 1,
+    "Defence": -1,
+    "Agility": 1,
+    "Wisdom": -1
+  },
+  {
+    "Key": "猪突猛進",
+    "Name": "Hotspur",
+    "NameJa": "ちょとつもうしん",
+    "Hp": 0,
+    "Mp": -1,
+    "Attack": 0,
+    "Defence": -1,
+    "Agility": 2,
+    "Wisdom": 0
+  },
+  {
+    "Key": "楽天家",
+    "Name": "Optimist",
+    "NameJa": "らくてんか",
+    "Hp": 1,
+    "Mp": -1,
+    "Attack": 1,
+    "Defence": 0,
+    "Agility": -1,
+    "Wisdom": 0
+  },
+  {
+    "Key": "人情家",
+    "Name": "Do-Gooder",
+    "NameJa": "にんじょうか",
+    "Hp": 0,
+    "Mp": -1,
+    "Attack": -1,
+    "Defence": 1,
+    "Agility": 0,
+    "Wisdom": 1
+  },
+  {
+    "Key": "気まぐれ",
+    "Name": "Nonconformist",
+    "NameJa": "きまぐれ",
+    "Hp": 1,
+    "Mp": 0,
+    "Attack": 0,
+    "Defence": 1,
+    "Agility": -1,
+    "Wisdom": -1
+  },
+  {
+    "Key": "高飛車",
+    "Name": "Bossyboots",
+    "NameJa": "たかびしゃ",
+    "Hp": -1,
+    "Mp": 1,
+    "Attack": 0,
+    "Defence": -1,
+    "Agility": 0,
+    "Wisdom": 1
+  }
+]

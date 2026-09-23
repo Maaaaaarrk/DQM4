@@ -47,6 +47,14 @@ const GUIDES = [
     icon: false,
   },
   {
+    to: "/personalities",
+    search: { personality: "" },
+    kicker: "Growth",
+    title: "Personalities",
+    body: "Every personality, and how it raises or lowers growth in HP, MP, attack, defence, agility, and wisdom.",
+    icon: false,
+  },
+  {
     to: "/team",
     search: {},
     kicker: "Party",

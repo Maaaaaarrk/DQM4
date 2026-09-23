@@ -77,12 +77,26 @@ export type TraitInfo = {
   descriptionJa: string | null;
 };
 
+export type SkillLearn = {
+  points: number;
+  key: string;
+  kind: "action" | "trait";
+  name: string;
+  nameJa: string | null;
+  description: string | null;
+};
+
 export type SkillInfo = {
   key: string;
   name: string | null;
   nameJa: string | null;
   description: string | null;
   descriptionJa: string | null;
+  /** Official category when the game has an English label. */
+  category: string | null;
+  /** Key of the skill this one grows into. */
+  evolution: string | null;
+  learns: SkillLearn[];
 };
 
 export type ScoutSpot = {
@@ -92,6 +106,8 @@ export type ScoutSpot = {
   time: "Day" | "Night" | null;
   /** Null on the ground. Low air, in water, or underground otherwise. */
   where: string | null;
+  /** A one-off zone boss. Not a reasonable scout. */
+  boss: boolean;
 };
 
 export type Monster = {
@@ -105,6 +121,8 @@ export type Monster = {
   synthOnly: boolean;
   /** Field places. Empty when the monster is synthesis only. */
   habitats: ScoutSpot[];
+  /** Large monsters take two party slots. */
+  large: boolean;
   /** False when the source row has not been checked. */
   verified: boolean;
   parents: [ParentRef, ParentRef] | [];
@@ -142,6 +160,7 @@ type RawMonster = {
   JapaneseName?: string | null;
   Identifier: string;
   IsVerified: boolean;
+  Large?: boolean;
   MaxHP?: number | null;
   MaxMP?: number | null;
   MaxAtt?: number | null;
@@ -197,6 +216,16 @@ type RawSkill = {
   NameJa: string | null;
   Description: string | null;
   DescriptionJa: string | null;
+  Category?: string | null;
+  Evolution?: string | null;
+  Learns?: {
+    Points: number;
+    Key: string;
+    Kind: "action" | "trait";
+    Name: string;
+    NameJa: string | null;
+    Description: string | null;
+  }[];
 };
 
 type RawFamily = { FamilyId: number; Identifier: string; Name: string };
@@ -212,6 +241,7 @@ type RawSpot = {
   AreaJa: string;
   Time: "Day" | "Night" | null;
   Where: string | null;
+  Boss?: boolean;
 };
 
 const spotsByMonster = new Map<number, ScoutSpot[]>();
@@ -221,6 +251,7 @@ for (const row of scoutRows as RawSpot[]) {
     areaJa: row.AreaJa,
     time: row.Time,
     where: row.Where,
+    boss: row.Boss === true,
   };
   const list = spotsByMonster.get(row.MonsterId);
   if (list) list.push(spot);
@@ -305,6 +336,7 @@ function toMonster(raw: RawMonster): Monster {
     japanese: raw.JapaneseName || undefined,
     synthOnly: !scouted.has(raw.MonsterId),
     habitats: spotsByMonster.get(raw.MonsterId) ?? [],
+    large: raw.Large === true,
     verified: raw.IsVerified === true,
     parents: pickParents(raw.MonsterId),
     maxHp: raw.MaxHP ?? null,
@@ -385,9 +417,23 @@ export const SKILLS: Record<string, SkillInfo> = Object.fromEntries(
       nameJa: row.NameJa,
       description: row.Description,
       descriptionJa: row.DescriptionJa,
+      category: row.Category ?? null,
+      evolution: row.Evolution ?? null,
+      learns: (row.Learns ?? []).map((item) => ({
+        points: item.Points,
+        key: item.Key,
+        kind: item.Kind,
+        name: item.Name,
+        nameJa: item.NameJa,
+        description: item.Description,
+      })),
     },
   ]),
 );
+
+export const SKILL_LIST: SkillInfo[] = Object.values(SKILLS)
+  .filter((skill) => skill.name)
+  .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
 
 export const SPECIES: Monster[] = SPECIES_RAW.map(toMonster).sort((a, b) =>
   a.name.localeCompare(b.name),

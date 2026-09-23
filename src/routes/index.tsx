@@ -38,6 +38,30 @@ const GUIDES = [
     body: "Caps, traits, skill, and drops for one monster, then open How to get.",
     icon: true,
   },
+  {
+    to: "/skills",
+    search: { skill: "" },
+    kicker: "Talents",
+    title: "Skills",
+    body: "Every skill, the talent points it costs, and the traits and abilities it teaches.",
+    icon: false,
+  },
+  {
+    to: "/team",
+    search: {},
+    kicker: "Party",
+    title: "Team planner",
+    body: "Fill four main slots and four reserve slots. Large monsters take two. Your lineup stays on this device, and the link shares only the party.",
+    icon: false,
+  },
+  {
+    to: "/maps",
+    search: { map: "" },
+    kicker: "Places",
+    title: "Maps",
+    body: "Every field, dungeon, and town map. Open one to see it larger.",
+    icon: false,
+  },
 ] as const;
 
 function Landing() {

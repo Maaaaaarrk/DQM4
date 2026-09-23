@@ -4,440 +4,503 @@
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 101,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 101,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": "In water"
+    "Where": "In water",
+    "Boss": false
   },
   {
     "MonsterId": 101,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 103,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 103,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 106,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 106,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 116,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 116,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 128,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 128,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 130,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 140,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 140,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 142,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 142,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 149,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Night",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 149,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 149,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 157,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 157,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 166,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Night",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": "Day",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 187,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 187,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 188,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 188,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 191,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 194,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 194,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 204,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 205,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": "Day",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 218,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 218,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 222,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Day",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 229,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 229,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 229,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Day",
-    "Where": "Underground"
+    "Where": "Underground",
+    "Boss": false
   },
   {
     "MonsterId": 236,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 236,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 238,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 238,
     "Area": "The Spelunk",
     "AreaJa": "荒れ地の洞くつ",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 252,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 254,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": "Night",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 259,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": "Night",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 259,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 260,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 260,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 260,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 260,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": "In water"
+    "Where": "In water",
+    "Boss": false
   },
   {
     "MonsterId": 273,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 273,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Night",
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 313,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": true
   },
   {
     "MonsterId": 320,
     "Area": "Witherwood Plains",
     "AreaJa": "カレキ平原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": true
   },
   {
     "MonsterId": 505,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": true
   },
   {
     "MonsterId": 643,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Day",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 643,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": "Day",
-    "Where": "Underground"
+    "Where": "Underground",
+    "Boss": false
   },
   {
     "MonsterId": 643,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": "Day",
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 644,
     "Area": "The Parchland",
     "AreaJa": "カラット荒野",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 645,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   },
   {
     "MonsterId": 645,
     "Area": "The Sogswamp",
     "AreaJa": "ジメジメ湿原",
     "Time": null,
-    "Where": "Low air"
+    "Where": "Low air",
+    "Boss": false
   },
   {
     "MonsterId": 645,
     "Area": "Shrine of Serenity, Interior",
     "AreaJa": "沈黙のほこら・地下１階",
     "Time": null,
-    "Where": null
+    "Where": null,
+    "Boss": false
   }
 ]

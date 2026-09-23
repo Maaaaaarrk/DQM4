@@ -10,6 +10,7 @@ import {
   type ParentRef,
   type Rank,
 } from "@/lib/monsters";
+import { canScoutNow, earliestScout } from "@/lib/team";
 
 export type TreeOrient = "horizontal" | "vertical";
 
@@ -154,11 +155,12 @@ function layoutSubtree(
   metrics: Metrics,
   picks: Picks,
   ancestors: Set<string>,
+  owned: ReadonlySet<string>,
 ): Packed {
   const self = sz(path, metrics);
   const id = speciesId(node, path, picks);
   const looping = Boolean(id && ancestors.has(id));
-  const expandable = canOpen(node, path, picks, ancestors);
+  const expandable = !owned.has(path) && canOpen(node, path, picks, ancestors);
   const card: Box = {
     path,
     node,
@@ -195,6 +197,7 @@ function layoutSubtree(
     metrics,
     picks,
     next,
+    owned,
   );
   const R = layoutSubtree(
     fromRef(pb),
@@ -204,6 +207,7 @@ function layoutSubtree(
     metrics,
     picks,
     next,
+    owned,
   );
 
   const rX0 = L.w + SUBTREE_GAP;
@@ -336,14 +340,17 @@ function layout(
   metrics: Metrics,
   picks: Picks,
   orient: TreeOrient,
+  owned: ReadonlySet<string>,
+  gateRoot: boolean,
 ) {
   const boxes: Box[] = [];
   const rootPath = rootId;
   const focus = sz(rootPath, metrics);
   const root = monster(rootId);
   const rootNode: NodeKind = { type: "species", id: rootId };
+  const collapseRoot = gateRoot && !open.has(rootPath);
 
-  if (root.parents.length !== 2) {
+  if (root.parents.length !== 2 || owned.has(rootPath) || collapseRoot) {
     boxes.push({
       path: rootPath,
       node: rootNode,
@@ -371,8 +378,9 @@ function layout(
       metrics,
       picks,
       seen,
+      owned,
     );
-    const R = layoutSubtree(n2, path2, "down", open, metrics, picks, seen);
+    const R = layoutSubtree(n2, path2, "down", open, metrics, picks, seen, owned);
 
     if (orient === "vertical") {
       const rX0 = L.w + SUBTREE_GAP;
@@ -509,10 +517,58 @@ function expandScoutablePaths(rootId: string, picks: Picks): Set<string> {
   return s;
 }
 
-function expandAllPaths(rootId: string, picks: Picks): Set<string> {
+function isScoutStop(id: string, mode: "now" | "all", progress: number): boolean {
+  const row = monster(id);
+  if (!earliestScout(row)) return false;
+  if (mode === "all") return true;
+  return canScoutNow(row, progress);
+}
+
+function expandStopped(
+  ref: ParentRef,
+  path: string,
+  into: Set<string>,
+  ancestors: Set<string>,
+  picks: Picks,
+  mode: "now" | "all",
+  progress: number,
+) {
+  const id = ref.type === "species" ? ref.id : picks[path];
+  if (!id || ancestors.has(id) || !hasParents(id) || isScoutStop(id, mode, progress)) return;
+  into.add(path);
+  const next = new Set(ancestors);
+  next.add(id);
+  const [a, b] = monster(id).parents as [ParentRef, ParentRef];
+  expandStopped(a, childPath(path, "0", parentKey(a)), into, next, picks, mode, progress);
+  expandStopped(b, childPath(path, "1", parentKey(b)), into, next, picks, mode, progress);
+}
+
+function expandToScout(
+  rootId: string,
+  picks: Picks,
+  mode: "now" | "all",
+  progress: number,
+  gateRoot: boolean,
+): Set<string> {
   const s = new Set<string>();
   const root = monster(rootId);
   if (root.parents.length !== 2) return s;
+  if (gateRoot && isScoutStop(rootId, mode, progress)) return s;
+  if (gateRoot) s.add(rootId);
+  const [p1, p2] = root.parents;
+  const path1 = childPath(rootId, "up", parentKey(p1));
+  const path2 = childPath(rootId, "dn", parentKey(p2));
+  const seen = new Set([rootId]);
+  expandStopped(p1, path1, s, seen, picks, mode, progress);
+  expandStopped(p2, path2, s, seen, picks, mode, progress);
+  return s;
+}
+
+function expandAllPaths(rootId: string, picks: Picks, includeRoot = false): Set<string> {
+  const s = new Set<string>();
+  const root = monster(rootId);
+  if (root.parents.length !== 2) return s;
+  if (includeRoot) s.add(rootId);
   const [p1, p2] = root.parents;
   const path1 = childPath(rootId, "up", parentKey(p1));
   const path2 = childPath(rootId, "dn", parentKey(p2));
@@ -547,21 +603,69 @@ function sameSize(a: Size | undefined, b: Size): boolean {
   return a.w === b.w && a.h === b.h && a.ax === b.ax && a.ay === b.ay;
 }
 
-export type ExpandCommand = { action: "all" | "scoutable" | "none"; seq: number };
+export type ExpandCommand = {
+  action: "all" | "scoutable" | "now" | "scouts" | "none";
+  seq: number;
+  progress?: number;
+};
+
+function openForCommand(
+  rootId: string,
+  picks: Picks,
+  command: ExpandCommand | undefined,
+  gateRoot: boolean,
+): Set<string> | null {
+  if (!command || command.seq === 0) return null;
+  const progress = command.progress ?? 0;
+  if (command.action === "none") return new Set();
+  if (command.action === "scoutable") return expandScoutablePaths(rootId, picks);
+  if (command.action === "now" || command.action === "scouts") {
+    return expandToScout(
+      rootId,
+      picks,
+      command.action === "now" ? "now" : "all",
+      progress,
+      gateRoot,
+    );
+  }
+  return expandAllPaths(rootId, picks, gateRoot);
+}
+
+const NO_OWNED: ReadonlySet<string> = new Set();
 
 export function FamilyTree({
   rootId,
   orient = "horizontal",
   expandCommand,
   onStructureChange,
+  startExpanded = false,
+  owned,
+  onHave,
+  detailFor,
+  picks: picksProp,
+  onPicksChange,
+  gateRoot = false,
 }: {
   rootId: string;
   orient?: TreeOrient;
   expandCommand?: ExpandCommand;
   /** Fired after expand/minimize. `path` is the toggled card; omitted for the whole tree. */
   onStructureChange?: (path?: string) => void;
+  startExpanded?: boolean;
+  /** Paths in this tree whose parents stay hidden. Scoped to the node, not the species. */
+  owned?: ReadonlySet<string>;
+  onHave?: (path: string) => void;
+  detailFor?: (id: string, path: string) => string | undefined;
+  /** Family choices. When set, the tree does not keep its own copy. */
+  picks?: Picks;
+  onPicksChange?: (picks: Picks) => void;
+  /** When set, the root's parents show only while the root path is open. */
+  gateRoot?: boolean;
 }) {
   const [open, setOpen] = useState<Set<string>>(() => {
+    const commanded = openForCommand(rootId, picksProp ?? {}, expandCommand, gateRoot);
+    if (commanded) return commanded;
+    if (startExpanded) return expandAllPaths(rootId, picksProp ?? {}, gateRoot);
     const s = new Set<string>();
     if (rootId === "warhog") {
       const root = monster(rootId);
@@ -577,32 +681,54 @@ export function FamilyTree({
     }
     return s;
   });
-  const [picks, setPicks] = useState<Picks>({});
+  const [localPicks, setLocalPicks] = useState<Picks>({});
+  const picks = picksProp ?? localPicks;
   const [metrics, setMetrics] = useState<Metrics>({});
   const nodeRefs = useRef(new Map<string, HTMLDivElement>());
   const pendingFrame = useRef<string | null | undefined>(undefined);
   const onStructureChangeRef = useRef(onStructureChange);
   onStructureChangeRef.current = onStructureChange;
+  const ownedKey = owned ? Array.from(owned).sort().join("\n") : "";
+  const ownedKeyRef = useRef(ownedKey);
+  const orientRef = useRef(orient);
 
   function requestRecenter(path?: string) {
     pendingFrame.current = path ?? null;
   }
 
   const { boxes, wires, width, height } = useMemo(
-    () => layout(rootId, open, metrics, picks, orient),
-    [rootId, open, metrics, picks, orient],
+    () => layout(rootId, open, metrics, picks, orient, owned ?? NO_OWNED, gateRoot),
+    // ownedKey tracks the path set contents. The set identity changes every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [rootId, open, metrics, picks, orient, ownedKey],
   );
 
   useEffect(() => {
     if (!expandCommand || expandCommand.seq === 0) return;
+    const progress = expandCommand.progress ?? 0;
     if (expandCommand.action === "none") setOpen(new Set());
     else if (expandCommand.action === "scoutable") {
       setOpen(expandScoutablePaths(rootId, picks));
-    } else setOpen(expandAllPaths(rootId, picks));
+    } else if (expandCommand.action === "now" || expandCommand.action === "scouts") {
+      setOpen(
+        expandToScout(
+          rootId,
+          picks,
+          expandCommand.action === "now" ? "now" : "all",
+          progress,
+          gateRoot,
+        ),
+      );
+    } else setOpen(expandAllPaths(rootId, picks, gateRoot));
     requestRecenter();
   }, [expandCommand, rootId]);
 
   useLayoutEffect(() => {
+    if (ownedKeyRef.current !== ownedKey || orientRef.current !== orient) {
+      ownedKeyRef.current = ownedKey;
+      orientRef.current = orient;
+      pendingFrame.current = null;
+    }
     const next: Metrics = { ...metrics };
     let changed = false;
     for (const b of boxes) {
@@ -623,7 +749,7 @@ export function FamilyTree({
       pendingFrame.current = undefined;
       onStructureChangeRef.current?.(path);
     }
-  }, [boxes, metrics]);
+  }, [boxes, metrics, ownedKey, orient]);
 
   function toggle(path: string) {
     setOpen((prev) => {
@@ -641,18 +767,21 @@ export function FamilyTree({
   }
 
   function pick(path: string, id: string) {
-    setPicks((prev) => {
-      const next = { ...prev };
-      if (id) next[path] = id;
-      else delete next[path];
-      return next;
-    });
+    const nextPicks: Picks = { ...picks };
+    for (const key of Object.keys(nextPicks)) {
+      if (key.startsWith(`${path}/`)) delete nextPicks[key];
+    }
+    if (id) nextPicks[path] = id;
+    else delete nextPicks[path];
+    if (onPicksChange) onPicksChange(nextPicks);
+    else setLocalPicks(nextPicks);
     setOpen((prev) => {
       const next = new Set(prev);
-      for (const p of next) {
-        if (p.startsWith(`${path}/`)) next.delete(p);
+      for (const openPath of [...next]) {
+        if (openPath.startsWith(`${path}/`)) next.delete(openPath);
       }
       if (!id) next.delete(path);
+      else if (startExpanded || !monster(id).synthOnly) expandDeep(id, path, next, new Set(), nextPicks);
       return next;
     });
     requestRecenter(path);
@@ -730,6 +859,9 @@ export function FamilyTree({
               expandable={b.expandable}
               expanded={open.has(b.path)}
               onToggle={() => toggle(b.path)}
+              owned={Boolean(owned?.has(b.path))}
+              onHave={onHave ? () => onHave(b.path) : undefined}
+              detail={detailFor?.(picks[b.path] ?? "", b.path)}
             />
           ) : (
             <MonsterCard
@@ -738,6 +870,9 @@ export function FamilyTree({
               expandable={b.expandable}
               expanded={open.has(b.path)}
               onToggle={() => toggle(b.path)}
+              owned={Boolean(owned?.has(b.path))}
+              onHave={onHave ? () => onHave(b.path) : undefined}
+              detail={detailFor?.(b.node.id, b.path)}
             />
           )}
         </div>

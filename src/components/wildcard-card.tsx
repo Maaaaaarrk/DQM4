@@ -4,6 +4,7 @@ import { RankBadge } from "@/components/rank-badge";
 import { MonsterSprite } from "@/components/monster-sprite";
 import { ScoutIcon } from "@/components/scout-icon";
 import { StatsLink } from "@/components/stats-link";
+import { HaveFlag } from "@/components/have-flag";
 import { SynthIcon } from "@/components/synth-icon";
 import type { Family, Monster, Rank } from "@/lib/monsters";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,9 @@ export function WildcardCard({
   expandable = false,
   expanded = false,
   onToggle,
+  owned = false,
+  onHave,
+  detail,
 }: {
   family: Family;
   rank: Rank;
@@ -26,6 +30,9 @@ export function WildcardCard({
   expandable?: boolean;
   expanded?: boolean;
   onToggle?: () => void;
+  owned?: boolean;
+  onHave?: () => void;
+  detail?: string;
 }) {
   const title =
     rank === "Any"
@@ -52,6 +59,9 @@ export function WildcardCard({
         <span className="whitespace-nowrap font-display text-xl font-extrabold leading-none tracking-tight drop-shadow-[0_2px_0_rgb(0_0_0_/0.28)]">
           {title}
         </span>
+        {detail ? (
+          <span className="max-w-52 text-[11px] font-bold leading-tight">{detail}</span>
+        ) : null}
         <span className="flex items-center gap-1.5">
           <RankBadge rank={rank === "Any" ? "*" : rank} />
           <FamilyIcon family={family} size="sm" />
@@ -73,6 +83,7 @@ export function WildcardCard({
               </option>
             ))}
           </select>
+          {onHave ? <HaveFlag checked={owned} onChange={onHave} label="Have it" /> : null}
           {expandable ? (
             <button
               type="button"

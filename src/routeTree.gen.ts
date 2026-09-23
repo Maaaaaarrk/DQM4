@@ -12,8 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BuildRouteImport } from './routes/build'
 import { Route as GetRouteImport } from './routes/get'
+import { Route as MapsRouteImport } from './routes/maps'
 import { Route as MonsterRouteImport } from './routes/monster'
 import { Route as MonstersRouteImport } from './routes/monsters'
+import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as TeamRouteImport } from './routes/team'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,6 +33,11 @@ const GetRoute = GetRouteImport.update({
   path: '/get',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MapsRoute = MapsRouteImport.update({
+  id: '/maps',
+  path: '/maps',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MonsterRoute = MonsterRouteImport.update({
   id: '/monster',
   path: '/monster',
@@ -40,43 +48,90 @@ const MonstersRoute = MonstersRouteImport.update({
   path: '/monsters',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SkillsRoute = SkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/build': typeof BuildRoute
   '/get': typeof GetRoute
+  '/maps': typeof MapsRoute
   '/monster': typeof MonsterRoute
   '/monsters': typeof MonstersRoute
+  '/skills': typeof SkillsRoute
+  '/team': typeof TeamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/build': typeof BuildRoute
   '/get': typeof GetRoute
+  '/maps': typeof MapsRoute
   '/monster': typeof MonsterRoute
   '/monsters': typeof MonstersRoute
+  '/skills': typeof SkillsRoute
+  '/team': typeof TeamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/build': typeof BuildRoute
   '/get': typeof GetRoute
+  '/maps': typeof MapsRoute
   '/monster': typeof MonsterRoute
   '/monsters': typeof MonstersRoute
+  '/skills': typeof SkillsRoute
+  '/team': typeof TeamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/build' | '/get' | '/monster' | '/monsters'
+  fullPaths:
+    | '/'
+    | '/build'
+    | '/get'
+    | '/maps'
+    | '/monster'
+    | '/monsters'
+    | '/skills'
+    | '/team'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/build' | '/get' | '/monster' | '/monsters'
-  id: '__root__' | '/' | '/build' | '/get' | '/monster' | '/monsters'
+  to:
+    | '/'
+    | '/build'
+    | '/get'
+    | '/maps'
+    | '/monster'
+    | '/monsters'
+    | '/skills'
+    | '/team'
+  id:
+    | '__root__'
+    | '/'
+    | '/build'
+    | '/get'
+    | '/maps'
+    | '/monster'
+    | '/monsters'
+    | '/skills'
+    | '/team'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BuildRoute: typeof BuildRoute
   GetRoute: typeof GetRoute
+  MapsRoute: typeof MapsRoute
   MonsterRoute: typeof MonsterRoute
   MonstersRoute: typeof MonstersRoute
+  SkillsRoute: typeof SkillsRoute
+  TeamRoute: typeof TeamRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,6 +157,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GetRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/maps': {
+      id: '/maps'
+      path: '/maps'
+      fullPath: '/maps'
+      preLoaderRoute: typeof MapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/monster': {
       id: '/monster'
       path: '/monster'
@@ -116,6 +178,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MonstersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/skills': {
+      id: '/skills'
+      path: '/skills'
+      fullPath: '/skills'
+      preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +199,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BuildRoute: BuildRoute,
   GetRoute: GetRoute,
+  MapsRoute: MapsRoute,
   MonsterRoute: MonsterRoute,
   MonstersRoute: MonstersRoute,
+  SkillsRoute: SkillsRoute,
+  TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

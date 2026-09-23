@@ -4,6 +4,7 @@ import { RankBadge } from "@/components/rank-badge";
 import { MonsterSprite } from "@/components/monster-sprite";
 import { StatsLink } from "@/components/stats-link";
 import { ScoutIcon } from "@/components/scout-icon";
+import { HaveFlag } from "@/components/have-flag";
 import { SynthIcon } from "@/components/synth-icon";
 import type { Monster } from "@/lib/monsters";
 import { cn } from "@/lib/utils";
@@ -16,12 +17,18 @@ export function MonsterCard({
   expandable = false,
   expanded = false,
   onToggle,
+  owned = false,
+  onHave,
+  detail,
 }: {
   monster: Monster;
   variant?: Variant;
   expandable?: boolean;
   expanded?: boolean;
   onToggle?: () => void;
+  owned?: boolean;
+  onHave?: () => void;
+  detail?: string;
 }) {
   const interactive = expandable && variant === "parent";
 
@@ -56,11 +63,15 @@ export function MonsterCard({
         >
           {monster.name}
         </button>
+        {detail ? (
+          <span className="max-w-52 text-[11px] font-bold leading-tight">{detail}</span>
+        ) : null}
         <span className="flex items-center gap-1.5">
           <RankBadge rank={monster.rank} />
           <FamilyIcon family={monster.family} size="sm" />
           {monster.synthOnly ? <SynthIcon size="sm" /> : <ScoutIcon size="sm" />}
           <StatsLink id={monster.id} />
+          {onHave ? <HaveFlag checked={owned} onChange={onHave} label="Have it" /> : null}
           {interactive ? (
             <button
               type="button"

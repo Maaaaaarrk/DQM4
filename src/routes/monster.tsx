@@ -6,6 +6,7 @@ import { RankBadge } from "@/components/rank-badge";
 import { MonsterSprite } from "@/components/monster-sprite";
 import { StatsLink } from "@/components/stats-link";
 import { ScoutIcon } from "@/components/scout-icon";
+import { SkillUnlocks } from "@/components/skill-unlocks";
 import { SynthIcon } from "@/components/synth-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
@@ -271,14 +272,23 @@ function DetailSheet({ id }: { id: string }) {
       <Section title="Skill">
         {!m.skill ? (
           <Empty>No innate skill for this monster.</Empty>
-        ) : skill?.name || skill?.description ? (
+        ) : skill?.name ? (
           <div>
-            {skill.name ? (
-              <p className="font-display text-lg font-extrabold text-gold">{skill.name}</p>
-            ) : null}
-            {skill.description ? (
-              <p className="mt-1 text-sm leading-snug text-parchment">{skill.description}</p>
-            ) : null}
+            <div className="mb-3 flex flex-wrap items-center gap-2">
+              <Link
+                to="/skills"
+                search={{ skill: skill.key }}
+                className="font-display text-lg font-extrabold text-chrome underline decoration-chrome/40 underline-offset-2 hover:text-gold"
+              >
+                {skill.name}
+              </Link>
+              {skill.category ? (
+                <span className="rounded bg-chrome px-1.5 py-0.5 font-display text-[11px] font-extrabold text-parchment">
+                  {skill.category}
+                </span>
+              ) : null}
+            </div>
+            <SkillUnlocks learns={skill.learns} />
           </div>
         ) : (
           <Empty>No description for this skill.</Empty>

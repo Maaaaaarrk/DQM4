@@ -23,7 +23,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 80,
@@ -49,7 +50,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 86,
@@ -75,7 +77,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 85,
@@ -101,7 +104,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 84,
@@ -127,7 +131,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 83,
@@ -153,7 +158,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 82,
@@ -179,7 +185,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 81,
@@ -205,7 +212,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 88,
@@ -231,7 +239,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 89,
@@ -257,7 +266,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 47,
@@ -283,7 +293,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 40,
@@ -309,7 +320,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 46,
@@ -335,7 +347,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 45,
@@ -361,7 +374,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 44,
@@ -387,7 +401,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 43,
@@ -413,7 +428,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 42,
@@ -439,7 +455,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 41,
@@ -465,7 +482,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 48,
@@ -491,7 +509,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 49,
@@ -517,7 +536,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 67,
@@ -543,7 +563,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 60,
@@ -569,7 +590,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 66,
@@ -595,7 +617,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 65,
@@ -621,7 +644,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 64,
@@ -647,7 +671,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 63,
@@ -673,7 +698,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 62,
@@ -699,7 +725,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 61,
@@ -725,7 +752,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 68,
@@ -751,7 +779,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 69,
@@ -777,7 +806,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 27,
@@ -803,7 +833,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 20,
@@ -829,7 +860,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 26,
@@ -855,7 +887,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 25,
@@ -881,7 +914,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 24,
@@ -907,7 +941,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 23,
@@ -933,7 +968,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 22,
@@ -959,7 +995,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 21,
@@ -985,7 +1022,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 28,
@@ -1011,7 +1049,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 29,
@@ -1037,7 +1076,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 57,
@@ -1063,7 +1103,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 50,
@@ -1089,7 +1130,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 56,
@@ -1115,7 +1157,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 55,
@@ -1141,7 +1184,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 54,
@@ -1167,7 +1211,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 53,
@@ -1193,7 +1238,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 52,
@@ -1219,7 +1265,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 51,
@@ -1245,7 +1292,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 58,
@@ -1271,7 +1319,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 59,
@@ -1297,7 +1346,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 37,
@@ -1323,7 +1373,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 30,
@@ -1349,7 +1400,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 36,
@@ -1375,7 +1427,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 35,
@@ -1401,7 +1454,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 34,
@@ -1427,7 +1481,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 33,
@@ -1453,7 +1508,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 32,
@@ -1479,7 +1535,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 31,
@@ -1505,7 +1562,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 38,
@@ -1531,7 +1589,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 39,
@@ -1557,7 +1616,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 17,
@@ -1583,7 +1643,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 10,
@@ -1609,7 +1670,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 16,
@@ -1635,7 +1697,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 15,
@@ -1661,7 +1724,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 14,
@@ -1687,7 +1751,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 13,
@@ -1713,7 +1778,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 12,
@@ -1739,7 +1805,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 11,
@@ -1765,7 +1832,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 18,
@@ -1791,7 +1859,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 19,
@@ -1817,7 +1886,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 77,
@@ -1843,7 +1913,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 70,
@@ -1869,7 +1940,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 76,
@@ -1895,7 +1967,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 75,
@@ -1921,7 +1994,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 74,
@@ -1947,7 +2021,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 73,
@@ -1973,7 +2048,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 72,
@@ -1999,7 +2075,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 71,
@@ -2025,7 +2102,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 78,
@@ -2051,7 +2129,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 79,
@@ -2077,7 +2156,8 @@
     "Trivia": "-",
     "Notes": null,
     "IsVerified": true,
-    "Drops": []
+    "Drops": [],
+    "Large": false
   },
   {
     "MonsterId": 108,
@@ -2172,7 +2252,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 109,
@@ -2280,7 +2361,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 110,
@@ -2388,7 +2470,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 656,
@@ -2483,7 +2566,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 659,
@@ -2578,7 +2662,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 115,
@@ -2686,7 +2771,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 116,
@@ -2794,7 +2880,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 119,
@@ -2902,7 +2989,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 120,
@@ -3010,7 +3098,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 121,
@@ -3118,7 +3207,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 122,
@@ -3226,7 +3316,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 123,
@@ -3321,7 +3412,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 103,
@@ -3429,7 +3521,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 126,
@@ -3537,7 +3630,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 127,
@@ -3645,7 +3739,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 128,
@@ -3753,7 +3848,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 644,
@@ -3861,7 +3957,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 129,
@@ -3956,7 +4053,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 130,
@@ -4064,7 +4162,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 131,
@@ -4172,7 +4271,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 132,
@@ -4280,7 +4380,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 133,
@@ -4375,7 +4476,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 276,
@@ -4470,7 +4572,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 665,
@@ -4578,7 +4681,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 306,
@@ -4686,7 +4790,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 661,
@@ -4794,7 +4899,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 138,
@@ -4902,7 +5008,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 139,
@@ -4997,7 +5104,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 140,
@@ -5105,7 +5213,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 141,
@@ -5213,7 +5322,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 142,
@@ -5321,7 +5431,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 143,
@@ -5416,7 +5527,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 147,
@@ -5524,7 +5636,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 149,
@@ -5632,7 +5745,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 151,
@@ -5727,7 +5841,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 150,
@@ -5822,7 +5937,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 152,
@@ -5917,7 +6033,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 313,
@@ -6025,7 +6142,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 651,
@@ -6120,7 +6238,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 153,
@@ -6215,7 +6334,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 154,
@@ -6323,7 +6443,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 155,
@@ -6431,7 +6552,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 354,
@@ -6526,7 +6648,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 157,
@@ -6634,7 +6757,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 159,
@@ -6729,7 +6853,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 158,
@@ -6837,7 +6962,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 160,
@@ -6945,7 +7071,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 161,
@@ -7053,7 +7180,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 162,
@@ -7161,7 +7289,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 106,
@@ -7269,7 +7398,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 164,
@@ -7364,7 +7494,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 165,
@@ -7459,7 +7590,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 643,
@@ -7567,7 +7699,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 355,
@@ -7662,7 +7795,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 166,
@@ -7770,7 +7904,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 663,
@@ -7878,7 +8013,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 673,
@@ -7973,7 +8109,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 167,
@@ -8068,7 +8205,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 168,
@@ -8163,7 +8301,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 670,
@@ -8258,7 +8397,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 169,
@@ -8366,7 +8506,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 170,
@@ -8461,7 +8602,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 171,
@@ -8569,7 +8711,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 662,
@@ -8664,7 +8807,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 104,
@@ -8772,7 +8916,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 173,
@@ -8867,7 +9012,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 178,
@@ -8975,7 +9121,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 666,
@@ -9070,7 +9217,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 179,
@@ -9165,7 +9313,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 181,
@@ -9260,7 +9409,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 667,
@@ -9355,7 +9505,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 183,
@@ -9463,7 +9614,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 184,
@@ -9558,7 +9710,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 185,
@@ -9653,7 +9806,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 186,
@@ -9761,7 +9915,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 657,
@@ -9869,7 +10024,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 187,
@@ -9977,7 +10133,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 188,
@@ -10085,7 +10242,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 189,
@@ -10180,7 +10338,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 191,
@@ -10288,7 +10447,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 645,
@@ -10396,7 +10556,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 193,
@@ -10491,7 +10652,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 194,
@@ -10599,7 +10761,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 649,
@@ -10694,7 +10857,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 195,
@@ -10802,7 +10966,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 664,
@@ -10910,7 +11075,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 196,
@@ -11005,7 +11171,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 198,
@@ -11113,7 +11280,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 652,
@@ -11208,7 +11376,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 199,
@@ -11316,7 +11485,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 200,
@@ -11411,7 +11581,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 658,
@@ -11506,7 +11677,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 201,
@@ -11614,7 +11786,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 202,
@@ -11722,7 +11895,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 653,
@@ -11830,7 +12004,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 205,
@@ -11938,7 +12113,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 204,
@@ -12046,7 +12222,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 206,
@@ -12154,7 +12331,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 207,
@@ -12249,7 +12427,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 208,
@@ -12357,7 +12536,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 209,
@@ -12452,7 +12632,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 211,
@@ -12560,7 +12741,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 212,
@@ -12668,7 +12850,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 213,
@@ -12763,7 +12946,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 214,
@@ -12858,7 +13042,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 650,
@@ -12966,7 +13151,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 218,
@@ -13074,7 +13260,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 646,
@@ -13182,7 +13369,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 219,
@@ -13290,7 +13478,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 221,
@@ -13398,7 +13587,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 669,
@@ -13506,7 +13696,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 222,
@@ -13614,7 +13805,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 223,
@@ -13722,7 +13914,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 224,
@@ -13830,7 +14023,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 226,
@@ -13925,7 +14119,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 227,
@@ -14020,7 +14215,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 648,
@@ -14115,7 +14311,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 229,
@@ -14223,7 +14420,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 230,
@@ -14331,7 +14529,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 231,
@@ -14439,7 +14638,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 654,
@@ -14534,7 +14734,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 655,
@@ -14642,7 +14843,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 271,
@@ -14750,7 +14952,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 234,
@@ -14858,7 +15061,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 235,
@@ -14953,7 +15157,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 105,
@@ -15048,7 +15253,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 236,
@@ -15156,7 +15362,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 238,
@@ -15264,7 +15471,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 273,
@@ -15372,7 +15580,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 239,
@@ -15480,7 +15689,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 660,
@@ -15575,7 +15785,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 101,
@@ -15683,7 +15894,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 241,
@@ -15778,7 +15990,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 243,
@@ -15886,7 +16099,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 244,
@@ -15981,7 +16195,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 672,
@@ -16076,7 +16291,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 245,
@@ -16184,7 +16400,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 246,
@@ -16279,7 +16496,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 247,
@@ -16374,7 +16592,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 252,
@@ -16482,7 +16701,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 253,
@@ -16577,7 +16797,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 254,
@@ -16685,7 +16906,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 256,
@@ -16793,7 +17015,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 257,
@@ -16901,7 +17124,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 647,
@@ -17009,7 +17233,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 259,
@@ -17117,7 +17342,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 260,
@@ -17225,7 +17451,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 668,
@@ -17333,7 +17560,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 505,
@@ -17441,7 +17669,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 674,
@@ -17549,7 +17778,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 320,
@@ -17657,7 +17887,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": true
   },
   {
     "MonsterId": 262,
@@ -17752,7 +17983,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 263,
@@ -17860,7 +18092,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 264,
@@ -17968,7 +18201,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 417,
@@ -18076,7 +18310,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 265,
@@ -18171,7 +18406,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 267,
@@ -18279,7 +18515,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 671,
@@ -18374,7 +18611,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 102,
@@ -18469,7 +18707,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 269,
@@ -18577,7 +18816,8 @@
     ],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 270,
@@ -18672,7 +18912,8 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   },
   {
     "MonsterId": 675,
@@ -18767,6 +19008,7 @@
     "Drops": [],
     "Trivia": null,
     "Notes": null,
-    "IsVerified": true
+    "IsVerified": true,
+    "Large": false
   }
 ]

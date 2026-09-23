@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ChevronDown, ChevronUp, ChevronsDown, ChevronsUp } from "lucide-react";
 import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import {
@@ -28,9 +29,9 @@ const STAT_SHORT: Record<(typeof PERSONALITY_STATS)[number]["key"], string> = {
   wisdom: "Wis",
 };
 
-function formatBias(value: number) {
-  if (value > 0) return `+${value}`;
-  return String(value);
+/** Each stored step is 100 growth points. */
+function growthPoints(value: number) {
+  return value * 100;
 }
 
 function matches(personality: Personality, query: string) {
@@ -41,25 +42,22 @@ function matches(personality: Personality, query: string) {
 }
 
 function BiasMark({ value, label }: { value: number; label: string }) {
-  const text = formatBias(value);
   if (value === 0) {
-    return (
-      <span aria-label={`${label} ${text}`} className="font-display text-sm font-extrabold text-muted">
-        0
-      </span>
-    );
+    return <span aria-label={`${label} unchanged`} />;
   }
+  const points = growthPoints(value);
   const raised = value > 0;
+  const strong = Math.abs(value) >= 2;
+  const Icon = raised ? (strong ? ChevronsUp : ChevronUp) : strong ? ChevronsDown : ChevronDown;
   return (
     <span
-      aria-label={`${label} ${text}`}
-      className={
-        raised
-          ? "inline-flex min-w-8 items-center justify-center rounded-md bg-focus px-1 py-0.5 font-display text-sm font-extrabold text-focus-fg"
-          : "inline-flex min-w-8 items-center justify-center rounded-md bg-red-800 px-1 py-0.5 font-display text-sm font-extrabold text-parchment"
-      }
+      aria-label={`${label} ${points}`}
+      className={`inline-flex items-center justify-center gap-px rounded-md px-0.5 py-0.5 font-display text-[11px] font-extrabold leading-none sm:gap-0.5 sm:px-1 sm:text-sm ${
+        raised ? "bg-focus text-focus-fg" : "bg-red-800 text-parchment"
+      }`}
     >
-      {text}
+      <Icon className="size-3 shrink-0 sm:size-4" strokeWidth={3} aria-hidden />
+      {Math.abs(points)}
     </span>
   );
 }
@@ -116,7 +114,7 @@ function PersonalityTable({
                       : "scroll-mt-4 bg-gold/35"
                 }
               >
-                <th scope="row" className="px-3 py-2 text-left align-middle">
+                <th scope="row" className="px-2 py-2 text-left align-middle sm:px-3">
                   <span className="block font-display text-sm font-extrabold leading-tight text-chrome">
                     {personality.name}
                   </span>
@@ -125,7 +123,7 @@ function PersonalityTable({
                   </span>
                 </th>
                 {PERSONALITY_STATS.map((stat) => (
-                  <td key={stat.key} className="px-0.5 py-2 text-center align-middle">
+                  <td key={stat.key} className="px-0 py-2 text-center align-middle sm:px-0.5">
                     <BiasMark value={personalityBias(personality, stat.key)} label={stat.label} />
                   </td>
                 ))}
@@ -183,7 +181,7 @@ function PersonalityGuide() {
             {shown.length} {shown.length === 1 ? "personality" : "personalities"}
           </p>
           <p className="text-sm font-bold leading-relaxed text-chrome">
-            A positive number raises that stat&apos;s growth. A negative number lowers it.
+            One tick is 100 growth points. Two ticks is 200.
           </p>
           {shown.length === 0 ? (
             <p className="rounded-xl border-2 border-gold/60 bg-chrome/80 px-4 py-3 text-center font-display font-bold text-gold">

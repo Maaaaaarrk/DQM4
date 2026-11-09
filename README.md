@@ -1,38 +1,42 @@
-# Withered Dex
+# Synthline
 
-Interactive **Dragon Quest Monsters: The Dark Prince / Withered World (DQM4)** family tree.
+Unofficial synthesis guides for **Dragon Quest Monsters: The Dark Prince**.
 
-Synthesis pedigrees with in-game-style cards, portraits, pan/zoom, and expand-until-scoutable.
+Scout. Synth. Repeat.
+
+Live site: [https://maaaaaarrk.github.io/DQM4/](https://maaaaaarrk.github.io/DQM4/)
+
+Dragon Quest and Dragon Quest Monsters are trademarks of Square Enix. Synthline is an unofficial fan database and is not affiliated with or endorsed by Square Enix.
 
 English names are from [MetalKid Databases](https://github.com/MetalKid/Databases).
 
-## Run locally
+## Guides
+
+- **How do I get this monster** walks the pedigree back to a monster you can scout.
+- **What can I build from this monster** locks a monster you have and climbs the syntheses you choose.
+- **Monster list** filters the roster by rank, family, and scoutable or synthesis-only.
+- **Monster details** shows caps, traits, skill, drops, growth, resistances, and habitat.
+- **Skills** lists each skill, its talent-point costs, and the traits and abilities it teaches.
+- **Personalities** shows how each personality raises or lowers growth.
+- **Team planner** holds four main slots and four reserve slots. A large monster fills two slots. The lineup stays in this browser. A share link carries only the party.
+- **Maps** opens each field, dungeon, and town map.
+
+## Develop
+
+Requires Node 22.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Dev server: `http://localhost:8080`.
-
-Static host: [https://maaaaaarrk.github.io/DQM4/](https://maaaaaarrk.github.io/DQM4/). Pushes to `main` build with `VITE_BASE_PATH=/DQM4/` and publish via GitHub Pages.
+The dev server is [http://localhost:8080](http://localhost:8080).
 
 ```bash
 npm run typecheck
 npm run build
 ```
 
-## What you can do
+A push to `main` builds the static site and publishes it with GitHub Pages. That build sets `VITE_BASE_PATH=/DQM4/`.
 
-- Search / pick any monster as the tree root
-- Horizontal (focus left, parents up/down) or vertical (focus top, parents below)
-- Expand / collapse a node with **+ / −**
-- **Expand all**, **Expand to Scoutable** (stop at wild-caught monsters), **Minimize all**
-- Family+rank wildcards with a dropdown to pick a species
-- Wheel zoom toward cursor, drag to pan
-
-## Stack
-
-TanStack Start + React 19 + Tailwind v4. Auth/DB are **off** — this is a static client app over JSON.
-
-See [HANDOFF.md](HANDOFF.md) for architecture, file map, and next-session notes.
+The app is a static client over the JSON in `src/data/dqm4/`. The team planner is stored in the browser.

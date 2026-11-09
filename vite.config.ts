@@ -153,8 +153,7 @@ function viteBase(): string {
 }
 
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
-// The dev server starts once `src/router.tsx` and `src/routes/` exist — see
-// AGENTS.md § "First scaffold".
+// The dev server starts once `src/router.tsx` and `src/routes/` exist.
 export default defineConfig({
   base: viteBase(),
   server: {

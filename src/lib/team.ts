@@ -296,6 +296,8 @@ export function monsterStatus(id: string, opts: ObtainOpts): { line: string; rea
 }
 
 export type TimelineMember = {
+  /** Party slot whose tree owns the Have it marks, such as `main:0`. */
+  key: string;
   id: string;
   /** Pedigree paths already marked Have it in this party slot's tree. */
   owned: readonly string[];
@@ -303,11 +305,18 @@ export type TimelineMember = {
   picks?: Readonly<Record<string, string>>;
 };
 
+export type TimelineMark = {
+  key: string;
+  path: string;
+};
+
 export type TimelineScout = {
   id: string;
   lines: string[];
   /** Party monsters this catch is for, when it is not that monster itself. */
   targets: string[];
+  /** Have it paths that record this catch. One species can fill several slots. */
+  marks: TimelineMark[];
 };
 
 export type TimelineZone = {
@@ -328,11 +337,12 @@ export type ScoutTimeline = {
 type ScoutNeed = {
   area: number;
   scouts: { id: string; area: number }[];
+  marks: { id: string; path: string }[];
 };
 
 type NeedMemo = Map<string, ScoutNeed | "no">;
 
-const NOTHING: ScoutNeed = { area: -1, scouts: [] };
+const NOTHING: ScoutNeed = { area: -1, scouts: [], marks: [] };
 
 function spotsInEarliestArea(m: Monster): ScoutSpot[] {
   const spots = scoutSpots(m);
@@ -371,7 +381,7 @@ function needAt(
   memo: NeedMemo,
   picks: Readonly<Record<string, string>>,
 ): ScoutNeed | null {
-  const key = `${id}\n${ownedKey(path, owned)}\n${pickKey(path, picks)}`;
+  const key = `${path}\n${id}\n${ownedKey(path, owned)}\n${pickKey(path, picks)}`;
   const cached = memo.get(key);
   if (cached) return cached === "no" ? null : cached;
   if (owned.has(path)) {
@@ -386,7 +396,12 @@ function needAt(
   }
   const spots = spotsInEarliestArea(m);
   if (spots.length) {
-    const plan = { area: areaIndex(spots[0].area), scouts: [{ id: m.id, area: areaIndex(spots[0].area) }] };
+    const area = areaIndex(spots[0].area);
+    const plan = {
+      area,
+      scouts: [{ id: m.id, area }],
+      marks: [{ id: m.id, path }],
+    };
     memo.set(key, plan);
     return plan;
   }
@@ -414,14 +429,26 @@ function needAt(
     parts.push(part);
   }
   const byId = new Map<string, number>();
+  const marks: { id: string; path: string }[] = [];
+  const seenMarks = new Set<string>();
   for (const part of parts) {
     for (const scout of part.scouts) {
       const prev = byId.get(scout.id);
       if (prev == null || scout.area < prev) byId.set(scout.id, scout.area);
     }
+    for (const mark of part.marks) {
+      const token = `${mark.id}\n${mark.path}`;
+      if (seenMarks.has(token)) continue;
+      seenMarks.add(token);
+      marks.push(mark);
+    }
   }
   const scouts = [...byId].map(([scoutId, area]) => ({ id: scoutId, area }));
-  const plan = { area: scouts.length ? Math.max(...scouts.map((scout) => scout.area)) : -1, scouts };
+  const plan = {
+    area: scouts.length ? Math.max(...scouts.map((scout) => scout.area)) : -1,
+    scouts,
+    marks,
+  };
   memo.set(key, plan);
   return plan;
 }
@@ -470,7 +497,7 @@ function blockLine(id: string): string {
 
 /** Scouts that build the party, grouped by the earliest zone each catch appears. */
 export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline {
-  const scouts = new Map<string, { area: number; targets: Set<string> }>();
+  const scouts = new Map<string, { area: number; targets: Set<string>; marks: TimelineMark[] }>();
   const blocked: TimelineBlock[] = [];
   const seenBlocked = new Set<string>();
   const memo: NeedMemo = new Map();
@@ -487,15 +514,23 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
       }
       continue;
     }
-    for (const scout of plan.scouts) {
-      const row = scouts.get(scout.id);
-      if (row) {
-        if (scout.id !== member.id) row.targets.add(monsterRow.name);
+    const seenHere = new Set<string>();
+    for (const mark of plan.marks) {
+      const scout = plan.scouts.find((row) => row.id === mark.id);
+      if (!scout) continue;
+      const entry = { key: member.key, path: mark.path };
+      const row = scouts.get(mark.id);
+      if (!row) {
+        const targets = new Set<string>();
+        if (mark.id !== member.id) targets.add(monsterRow.name);
+        scouts.set(mark.id, { area: scout.area, targets, marks: [entry] });
+        seenHere.add(mark.id);
         continue;
       }
-      const targets = new Set<string>();
-      if (scout.id !== member.id) targets.add(monsterRow.name);
-      scouts.set(scout.id, { area: scout.area, targets });
+      if (scout.area < row.area) row.area = scout.area;
+      if (!row.marks.some((item) => item.key === entry.key && item.path === entry.path)) row.marks.push(entry);
+      if (mark.id !== member.id && !seenHere.has(mark.id)) row.targets.add(monsterRow.name);
+      seenHere.add(mark.id);
     }
   }
 
@@ -509,6 +544,7 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
           id,
           lines: spotsInEarliestArea(m).map(spotLine),
           targets: [...scout.targets].sort((a, b) => a.localeCompare(b)),
+          marks: scout.marks,
         };
       })
       .sort((a, b) => monster(a.id).name.localeCompare(monster(b.id).name));
@@ -523,6 +559,7 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
         id,
         lines: spotsInEarliestArea(monster(id)).map(spotLine),
         targets: [...scout.targets].sort((a, b) => a.localeCompare(b)),
+        marks: scout.marks,
       })),
     });
   }

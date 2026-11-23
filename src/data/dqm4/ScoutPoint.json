@@ -1,0 +1,2272 @@
+[
+  {
+    "MonsterId": 101,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 61.69,
+    "Y": 76.43
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 53.74,
+    "Y": 77.81
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 89.36,
+    "Y": 79.37
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 66.24,
+    "Y": 79.4
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.43,
+    "Y": 81.21
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 79.17,
+    "Y": 85.45
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 66.19,
+    "Y": 66.79
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 58.38,
+    "Y": 67.81
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 59.31,
+    "Y": 68.83
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 83.81,
+    "Y": 69.4
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 72.62,
+    "Y": 75.64
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 79.74,
+    "Y": 76.29
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 16.57,
+    "Y": 80.36
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 14.76,
+    "Y": 81.29
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 18.57,
+    "Y": 81.29
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 16.57,
+    "Y": 83.02
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 65.14,
+    "Y": 86.52
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 27.33,
+    "Y": 87.76
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 69.29,
+    "Y": 89.74
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 69.29,
+    "Y": 90.19
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 73.06,
+    "Y": 92.35
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 73.5,
+    "Y": 92.35
+  },
+  {
+    "MonsterId": 218,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 61.07,
+    "Y": 92.43
+  },
+  {
+    "MonsterId": 222,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 5.24,
+    "Y": 65.88
+  },
+  {
+    "MonsterId": 222,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 7.72,
+    "Y": 82.63
+  },
+  {
+    "MonsterId": 222,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 10.45,
+    "Y": 85.52
+  },
+  {
+    "MonsterId": 222,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 20.33,
+    "Y": 87.55
+  },
+  {
+    "MonsterId": 222,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 33.67,
+    "Y": 92.52
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 85.57,
+    "Y": 78.95
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 59.52,
+    "Y": 81.81
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 41.67,
+    "Y": 82.6
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 91.55,
+    "Y": 86.81
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 85.74,
+    "Y": 88.36
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 47.21,
+    "Y": 88.67
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 80.9,
+    "Y": 89.83
+  },
+  {
+    "MonsterId": 229,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 55.76,
+    "Y": 90.26
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 27.1,
+    "Y": 64.98
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 23.74,
+    "Y": 68.36
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 16.57,
+    "Y": 69.6
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 7.36,
+    "Y": 71.77
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 13.69,
+    "Y": 72.07
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 21,
+    "Y": 75.1
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 27.21,
+    "Y": 77.33
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 47.33,
+    "Y": 68.02
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 54.71,
+    "Y": 70.1
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 71.62,
+    "Y": 70.86
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 52.29,
+    "Y": 74.64
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.21,
+    "Y": 75.43
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 33.74,
+    "Y": 77.79
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 34.43,
+    "Y": 83.86
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 54.55,
+    "Y": 85.98
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 38.26,
+    "Y": 88.67
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 48.95,
+    "Y": 91.21
+  },
+  {
+    "MonsterId": 313,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": true,
+    "Map": "field",
+    "X": 46.95,
+    "Y": 63.36
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 77.6,
+    "Y": 72.31
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.69,
+    "Y": 80.76
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 49.07,
+    "Y": 82.71
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 82.86,
+    "Y": 83.55
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Parchland",
+    "Time": "Day",
+    "Where": "Underground",
+    "Boss": false,
+    "Map": "field",
+    "X": 27.06,
+    "Y": 81.31
+  },
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 64.07,
+    "Y": 71.83
+  },
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 38.64,
+    "Y": 72.29
+  },
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 48.62,
+    "Y": 72.43
+  },
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 60.26,
+    "Y": 73.29
+  },
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 42.6,
+    "Y": 73.76
+  },
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 26.14,
+    "Y": 73.88
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 11.6,
+    "Y": 6.33
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 32.66,
+    "Y": 11.46
+  },
+  {
+    "MonsterId": 101,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 32.64,
+    "Y": 11.8
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 45.81,
+    "Y": 20.36
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 15.48,
+    "Y": 14.64
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 56.83,
+    "Y": 14.74
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 9.29,
+    "Y": 16.57
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 45.88,
+    "Y": 17.33
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 24.95,
+    "Y": 19.38
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 42.45,
+    "Y": 19.67
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 5.95,
+    "Y": 20.14
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 38.95,
+    "Y": 21.1
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 91.74,
+    "Y": 21.57
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 88.76,
+    "Y": 22.4
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 49.76,
+    "Y": 29.05
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 52.14,
+    "Y": 34.05
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 69.5,
+    "Y": 6.62
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 62.33,
+    "Y": 8.6
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 71.29,
+    "Y": 9.24
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 55.79,
+    "Y": 24.17
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 34.67,
+    "Y": 26.24
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 66.64,
+    "Y": 28.33
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 82.68,
+    "Y": 28.36
+  },
+  {
+    "MonsterId": 142,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 55.43,
+    "Y": 30.21
+  },
+  {
+    "MonsterId": 205,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 24.95,
+    "Y": 4.71
+  },
+  {
+    "MonsterId": 205,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 49.45,
+    "Y": 10.45
+  },
+  {
+    "MonsterId": 205,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.33,
+    "Y": 14.95
+  },
+  {
+    "MonsterId": 205,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 67.8,
+    "Y": 19.25
+  },
+  {
+    "MonsterId": 205,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 58,
+    "Y": 19.98
+  },
+  {
+    "MonsterId": 205,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 30.01,
+    "Y": 28.66
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 36,
+    "Y": 6.5
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 58.12,
+    "Y": 10.4
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 36.21,
+    "Y": 13.7
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 36.71,
+    "Y": 14.28
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 62.17,
+    "Y": 18.24
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 15.74,
+    "Y": 21
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 16.67,
+    "Y": 21.88
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 31.88,
+    "Y": 22.86
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 61.71,
+    "Y": 23.17
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 61.48,
+    "Y": 27.76
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 64.6,
+    "Y": 29.74
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 59.93,
+    "Y": 30.4
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 45.79,
+    "Y": 32.38
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 40.31,
+    "Y": 10.86
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 50.43,
+    "Y": 15.36
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 44.74,
+    "Y": 19.36
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 24.12,
+    "Y": 21.76
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 51.14,
+    "Y": 23.36
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 27.6,
+    "Y": 24.33
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 37.81,
+    "Y": 30.02
+  },
+  {
+    "MonsterId": 505,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": true,
+    "Map": "field",
+    "X": 24.52,
+    "Y": 12.57
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 39.86,
+    "Y": 17.24
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 80.54,
+    "Y": 24.76
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 42.94,
+    "Y": 30.74
+  },
+  {
+    "MonsterId": 643,
+    "Area": "The Sogswamp",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 49.14,
+    "Y": 36.1
+  },
+  {
+    "MonsterId": 645,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 76.75,
+    "Y": 17.63
+  },
+  {
+    "MonsterId": 645,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 79,
+    "Y": 17.64
+  },
+  {
+    "MonsterId": 645,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 78,
+    "Y": 19.5
+  },
+  {
+    "MonsterId": 645,
+    "Area": "The Sogswamp",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 76.05,
+    "Y": 30.1
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 73.5,
+    "Y": 38.57
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 14.29,
+    "Y": 40.5
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 28.86,
+    "Y": 48.4
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 29.31,
+    "Y": 49.1
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 8.55,
+    "Y": 50.79
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 15.34,
+    "Y": 53.01
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 56.74,
+    "Y": 57.31
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": "In water",
+    "Boss": false,
+    "Map": "field",
+    "X": 56.05,
+    "Y": 48.21
+  },
+  {
+    "MonsterId": 101,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 72.39,
+    "Y": 50.43
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 8.05,
+    "Y": 27.26
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 12.38,
+    "Y": 27.64
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 92.67,
+    "Y": 31.26
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 11.64,
+    "Y": 33.19
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 85.05,
+    "Y": 34.67
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 87.14,
+    "Y": 36.62
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 32.93,
+    "Y": 40.6
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 95.38,
+    "Y": 42.62
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 15.85,
+    "Y": 45.46
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 5.79,
+    "Y": 47.38
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 21.1,
+    "Y": 50.02
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 92,
+    "Y": 50.02
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 26.07,
+    "Y": 50.17
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 36.9,
+    "Y": 51.12
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 38.02,
+    "Y": 56.17
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 32.71,
+    "Y": 40.24
+  },
+  {
+    "MonsterId": 116,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 31.02,
+    "Y": 36.69
+  },
+  {
+    "MonsterId": 116,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 41.5,
+    "Y": 47.95
+  },
+  {
+    "MonsterId": 116,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 31.24,
+    "Y": 53.45
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 19.88,
+    "Y": 30.24
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 23.88,
+    "Y": 36.02
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 27.52,
+    "Y": 38.19
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 7.93,
+    "Y": 38.38
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 8.29,
+    "Y": 38.86
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 7.12,
+    "Y": 39.76
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 20.1,
+    "Y": 39.93
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 18.57,
+    "Y": 40.36
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 36.43,
+    "Y": 43.81
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 9.21,
+    "Y": 51.02
+  },
+  {
+    "MonsterId": 128,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 7.43,
+    "Y": 54.71
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 77.38,
+    "Y": 34.9
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 18.67,
+    "Y": 35.93
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 79.48,
+    "Y": 35.95
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.98,
+    "Y": 39.36
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 39.45,
+    "Y": 40.07
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 95.55,
+    "Y": 40.79
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 83.83,
+    "Y": 42.74
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 78.52,
+    "Y": 43.4
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 43.19,
+    "Y": 44.05
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 22.64,
+    "Y": 44.1
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 65.98,
+    "Y": 47.14
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 47.33,
+    "Y": 50.83
+  },
+  {
+    "MonsterId": 171,
+    "Area": "Witherwood Plains",
+    "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 63.38,
+    "Y": 52.48
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 4.62,
+    "Y": 33.33
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 4.62,
+    "Y": 34.55
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 79.19,
+    "Y": 47.14
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 70.4,
+    "Y": 52.76
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 82.86,
+    "Y": 53.79
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 90.45,
+    "Y": 55.83
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 78.9,
+    "Y": 56.69
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 47.4,
+    "Y": 58.88
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 41.36,
+    "Y": 60.21
+  },
+  {
+    "MonsterId": 187,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 74.36,
+    "Y": 49.3
+  },
+  {
+    "MonsterId": 320,
+    "Area": "Witherwood Plains",
+    "Time": null,
+    "Where": null,
+    "Boss": true,
+    "Map": "field",
+    "X": 86.64,
+    "Y": 46.69
+  },
+  {
+    "MonsterId": 103,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 50.18,
+    "Y": 22.87
+  },
+  {
+    "MonsterId": 103,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 66.73,
+    "Y": 70.64
+  },
+  {
+    "MonsterId": 103,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 49.76,
+    "Y": 79.18
+  },
+  {
+    "MonsterId": 188,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 64.69,
+    "Y": 26.55
+  },
+  {
+    "MonsterId": 188,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 50.72,
+    "Y": 52.7
+  },
+  {
+    "MonsterId": 188,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 69.89,
+    "Y": 64.01
+  },
+  {
+    "MonsterId": 188,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 32.23,
+    "Y": 71.92
+  },
+  {
+    "MonsterId": 191,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 66.7,
+    "Y": 32.65
+  },
+  {
+    "MonsterId": 191,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 62.65,
+    "Y": 36.8
+  },
+  {
+    "MonsterId": 191,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 47.62,
+    "Y": 49.35
+  },
+  {
+    "MonsterId": 191,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 56.48,
+    "Y": 56.86
+  },
+  {
+    "MonsterId": 191,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 40.87,
+    "Y": 76.74
+  },
+  {
+    "MonsterId": 204,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 35.61,
+    "Y": 26.43
+  },
+  {
+    "MonsterId": 204,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 32.06,
+    "Y": 66.86
+  },
+  {
+    "MonsterId": 204,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 67.07,
+    "Y": 75.64
+  },
+  {
+    "MonsterId": 260,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 49.24,
+    "Y": 42.15
+  },
+  {
+    "MonsterId": 260,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 52.39,
+    "Y": 45.81
+  },
+  {
+    "MonsterId": 260,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 75.31,
+    "Y": 69.57
+  },
+  {
+    "MonsterId": 260,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": "In water",
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 58.16,
+    "Y": 19.79
+  },
+  {
+    "MonsterId": 260,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": "In water",
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 63.5,
+    "Y": 58.69
+  },
+  {
+    "MonsterId": 645,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 50.8,
+    "Y": 17.39
+  },
+  {
+    "MonsterId": 645,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 49.35,
+    "Y": 17.41
+  },
+  {
+    "MonsterId": 645,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 43.24,
+    "Y": 56.44
+  },
+  {
+    "MonsterId": 645,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 70.88,
+    "Y": 70.32
+  },
+  {
+    "MonsterId": 645,
+    "Area": "Shrine of Serenity, Interior",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "shrine-1",
+    "X": 38.58,
+    "Y": 70.46
+  },
+  {
+    "MonsterId": 130,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 42.49,
+    "Y": 70.93
+  },
+  {
+    "MonsterId": 130,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 43.33,
+    "Y": 70.95
+  },
+  {
+    "MonsterId": 130,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 42.8,
+    "Y": 71.84
+  },
+  {
+    "MonsterId": 130,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 50.8,
+    "Y": 72.9
+  },
+  {
+    "MonsterId": 157,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 57.2,
+    "Y": 41.25
+  },
+  {
+    "MonsterId": 157,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 82.6,
+    "Y": 52.1
+  },
+  {
+    "MonsterId": 157,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 82.71,
+    "Y": 54.6
+  },
+  {
+    "MonsterId": 157,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 76.2,
+    "Y": 65.83
+  },
+  {
+    "MonsterId": 194,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 51.4,
+    "Y": 44.16
+  },
+  {
+    "MonsterId": 194,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 66.09,
+    "Y": 52.44
+  },
+  {
+    "MonsterId": 194,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 45.15,
+    "Y": 55.55
+  },
+  {
+    "MonsterId": 238,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 78.53,
+    "Y": 46.87
+  },
+  {
+    "MonsterId": 238,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 73.71,
+    "Y": 51.28
+  },
+  {
+    "MonsterId": 238,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 53.97,
+    "Y": 53.1
+  },
+  {
+    "MonsterId": 238,
+    "Area": "The Spelunk",
+    "Time": null,
+    "Where": null,
+    "Boss": false,
+    "Map": "spelunk",
+    "X": 74.15,
+    "Y": 58.93
+  }
+]

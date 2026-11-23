@@ -64,10 +64,10 @@ const GUIDES = [
   },
   {
     to: "/maps",
-    search: { map: "" },
+    search: { map: "", area: "", monsters: "" },
     kicker: "Places",
     title: "Maps",
-    body: "Every field, dungeon, and town map. Open one to see it larger.",
+    body: "Every field, dungeon, and town map. Open one to see where each monster stands.",
     icon: false,
   },
 ] as const;

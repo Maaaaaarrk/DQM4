@@ -6,9 +6,12 @@ import { HaveFlag } from "@/components/have-flag";
 import { MonsterSprite } from "@/components/monster-sprite";
 import { RankBadge } from "@/components/rank-badge";
 import { TreeViewport, type TreeViewportHandle } from "@/components/tree-viewport";
+import { MapView, type MapPin } from "@/components/zone-map";
 import { SiteFooter } from "@/components/site-footer";
+import { SpotMap } from "@/components/spot-map-link";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
-import { mapForArea } from "@/lib/game-maps";
+import { mapById, mapForArea, type GameMap } from "@/lib/game-maps";
+import { pointLine, SCOUT_POINTS, type ScoutPoint } from "@/lib/scout-points";
 import { renderTeamImage } from "@/lib/team-image";
 import { loadTeam, saveTeam } from "@/lib/team-store";
 import {
@@ -22,6 +25,8 @@ import {
   placeMonster,
   scoutTimeline,
   setSlotSize,
+  type TimelineMark,
+  type TimelineZone,
   SLOT_CONTINUE,
   slotFits,
   slotIsLarge,
@@ -127,6 +132,18 @@ function TeamPlanner() {
     });
   }
 
+  function markScouted(marks: TimelineMark[]) {
+    setTrees((current) => {
+      const next = { ...current };
+      for (const mark of marks) {
+        const list = next[mark.key] ?? [];
+        if (list.includes(mark.path)) continue;
+        next[mark.key] = [...list, mark.path];
+      }
+      return next;
+    });
+  }
+
   function resize(bank: Bank, index: number, large: boolean) {
     const slots = bank === "main" ? main : reserve;
     const next = setSlotSize(slots, index, large);
@@ -164,16 +181,18 @@ function TeamPlanner() {
   }
 
   const timelineMembers = useMemo(() => {
-    const list: { id: string; owned: string[]; picks: Record<string, string> }[] = [];
+    const list: { key: string; id: string; owned: string[]; picks: Record<string, string> }[] = [];
     for (const bank of ["main", "reserve"] as const) {
       const slots = bank === "main" ? main : reserve;
       for (let index = 0; index < 4; index += 1) {
         const id = slotMonsterId(slots, index);
         if (!id) continue;
+        const key = slotKey(bank, index);
         list.push({
+          key,
           id,
-          owned: trees[slotKey(bank, index)] ?? [],
-          picks: picksBySlot[slotKey(bank, index)] ?? {},
+          owned: trees[key] ?? [],
+          picks: picksBySlot[key] ?? {},
         });
       }
     }
@@ -216,7 +235,7 @@ function TeamPlanner() {
               </h2>
               <Link
                 to="/maps"
-                search={{ map: "" }}
+                search={{ map: "", area: "", monsters: "" }}
                 className="rounded-lg border-2 border-gold bg-chrome px-3 py-1 font-display text-sm font-extrabold text-gold"
               >
                 Maps
@@ -253,7 +272,7 @@ function TeamPlanner() {
           </section>
 
           {timelineOpen ? (
-            <ScoutTimelinePanel members={timelineMembers} progress={progress} />
+            <ScoutTimelinePanel members={timelineMembers} progress={progress} onScouted={markScouted} />
           ) : null}
 
           {(["main", "reserve"] as const).map((bank) => (
@@ -596,8 +615,9 @@ function Plan({
         <Portrait id={m.id} family={m.family} />
         <div className="min-w-0">
           <h2 className="font-display text-2xl font-extrabold">{m.name}</h2>
-          <p className="mt-1 text-sm font-bold text-gold">
-            {boss ? "Zone boss. Not a scout target." : spot ? spotLine(spot) : status.line}
+          <p className="mt-1 flex flex-wrap items-center gap-2 text-sm font-bold text-gold">
+            <span>{boss ? "Zone boss. Not a scout target." : spot ? spotLine(spot) : status.line}</span>
+            <SpotMap id={m.id} area={spot?.area ?? m.habitats.find((row) => row.boss)?.area} />
           </p>
         </div>
         <SizeButton large={large} disabled={!large && !canGrow} onClick={() => onSize(!large)} />
@@ -722,12 +742,172 @@ function AreaRoute({
   );
 }
 
+function zonePoints(area: string, ids: readonly string[]): { map: GameMap; points: ScoutPoint[] } | null {
+  const map = mapById(mapForArea(area) ?? "");
+  if (!map) return null;
+  const wanted = new Set(ids);
+  const points = SCOUT_POINTS.filter((point) => point.map === map.id && point.area === area && wanted.has(point.id));
+  if (!points.length) return null;
+  return { map, points };
+}
+
+function zonePins(points: readonly ScoutPoint[], selectedId: string | null): MapPin[] {
+  return points.map((point, index) => ({
+    key: `${point.id}@${index}`,
+    x: point.x,
+    y: point.y,
+    hot: true,
+    boss: point.boss,
+    picked: point.id === selectedId,
+    name: point.name,
+    detail: pointLine(point),
+  }));
+}
+
+function TimelineZoneCard({
+  zone,
+  zoneIndex,
+  progress,
+  onScouted,
+}: {
+  zone: TimelineZone;
+  zoneIndex: number;
+  progress: number;
+  onScouted: (marks: TimelineMark[]) => void;
+}) {
+  const open = areaIndex(zone.area);
+  const reached = open < CAMPAIGN_AREAS.length && open <= progress;
+  const mapId = mapForArea(zone.area);
+  const picture = zonePoints(zone.area, zone.scouts.map((scout) => scout.id));
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const pins = picture ? zonePins(picture.points, selectedId) : [];
+  const chosen = picture?.points.find((point, index) => `${point.id}@${index}` === selectedKey) ?? null;
+  const selectedName = selectedId ? monster(selectedId).name : "";
+  const selectedCount = selectedId ? (picture?.points.filter((point) => point.id === selectedId).length ?? 0) : 0;
+
+  const list = (
+    <ul className="grid gap-2">
+      {zone.scouts.map((scout) => {
+        const row = monster(scout.id);
+        const on = selectedId === scout.id;
+        return (
+          <li key={scout.id}>
+            <div
+              className={cn(
+                "flex items-start gap-2 rounded-xl border-2 bg-chrome-hi/40 px-2 py-2",
+                on ? "border-gold" : "border-gold/40",
+              )}
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedId(scout.id);
+                  setSelectedKey(null);
+                }}
+                className="flex min-w-0 flex-1 items-start gap-2 text-left"
+              >
+                <Portrait id={row.id} family={row.family} />
+                <span className="min-w-0">
+                  <span className="block truncate font-display font-extrabold">{row.name}</span>
+                  <span className="mt-1 flex items-center gap-1">
+                    <RankBadge rank={row.rank} />
+                    <FamilyIcon family={row.family} size="sm" />
+                  </span>
+                  {scout.lines.map((line) => (
+                    <span key={line} className="mt-1 block text-xs font-bold text-parchment">
+                      {line}
+                    </span>
+                  ))}
+                  {scout.targets.length ? (
+                    <span className="mt-1 block text-xs font-bold text-gold">For {scout.targets.join(", ")}</span>
+                  ) : null}
+                </span>
+              </button>
+              <button
+                type="button"
+                aria-label={`Mark ${row.name} scouted`}
+                disabled={scout.marks.length === 0}
+                onClick={() => onScouted(scout.marks)}
+                className="shrink-0 rounded-md border-2 border-gold px-2 py-1 font-display text-xs font-extrabold text-gold disabled:opacity-40"
+              >
+                Scouted
+              </button>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  return (
+    <li id={`timeline-zone-${zone.area}`} className="relative">
+      <span
+        className={cn(
+          "absolute -left-[27px] top-1 size-3 rounded-full ring-2 ring-chrome",
+          reached ? "bg-gold" : "bg-chrome-hi",
+        )}
+        aria-hidden
+      />
+      <div className="flex flex-wrap items-baseline gap-2">
+        <h3 className="font-display text-base font-extrabold">
+          {zoneIndex + 1}. {zone.area}
+        </h3>
+        {mapId ? (
+          <Link
+            to="/maps"
+            search={{
+              map: mapId,
+              area: zone.area,
+              monsters: zone.scouts.map((scout) => scout.id).join(","),
+            }}
+            className="rounded-md border-2 border-gold px-2 py-0.5 font-display text-xs font-extrabold text-gold"
+          >
+            Map
+          </Link>
+        ) : null}
+        <span className="text-xs font-bold text-parchment">{reached ? "Open" : "Later"}</span>
+      </div>
+      {picture ? (
+        <div className="mt-3 grid items-start gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(15rem,0.8fr)]">
+          <div>
+            <MapView
+              src={picture.map.src}
+              markers={picture.map.markers}
+              labels={picture.map.labels}
+              pins={pins}
+              onPick={(key) => {
+                setSelectedKey(key);
+                setSelectedId(key.slice(0, key.lastIndexOf("@")));
+              }}
+            />
+            <p className="mt-2 text-xs font-bold text-parchment">
+              {chosen
+                ? `${selectedName} · ${pointLine(chosen)}`
+                : selectedId && selectedCount > 0
+                  ? `${selectedName} · ${selectedCount} ${selectedCount === 1 ? "spot" : "spots"}`
+                  : selectedId
+                    ? `${selectedName} has no marked spot.`
+                    : "Gold marks are the scouts for this stop."}
+            </p>
+          </div>
+          {list}
+        </div>
+      ) : (
+        <div className="mt-2">{list}</div>
+      )}
+    </li>
+  );
+}
+
 function ScoutTimelinePanel({
   members,
   progress,
+  onScouted,
 }: {
-  members: { id: string; owned: string[]; picks?: Record<string, string> }[];
+  members: { key: string; id: string; owned: string[]; picks?: Record<string, string> }[];
   progress: number;
+  onScouted: (marks: TimelineMark[]) => void;
 }) {
   const timeline = useMemo(() => scoutTimeline(members), [members]);
   return (
@@ -744,72 +924,15 @@ function ScoutTimelinePanel({
         <>
         <AreaRoute progress={progress} active={new Set(timeline.zones.map((zone) => zone.area))} />
         <ol className="relative mt-4 grid gap-6 border-l-4 border-gold/40 pl-5">
-          {timeline.zones.map((zone, zoneIndex) => {
-            const open = areaIndex(zone.area);
-            const reached = open < CAMPAIGN_AREAS.length && open <= progress;
-            const mapId = mapForArea(zone.area);
-            return (
-              <li
-                key={zone.area}
-                id={`timeline-zone-${zone.area}`}
-                className="relative"
-              >
-                <span
-                  className={cn(
-                    "absolute -left-[27px] top-1 size-3 rounded-full ring-2 ring-chrome",
-                    reached ? "bg-gold" : "bg-chrome-hi",
-                  )}
-                  aria-hidden
-                />
-                <div className="flex flex-wrap items-baseline gap-2">
-                  <h3 className="font-display text-base font-extrabold">
-                    {zoneIndex + 1}. {zone.area}
-                  </h3>
-                  {mapId ? (
-                    <Link
-                      to="/maps"
-                      search={{ map: mapId }}
-                      className="rounded-md border-2 border-gold px-2 py-0.5 font-display text-xs font-extrabold text-gold"
-                    >
-                      Map
-                    </Link>
-                  ) : null}
-                  <span className="text-xs font-bold text-parchment">
-                    {reached ? "Open" : "Later"}
-                  </span>
-                </div>
-                <ul className="mt-2 grid gap-2">
-                  {zone.scouts.map((scout) => {
-                    const row = monster(scout.id);
-                    return (
-                      <li key={scout.id}>
-                        <div className="flex items-center gap-2 rounded-xl border-2 border-gold/40 bg-chrome-hi/40 px-2 py-2">
-                          <Portrait id={row.id} family={row.family} />
-                          <span className="min-w-0">
-                            <span className="block truncate font-display font-extrabold">{row.name}</span>
-                            <span className="mt-1 flex items-center gap-1">
-                              <RankBadge rank={row.rank} />
-                              <FamilyIcon family={row.family} size="sm" />
-                            </span>
-                            {scout.lines.map((line) => (
-                              <span key={line} className="mt-1 block text-xs font-bold text-parchment">
-                                {line}
-                              </span>
-                            ))}
-                            {scout.targets.length ? (
-                              <span className="mt-1 block text-xs font-bold text-gold">
-                                For {scout.targets.join(", ")}
-                              </span>
-                            ) : null}
-                          </span>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            );
-          })}
+          {timeline.zones.map((zone, zoneIndex) => (
+            <TimelineZoneCard
+              key={zone.area}
+              zone={zone}
+              zoneIndex={zoneIndex}
+              progress={progress}
+              onScouted={onScouted}
+            />
+          ))}
         </ol>
         </>
       )}

@@ -9,6 +9,7 @@ import { ScoutIcon } from "@/components/scout-icon";
 import { SkillUnlocks } from "@/components/skill-unlocks";
 import { SynthIcon } from "@/components/synth-icon";
 import { SiteFooter } from "@/components/site-footer";
+import { SpotMap } from "@/components/spot-map-link";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import growthCurveRows from "@/data/dqm4/GrowthCurve.json";
 import { cn, publicAsset } from "@/lib/utils";
@@ -74,15 +75,6 @@ function resistanceRank(value: number) {
   if (value < 255) return "Heal";
   return "";
 }
-
-const CAPS = [
-  ["Max. HP", "maxHp"],
-  ["Max. MP", "maxMp"],
-  ["Attack", "maxAtt"],
-  ["Defence", "maxDef"],
-  ["Agility", "maxAgi"],
-  ["Wisdom", "maxWis"],
-] as const;
 
 function MonsterDetails() {
   const { monster: requested } = Route.useSearch();
@@ -152,8 +144,6 @@ function MissingMonster() {
 
 function DetailSheet({ id }: { id: string }) {
   const m = monster(id);
-  const caps = CAPS.map(([label, key]) => [label, m[key]] as const);
-  const hasCaps = caps.some(([, value]) => value != null);
   const skill = m.skill ? SKILLS[m.skill] : null;
 
   return (
@@ -197,14 +187,18 @@ function DetailSheet({ id }: { id: string }) {
       <Section title="Habitat">
         {m.habitats.length ? (
           <ul className="grid gap-2 sm:grid-cols-2">
-            {m.habitats.map((spot) => {
+            {m.habitats.map((spot, index) => {
               const detail = [spot.time ?? "Day and night", spot.where].filter(Boolean).join(" · ");
+              const firstInArea = m.habitats.findIndex((row) => row.area === spot.area) === index;
               return (
                 <li
                   key={`${spot.area}-${spot.time ?? "any"}-${spot.where ?? "ground"}`}
                   className="rounded-xl border-2 border-gold/40 bg-chrome px-3 py-2"
                 >
-                  <p className="font-display text-base font-extrabold text-gold">{spot.area}</p>
+                  <p className="flex flex-wrap items-center gap-2 font-display text-base font-extrabold text-gold">
+                    <span>{spot.area}</span>
+                    {firstInArea ? <SpotMap id={m.id} area={spot.area} /> : null}
+                  </p>
                   <p className="mt-1 text-sm font-bold text-parchment">{detail}</p>
                 </li>
               );
@@ -217,23 +211,6 @@ function DetailSheet({ id }: { id: string }) {
 
       <Section key={m.id} title="What it builds" collapsible defaultOpen={false}>
         <Builds id={m.id} />
-      </Section>
-
-      <Section title="Max stats">
-        {hasCaps ? (
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-            {caps.map(([label, value]) => (
-              <li key={label} className="rounded-xl border-2 border-gold/40 bg-chrome px-3 py-2">
-                <p className="font-display text-sm font-extrabold text-gold">{label}</p>
-                <p className="mt-1 font-display text-2xl font-extrabold leading-none text-gold">
-                  {value ?? "—"}
-                </p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <Empty>No stats for this monster.</Empty>
-        )}
       </Section>
 
       <Section title="Traits">

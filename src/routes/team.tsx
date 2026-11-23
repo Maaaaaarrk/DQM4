@@ -6,7 +6,7 @@ import { HaveFlag } from "@/components/have-flag";
 import { MonsterSprite } from "@/components/monster-sprite";
 import { RankBadge } from "@/components/rank-badge";
 import { TreeViewport, type TreeViewportHandle } from "@/components/tree-viewport";
-import { MapView, type MapPin } from "@/components/zone-map";
+import { MapMarkToggle, MapView, type MapMarks, type MapPin } from "@/components/zone-map";
 import { SiteFooter } from "@/components/site-footer";
 import { SpotMap } from "@/components/spot-map-link";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
@@ -754,6 +754,8 @@ function zonePoints(area: string, ids: readonly string[]): { map: GameMap; point
 function zonePins(points: readonly ScoutPoint[], selectedId: string | null): MapPin[] {
   return points.map((point, index) => ({
     key: `${point.id}@${index}`,
+    id: point.id,
+    family: monster(point.id).family,
     x: point.x,
     y: point.y,
     hot: true,
@@ -768,11 +770,13 @@ function TimelineZoneCard({
   zone,
   zoneIndex,
   progress,
+  marks,
   onScouted,
 }: {
   zone: TimelineZone;
   zoneIndex: number;
   progress: number;
+  marks: MapMarks;
   onScouted: (marks: TimelineMark[]) => void;
 }) {
   const open = areaIndex(zone.area);
@@ -876,6 +880,7 @@ function TimelineZoneCard({
               markers={picture.map.markers}
               labels={picture.map.labels}
               pins={pins}
+              marks={marks}
               onPick={(key) => {
                 setSelectedKey(key);
                 setSelectedId(key.slice(0, key.lastIndexOf("@")));
@@ -888,7 +893,9 @@ function TimelineZoneCard({
                   ? `${selectedName} · ${selectedCount} ${selectedCount === 1 ? "spot" : "spots"}`
                   : selectedId
                     ? `${selectedName} has no marked spot.`
-                    : "Gold marks are the scouts for this stop."}
+                    : marks === "portrait"
+                      ? "Portraits are the scouts for this stop."
+                      : "Gold marks are the scouts for this stop."}
             </p>
           </div>
           {list}
@@ -910,9 +917,13 @@ function ScoutTimelinePanel({
   onScouted: (marks: TimelineMark[]) => void;
 }) {
   const timeline = useMemo(() => scoutTimeline(members), [members]);
+  const [marks, setMarks] = useState<MapMarks>("portrait");
   return (
     <section className="rounded-2xl border-2 border-gold bg-chrome p-4 text-gold">
-      <h2 className="font-display text-lg font-extrabold">Scout timeline</h2>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className="font-display text-lg font-extrabold">Scout timeline</h2>
+        {timeline.zones.length ? <MapMarkToggle value={marks} onChange={setMarks} /> : null}
+      </div>
       <p className="mt-1 text-sm font-bold text-parchment">
         Earliest area first.
       </p>
@@ -930,6 +941,7 @@ function ScoutTimelinePanel({
               zone={zone}
               zoneIndex={zoneIndex}
               progress={progress}
+              marks={marks}
               onScouted={onScouted}
             />
           ))}

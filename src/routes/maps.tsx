@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MapView, type MapPin } from "@/components/zone-map";
+import { MapMarkToggle, MapView, type MapMarks, type MapPin } from "@/components/zone-map";
 import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import { GAME_MAPS, mapById } from "@/lib/game-maps";
@@ -39,6 +39,8 @@ function pinKey(point: ScoutPoint, index: number): string {
 function toPins(points: ScoutPoint[], hot: (point: ScoutPoint) => boolean, selectedId: string | null): MapPin[] {
   return points.map((point, index) => ({
     key: pinKey(point, index),
+    id: point.id,
+    family: MONSTERS[point.id].family,
     x: point.x,
     y: point.y,
     hot: hot(point),
@@ -59,6 +61,7 @@ function MapsPage() {
   );
   const [selectedId, setSelectedId] = useState<string | null>(requested.length === 1 ? requested[0] : null);
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [marks, setMarks] = useState<MapMarks>("portrait");
 
   useEffect(() => {
     setSelectedId(requested.length === 1 ? requested[0] : null);
@@ -125,6 +128,9 @@ function MapsPage() {
         </Link>
       </header>
       <main className="stage-field min-h-0 flex-1 overflow-auto px-4 py-4">
+        <div className="mx-auto mb-3 flex w-full max-w-5xl justify-end">
+          <MapMarkToggle value={marks} onChange={setMarks} tone="chrome" />
+        </div>
         <ul className="mx-auto grid w-full max-w-5xl grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-4">
           {GAME_MAPS.map((map) => {
             const spots = SCOUT_POINTS.filter((point) => point.map === map.id);
@@ -145,6 +151,7 @@ function MapsPage() {
                     markers={map.markers}
                     labels={map.labels}
                     pins={toPins(spots, () => true, null)}
+                    marks={marks}
                     compact
                   />
                 </button>
@@ -166,15 +173,18 @@ function MapsPage() {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between gap-3">
-              <h2 className="font-display text-base font-extrabold text-gold">{search.area || open.title}</h2>
-              <button
-                type="button"
-                autoFocus
-                onClick={() => void navigate({ search: emptySearch(), replace: true })}
-                className="shrink-0 rounded-lg border-2 border-gold bg-gold px-3 py-1 font-display text-sm font-extrabold text-chrome"
-              >
-                Close
-              </button>
+              <h2 className="min-w-0 font-display text-base font-extrabold text-gold">{search.area || open.title}</h2>
+              <div className="flex shrink-0 items-center gap-2">
+                <MapMarkToggle value={marks} onChange={setMarks} />
+                <button
+                  type="button"
+                  autoFocus
+                  onClick={() => void navigate({ search: emptySearch(), replace: true })}
+                  className="shrink-0 rounded-lg border-2 border-gold bg-gold px-3 py-1 font-display text-sm font-extrabold text-chrome"
+                >
+                  Close
+                </button>
+              </div>
             </div>
             <div>
               <p className="text-sm font-bold text-parchment">
@@ -183,7 +193,9 @@ function MapsPage() {
                     ? `${selectedName} · ${pointLine(chosen)}`
                     : `${selectedName} · ${hotCount} ${hotCount === 1 ? "spot" : "spots"}`
                   : requested.length || search.area
-                    ? "Gold marks are the scouts for this stop."
+                    ? marks === "portrait"
+                      ? "Portraits are the scouts for this stop."
+                      : "Gold marks are the scouts for this stop."
                     : "Every scout spot on this map."}
               </p>
               {missing.length ? (
@@ -226,6 +238,7 @@ function MapsPage() {
                 markers={open.markers}
                 labels={open.labels}
                 pins={visiblePins}
+                marks={marks}
                 fit
                 onPick={(key) => {
                   const row = keyed.find((item) => item.key === key);

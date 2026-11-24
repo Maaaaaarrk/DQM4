@@ -342,50 +342,53 @@ export function MapView({
 }) {
   return (
     <div
-      className="@container relative mx-auto overflow-hidden rounded-xl border-2 border-gold-ring bg-chrome"
+      className="relative mx-auto overflow-hidden rounded-xl border-2 border-gold-ring bg-chrome"
       style={fit ? { width: "min(100cqw, 100cqh)", aspectRatio: "1" } : undefined}
     >
       <img src={publicAsset(src)} alt="" className={cn("block", fit ? "h-full w-full" : "w-full")} />
-      <MapMarkers markers={markers} compact={compact} />
-      <SpawnPins pins={pins.filter((pin) => !pin.bush)} compact={compact} marks={marks} onPick={onPick} />
-      {compact
-        ? null
-        : labels
-            .filter((label) => !hotLabels.includes(label.name))
-            .map((label) => (
-              <span
-                key={label.name}
-                className="pointer-events-none absolute z-40 -translate-x-1/2 -translate-y-1/2 rounded-md bg-chrome px-1.5 py-0.5 font-display text-xs font-extrabold text-gold"
-                style={{ left: `${label.x}%`, top: `${label.y}%` }}
-              >
-                {label.name}
-              </span>
+      {/* The picture sets the frame size. A size container on this frame collapses that picture. */}
+      <div className="@container absolute inset-0">
+        <MapMarkers markers={markers} compact={compact} />
+        <SpawnPins pins={pins.filter((pin) => !pin.bush)} compact={compact} marks={marks} onPick={onPick} />
+        {compact
+          ? null
+          : labels
+              .filter((label) => !hotLabels.includes(label.name))
+              .map((label) => (
+                <span
+                  key={label.name}
+                  className="pointer-events-none absolute z-40 -translate-x-1/2 -translate-y-1/2 rounded-md bg-chrome px-1.5 py-0.5 font-display text-xs font-extrabold text-gold"
+                  style={{ left: `${label.x}%`, top: `${label.y}%` }}
+                >
+                  {label.name}
+                </span>
+              ))}
+        <SpawnPins pins={pins.filter((pin) => pin.bush)} compact={compact} marks={marks} onPick={onPick} />
+        {compact
+          ? null
+          : labels
+              .filter((label) => hotLabels.includes(label.name))
+              .map((label) => (
+                <span
+                  key={label.name}
+                  className="pointer-events-none absolute z-50 -translate-x-1/2 -translate-y-1/2 rounded-md border-2 border-chrome bg-gold px-1.5 py-0.5 font-display text-xs font-extrabold text-chrome"
+                  style={{ left: `${label.x}%`, top: `${label.y}%` }}
+                >
+                  {label.name}
+                </span>
+              ))}
+        {compact
+          ? null
+          : labels.map((label) => (
+              <GrassTray
+                key={`grass-${label.name}`}
+                label={label}
+                floats={floats.filter((float) => float.area === label.name)}
+                marks={marks}
+                onPick={onFloat}
+              />
             ))}
-      <SpawnPins pins={pins.filter((pin) => pin.bush)} compact={compact} marks={marks} onPick={onPick} />
-      {compact
-        ? null
-        : labels
-            .filter((label) => hotLabels.includes(label.name))
-            .map((label) => (
-              <span
-                key={label.name}
-                className="pointer-events-none absolute z-50 -translate-x-1/2 -translate-y-1/2 rounded-md border-2 border-chrome bg-gold px-1.5 py-0.5 font-display text-xs font-extrabold text-chrome"
-                style={{ left: `${label.x}%`, top: `${label.y}%` }}
-              >
-                {label.name}
-              </span>
-            ))}
-      {compact
-        ? null
-        : labels.map((label) => (
-            <GrassTray
-              key={`grass-${label.name}`}
-              label={label}
-              floats={floats.filter((float) => float.area === label.name)}
-              marks={marks}
-              onPick={onFloat}
-            />
-          ))}
+      </div>
     </div>
   );
 }

@@ -109,27 +109,22 @@ export function grassPlace(area: string, where = "this map"): string {
   return side ? `${area}, the ${side} part of ${where}` : area;
 }
 
-/** 100 is one heavy entry. 20 is one light entry. */
-export function grassSummary(weights: readonly number[]): string {
-  let heavy = 0;
-  let light = 0;
-  const other: number[] = [];
-  for (const weight of weights) {
-    if (weight === 100) heavy += 1;
-    else if (weight === 20) light += 1;
-    else other.push(weight);
-  }
-  const parts: string[] = [];
-  if (heavy) parts.push(`${heavy} heavy`);
-  if (light) parts.push(`${light} light`);
-  if (other.length) parts.push(other.join(", "));
-  if (parts.length < 2) return parts[0] ?? weights.join(", ");
-  if (other.length) return parts.join(", ");
-  return `${parts[0]} and ${parts[1]}`;
+function grassWeight(weights: readonly number[]): number {
+  return weights.reduce((sum, weight) => sum + weight, 0);
+}
+
+/** This monster's share of the grass rows in the same area. */
+export function grassOdds(area: string, weights: readonly number[]): string {
+  const mine = grassWeight(weights);
+  const total = BUSH_LIST.filter((row) => row.area === area).reduce((sum, row) => sum + grassWeight(row.weights), 0);
+  if (mine <= 0 || total <= 0) return "";
+  const value = Math.round((total / mine) * 10) / 10;
+  const text = Number.isInteger(value) ? String(value) : value.toFixed(1);
+  return `1 in ${text}`;
 }
 
 export function grassDetail(area: string, weights: readonly number[], where = "this map"): string {
-  return `Shake the grass in ${grassPlace(area, where)}. ${grassSummary(weights)}.`;
+  return `Shake the grass in ${grassPlace(area, where)}. ${grassOdds(area, weights)}.`;
 }
 
 export function bushDetail(area: string, odds: readonly { name: string; weight: number }[]): string {

@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { MapMarkToggle, MapView, type MapFloat, type MapMarks, type MapPin } from "@/components/zone-map";
 import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import { GAME_MAPS, mapById } from "@/lib/game-maps";
 import { MONSTERS } from "@/lib/monsters";
-import { BUSH_LIST, BUSH_SPOTS, bushDetail, grassDetail, grassSide, grassSummary, type BushOdd } from "@/lib/bush-spots";
-import { pointLine, SCOUT_POINTS, type ScoutPoint } from "@/lib/scout-points";
+import { BUSH_LIST, BUSH_SPOTS, bushDetail, grassDetail, grassOdds, grassSide, type BushOdd } from "@/lib/bush-spots";
+import { anchorDetail, followerDetail, pointInvolves, SCOUT_POINTS, type ScoutFollower, type ScoutPoint } from "@/lib/scout-points";
 import { cn } from "@/lib/utils";
 
 const AREAS = new Set(SCOUT_POINTS.map((point) => point.area));
@@ -34,7 +34,7 @@ function emptySearch() {
   return { map: "", area: "", monsters: "" };
 }
 
-type When = "all" | "day" | "night" | "weather";
+type When = "all" | "day" | "night";
 
 type MapSpot = {
   monsterId: number;
@@ -49,14 +49,18 @@ type MapSpot = {
   x: number;
   y: number;
   odds: BushOdd[] | null;
+  followers: ScoutFollower[];
 };
 
-/** Day and night include scouts with no time limit. No spot is tied to weather. */
+/** Day and night include scouts with no time limit. */
 function passesWhen(point: MapSpot, when: When): boolean {
   if (when === "all") return true;
   if (when === "day") return point.time !== "Night";
-  if (when === "night") return point.time !== "Day";
-  return false;
+  return point.time !== "Day";
+}
+
+function sameSpot(a: MapSpot, b: MapSpot): boolean {
+  return a.map === b.map && a.x === b.x && a.y === b.y;
 }
 
 function spotsOn(mapId: string): MapSpot[] {
@@ -78,6 +82,7 @@ function spotsOn(mapId: string): MapSpot[] {
     x: spot.x,
     y: spot.y,
     odds: spot.odds,
+    followers: [],
   }));
   return [...scouts, ...bushes];
 }
@@ -92,26 +97,79 @@ function withKeys(spots: readonly MapSpot[]): { spot: MapSpot; key: string }[] {
   });
 }
 
-function toPin(row: { spot: MapSpot; key: string }, hot: boolean, selectedId: string | null): MapPin {
+function toPin(
+  row: { spot: MapSpot; key: string },
+  active: ReadonlySet<string>,
+  selectedId: string | null,
+  nightRow?: { spot: MapSpot; key: string },
+): MapPin {
   const { spot, key } = row;
+  const party = spot.followers.map((follower, index) => ({
+    key: `${follower.id}@${key}-f${index}`,
+    id: follower.id,
+    family: MONSTERS[follower.id].family,
+    name: follower.name,
+    detail: followerDetail(spot, follower),
+    picked: follower.id === selectedId && active.has(follower.id),
+    hot: active.has(follower.id),
+  }));
+  const night = nightRow?.spot;
   return {
     key,
     id: spot.id,
     family: MONSTERS[spot.id].family,
     x: spot.x,
     y: spot.y,
-    hot,
+    hot: active.has(spot.id),
     boss: spot.boss,
     bush: spot.bush,
-    picked: spot.id === selectedId && hot,
+    picked: spot.id === selectedId && active.has(spot.id),
     name: spot.name,
-    detail: spot.bush && spot.odds ? bushDetail(spot.area, spot.odds) : pointLine(spot),
+    detail: spot.bush && spot.odds ? bushDetail(spot.area, spot.odds) : anchorDetail(spot),
+    party: party.length ? party : undefined,
+    night: night
+      ? {
+          key: nightRow.key,
+          id: night.id,
+          family: MONSTERS[night.id].family,
+          name: night.name,
+          detail: anchorDetail(night),
+          picked: night.id === selectedId && active.has(night.id),
+          hot: active.has(night.id),
+        }
+      : undefined,
   };
+}
+
+function pinsFor(
+  rows: readonly { spot: MapSpot; key: string }[],
+  active: ReadonlySet<string>,
+  selectedId: string | null,
+  when: When,
+): MapPin[] {
+  if (when !== "all") return rows.map((row) => toPin(row, active, selectedId));
+  return rows.flatMap((row) => {
+    if (row.spot.time === "Night" && rows.some((day) => day.spot.time === "Day" && sameSpot(day.spot, row.spot))) return [];
+    const night =
+      row.spot.time === "Day"
+        ? rows.find((other) => other.spot.time === "Night" && sameSpot(other.spot, row.spot))
+        : undefined;
+    return [toPin(row, active, selectedId, night)];
+  });
 }
 
 function MapsPage() {
   const search = Route.useSearch();
   const navigate = Route.useNavigate();
+  const router = useRouter();
+
+  function goBack() {
+    if (router.history.canGoBack()) {
+      router.history.back();
+      return;
+    }
+    void navigate({ search: emptySearch(), replace: true });
+  }
   const open = mapById(search.map);
   const requested = useMemo(
     () => search.monsters.split(",").filter((id) => id in MONSTERS),
@@ -138,14 +196,14 @@ function MapsPage() {
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") void navigate({ search: emptySearch(), replace: true });
+      if (event.key === "Escape") goBack();
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKey);
     };
-  }, [open, navigate]);
+  }, [open, navigate, router]);
 
   const keyed = useMemo(() => (open ? withKeys(spotsOn(open.id)) : []), [open]);
   const mapPoints = useMemo(() => keyed.map((row) => row.spot), [keyed]);
@@ -155,28 +213,47 @@ function MapsPage() {
   );
   const chips = [
     ...new Map(
-      [...mapPoints.map((point) => point.id), ...grassRows.map((row) => row.id)].map((id) => [id, MONSTERS[id]]),
+      [
+        ...mapPoints.flatMap((point) => [point.id, ...point.followers.map((follower) => follower.id)]),
+        ...grassRows.map((row) => row.id),
+      ].map((id) => [id, MONSTERS[id]]),
     ).values(),
   ]
     .filter((monster) => monster)
     .sort((a, b) => a.name.localeCompare(b.name));
   const chipIds = chips.map((monster) => monster.id);
+  /** Bush or elite border only when that is the monster's only mark on this view. */
+  function chipKind(id: string): "bush" | "elite" | null {
+    const points = mapPoints.filter(
+      (point) => (!search.area || point.area === search.area) && pointInvolves(point, id),
+    );
+    const bush = points.some((point) => point.bush && point.id === id);
+    const elite = points.some((point) => point.boss && point.id === id);
+    const other = points.some((point) => !(point.bush && point.id === id) && !(point.boss && point.id === id));
+    if (other || (bush && elite)) return null;
+    if (bush) return "bush";
+    if (elite) return "elite";
+    return null;
+  }
   const defaultIds = requested.length ? requested.filter((id) => chipIds.includes(id)) : chipIds;
   const active = shown ?? new Set(defaultIds);
 
   function spotCount(id: string): number {
     return mapPoints.filter(
-      (point) => point.id === id && (!search.area || point.area === search.area) && passesWhen(point, when),
+      (point) => pointInvolves(point, id) && (!search.area || point.area === search.area) && passesWhen(point, when),
     ).length;
   }
 
   const allOn = chipIds.length > 0 && chipIds.every((id) => active.has(id));
   const noneOn = chipIds.length > 0 && chipIds.every((id) => !active.has(id));
-  const visibleRows = keyed.filter(
+  const matchedRows = keyed.filter(
     (row) =>
-      (!search.area || row.spot.area === search.area) && passesWhen(row.spot, when) && active.has(row.spot.id),
+      (!search.area || row.spot.area === search.area) &&
+      passesWhen(row.spot, when) &&
+      (active.has(row.spot.id) || row.spot.followers.some((follower) => active.has(follower.id))),
   );
-  const pins = open ? visibleRows.map((row) => toPin(row, true, selectedId)) : [];
+  const visibleRows = matchedRows;
+  const pins = open ? pinsFor(visibleRows, active, selectedId, when) : [];
   const chosenRow = visibleRows.find((row) => row.key === selectedKey);
   const chosen = chosenRow?.spot ?? null;
   const selectedBushes = visibleRows.filter((row) => row.spot.bush && row.spot.id === selectedId);
@@ -189,7 +266,7 @@ function MapsPage() {
   const hotCount = selectedId ? spotCount(selectedId) : 0;
   const selectedName = selectedId ? MONSTERS[selectedId]?.name : "";
   const missing = requested.filter(
-    (id) => !mapPoints.some((point) => point.id === id) && !grassRows.some((row) => row.id === id),
+    (id) => !mapPoints.some((point) => pointInvolves(point, id)) && !grassRows.some((row) => row.id === id),
   );
   const pickedGrass = selectedId ? grassRows.filter((row) => row.id === selectedId) : [];
   const explainGrass = Boolean(
@@ -198,16 +275,14 @@ function MapsPage() {
       pickedGrass.length &&
       active.has(selectedId) &&
       (hotCount === 0 || grassPick) &&
-      when !== "weather" &&
       !noneOn,
   );
-  const grassFloats: MapFloat[] =
-    when === "weather" || noneOn
-      ? []
-      : grassRows.flatMap((row) => {
+  const grassFloats: MapFloat[] = noneOn
+    ? []
+    : grassRows.flatMap((row) => {
           if (!active.has(row.id)) return [];
           const anchored = mapPoints.some(
-            (point) => point.id === row.id && point.area === row.area && passesWhen(point, when),
+            (point) => pointInvolves(point, row.id) && point.area === row.area && passesWhen(point, when),
           );
           if (anchored) return [];
           const species = MONSTERS[row.id];
@@ -226,15 +301,16 @@ function MapsPage() {
         });
   const caption = (() => {
     if (noneOn) return "No monsters selected.";
-    if (when === "weather") return "No scout on this map is tied to the weather.";
     if (explainGrass && selectedName) {
       const places = pickedGrass.map((row) => grassDetail(row.area, row.weights)).join(" ");
       return `${selectedName}. ${places} The gold names on the map are where you shake.`;
     }
+    const chosenMember = chosenRow ? undefined : pins.find((pin) => pin.party?.some((member) => member.key === selectedKey))?.party?.find((member) => member.key === selectedKey);
+    if (chosenMember) return `${chosenMember.name}. ${chosenMember.detail}`;
     if (selectedId && selectedName && hotCount > 0 && active.has(selectedId)) {
       if (oddsRow) return `${selectedName} · ${oddsRow.area} · Bush`;
       return chosen
-        ? `${selectedName} · ${pointLine(chosen)}`
+        ? `${selectedName}. ${chosen.bush && chosen.odds ? bushDetail(chosen.area, chosen.odds) : anchorDetail(chosen)}`
         : `${selectedName} · ${hotCount} ${hotCount === 1 ? "spot" : "spots"}`;
     }
     if (when === "day") return "Scouts you can find in the day.";
@@ -289,32 +365,20 @@ function MapsPage() {
           <MapMarkToggle value={marks} onChange={setMarks} tone="chrome" />
         </div>
         <ul className="mx-auto grid w-full max-w-5xl grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-4">
-          {GAME_MAPS.filter((map) => !scoutsOnly || MAPS_WITH_SPAWNS.has(map.id)).map((map) => {
-            const spots = withKeys(spotsOn(map.id));
-            return (
-              <li key={map.id}>
-                <button
-                  type="button"
-                  onClick={() =>
-                    void navigate({ search: { map: map.id, area: "", monsters: "" }, replace: true })
-                  }
-                  className="flex h-full w-full flex-col text-left"
-                >
-                  <span className="mb-2 font-display text-sm font-extrabold leading-tight text-chrome">
-                    {map.title}
-                  </span>
-                  <MapView
-                    src={map.src}
-                    markers={map.markers}
-                    labels={map.labels}
-                    pins={spots.map((row) => toPin(row, true, null))}
-                    marks={marks}
-                    compact
-                  />
-                </button>
-              </li>
-            );
-          })}
+          {GAME_MAPS.filter((map) => !scoutsOnly || MAPS_WITH_SPAWNS.has(map.id)).map((map) => (
+            <li key={map.id}>
+              <button
+                type="button"
+                onClick={() => void navigate({ search: { map: map.id, area: "", monsters: "" } })}
+                className="flex h-full w-full flex-col text-left"
+              >
+                <span className="mb-2 font-display text-sm font-extrabold leading-tight text-chrome">
+                  {map.title}
+                </span>
+                <MapView src={map.src} markers={map.markers} labels={map.labels} compact />
+              </button>
+            </li>
+          ))}
         </ul>
       </main>
       {open ? (
@@ -323,12 +387,8 @@ function MapsPage() {
           aria-modal="true"
           aria-label={search.area || open.title}
           className="fixed inset-0 z-50 bg-chrome p-3"
-          onClick={() => void navigate({ search: emptySearch(), replace: true })}
         >
-          <div
-            className="mx-auto grid h-full min-h-0 w-full max-w-5xl grid-rows-[auto_auto_minmax(0,1fr)] gap-2 rounded-2xl bg-chrome p-3"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="mx-auto grid h-full min-h-0 w-full max-w-5xl grid-rows-[auto_auto_minmax(0,1fr)] gap-2 rounded-2xl bg-chrome p-3">
             <div className="flex items-center justify-between gap-3">
               <h2 className="min-w-0 font-display text-base font-extrabold text-gold">{search.area || open.title}</h2>
               <div className="flex shrink-0 items-center gap-2">
@@ -336,7 +396,7 @@ function MapsPage() {
                 <button
                   type="button"
                   autoFocus
-                  onClick={() => void navigate({ search: emptySearch(), replace: true })}
+                  onClick={goBack}
                   className="shrink-0 rounded-lg border-2 border-gold bg-gold px-3 py-1 font-display text-sm font-extrabold text-chrome"
                 >
                   Close
@@ -344,6 +404,28 @@ function MapsPage() {
               </div>
             </div>
             <div>
+              <p className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold text-parchment">
+                <span className="inline-flex items-center gap-1">
+                  <span className="size-3 rounded-sm border-2 border-grass bg-parchment" />
+                  Green border: shake the grass in that part of the map. No single clump is marked.
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="size-3 rounded-sm border-2 border-bush bg-bush" />
+                  Dark green: a bush.
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="inline-flex items-end gap-0.5">
+                    <span className="size-3.5 rounded-sm border-2 border-gold-ring bg-parchment" />
+                    <span className="size-2 rounded-sm border-2 border-gold-ring bg-parchment" />
+                  </span>
+                  The larger mark leads. Smaller marks beside it follow that leader.
+                </span>
+                <span>One portrait holds both: day on the left of the yellow slash, night on the right.</span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="size-3 rounded-sm border-2 border-elite bg-parchment" />
+                  Red border and a large portrait: an elite.
+                </span>
+              </p>
               <div className="flex flex-wrap items-center gap-2">
                 <div role="group" aria-label="Monsters" className="inline-flex rounded-md border-2 border-gold p-0.5">
                   <button
@@ -380,7 +462,6 @@ function MapsPage() {
                       ["all", "All"],
                       ["day", "Day"],
                       ["night", "Night"],
-                      ["weather", "Weather"],
                     ] as const
                   ).map(([id, label]) => (
                     <button
@@ -402,12 +483,11 @@ function MapsPage() {
                 </div>
               </div>
               <p className="mt-2 text-sm font-bold text-parchment">{caption}</p>
-              {when !== "weather" && !noneOn && grassRows.some((row) => active.has(row.id)) ? (
+              {!noneOn && grassRows.some((row) => active.has(row.id)) ? (
                 <div className="mt-2">
                   <p className="text-xs font-bold text-parchment">
-                    The Grass group under a zone name is the monsters with no marked spot in that part. Shake the grass
-                    there. No single clump is marked. Heavy is 100. Light is 20. One heavy entry equals five light
-                    entries.
+                    A green border under a zone name is a monster with no marked spot in that part. Odds are that
+                    monster's share of the grass there.
                   </p>
                   <ul aria-label="Shaking grass" className="mt-1 flex max-h-40 flex-col gap-1 overflow-auto">
                     {["The Parchland", "Witherwood Plains", "The Sogswamp"].map((area) => {
@@ -440,7 +520,7 @@ function MapsPage() {
                               >
                                 {row.name}
                                 <span className={cn("ml-1", picked ? "text-chrome" : "text-parchment")}>
-                                  {grassSummary(row.weights)}
+                                  {grassOdds(row.area, row.weights)}
                                 </span>
                               </button>
                             );
@@ -477,9 +557,10 @@ function MapsPage() {
                 <div className="mt-2 flex max-h-24 flex-wrap gap-1.5 overflow-auto">
                   {chips.map((monster) => {
                     const count = spotCount(monster.id);
-                    const listed = when !== "weather" && grassRows.some((row) => row.id === monster.id);
+                    const listed = grassRows.some((row) => row.id === monster.id);
                     const inSet = active.has(monster.id);
                     const focused = selectedId === monster.id && inSet && (count > 0 || listed);
+                    const kind = chipKind(monster.id);
                     return (
                       <button
                         key={monster.id}
@@ -502,7 +583,8 @@ function MapsPage() {
                         }}
                         className={cn(
                           "rounded-md border-2 px-2 py-0.5 font-display text-xs font-extrabold",
-                          focused ? "border-gold bg-gold text-chrome" : "border-gold text-gold",
+                          kind === "bush" ? "border-bush" : kind === "elite" ? "border-elite" : "border-gold",
+                          focused ? "bg-gold text-chrome" : "text-gold",
                           !inSet && "opacity-50",
                         )}
                       >
@@ -531,10 +613,12 @@ function MapsPage() {
                 fit
                 onPick={(key) => {
                   const row = keyed.find((item) => item.key === key);
-                  if (!row) return;
+                  const member = pins.flatMap((pin) => pin.party ?? []).find((item) => item.key === key);
+                  const id = row?.spot.id ?? member?.id;
+                  if (!id) return;
                   setGrassPick(false);
                   setSelectedKey(key);
-                  setSelectedId(row.spot.id);
+                  setSelectedId(id);
                 }}
               />
             </div>

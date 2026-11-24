@@ -7,7 +7,10 @@
     "Boss": false,
     "Map": "field",
     "X": 61.69,
-    "Y": 76.43
+    "Y": 76.43,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 101,
@@ -17,7 +20,10 @@
     "Boss": false,
     "Map": "field",
     "X": 53.74,
-    "Y": 77.81
+    "Y": 77.81,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 101,
@@ -27,7 +33,10 @@
     "Boss": false,
     "Map": "field",
     "X": 89.36,
-    "Y": 79.37
+    "Y": 79.37,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 101,
@@ -37,7 +46,10 @@
     "Boss": false,
     "Map": "field",
     "X": 66.24,
-    "Y": 79.4
+    "Y": 79.4,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 101,
@@ -57,7 +69,10 @@
     "Boss": false,
     "Map": "field",
     "X": 79.17,
-    "Y": 85.45
+    "Y": 85.45,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 218,
@@ -67,7 +82,10 @@
     "Boss": false,
     "Map": "field",
     "X": 66.19,
-    "Y": 66.79
+    "Y": 66.79,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 218,
@@ -77,7 +95,10 @@
     "Boss": false,
     "Map": "field",
     "X": 58.38,
-    "Y": 67.81
+    "Y": 67.81,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 218,
@@ -87,7 +108,10 @@
     "Boss": false,
     "Map": "field",
     "X": 59.31,
-    "Y": 68.83
+    "Y": 68.83,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 218,
@@ -97,7 +121,10 @@
     "Boss": false,
     "Map": "field",
     "X": 83.81,
-    "Y": 69.4
+    "Y": 69.4,
+    "Followers": [
+      101
+    ]
   },
   {
     "MonsterId": 218,
@@ -107,7 +134,10 @@
     "Boss": false,
     "Map": "field",
     "X": 72.62,
-    "Y": 75.64
+    "Y": 75.64,
+    "Followers": [
+      101
+    ]
   },
   {
     "MonsterId": 218,
@@ -117,7 +147,10 @@
     "Boss": false,
     "Map": "field",
     "X": 79.74,
-    "Y": 76.29
+    "Y": 76.29,
+    "Followers": [
+      101
+    ]
   },
   {
     "MonsterId": 218,
@@ -157,7 +190,10 @@
     "Boss": false,
     "Map": "field",
     "X": 16.57,
-    "Y": 83.02
+    "Y": 83.02,
+    "Followers": [
+      273
+    ]
   },
   {
     "MonsterId": 218,
@@ -167,7 +203,10 @@
     "Boss": false,
     "Map": "field",
     "X": 65.14,
-    "Y": 86.52
+    "Y": 86.52,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 218,
@@ -177,7 +216,10 @@
     "Boss": false,
     "Map": "field",
     "X": 27.33,
-    "Y": 87.76
+    "Y": 87.76,
+    "Followers": [
+      252
+    ]
   },
   {
     "MonsterId": 218,
@@ -187,7 +229,10 @@
     "Boss": false,
     "Map": "field",
     "X": 69.29,
-    "Y": 89.74
+    "Y": 89.74,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 218,
@@ -197,7 +242,10 @@
     "Boss": false,
     "Map": "field",
     "X": 69.29,
-    "Y": 90.19
+    "Y": 90.19,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 218,
@@ -207,7 +255,10 @@
     "Boss": false,
     "Map": "field",
     "X": 73.06,
-    "Y": 92.35
+    "Y": 92.35,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 218,
@@ -217,7 +268,10 @@
     "Boss": false,
     "Map": "field",
     "X": 73.5,
-    "Y": 92.35
+    "Y": 92.35,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 218,
@@ -227,7 +281,10 @@
     "Boss": false,
     "Map": "field",
     "X": 61.07,
-    "Y": 92.43
+    "Y": 92.43,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 222,
@@ -237,7 +294,23 @@
     "Boss": false,
     "Map": "field",
     "X": 5.24,
-    "Y": 65.88
+    "Y": 65.88,
+    "Followers": [
+      252
+    ]
+  },
+  {
+    "MonsterId": 166,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 5.24,
+    "Y": 65.88,
+    "Followers": [
+      252
+    ]
   },
   {
     "MonsterId": 222,
@@ -247,7 +320,23 @@
     "Boss": false,
     "Map": "field",
     "X": 7.72,
-    "Y": 82.63
+    "Y": 82.63,
+    "Followers": [
+      273
+    ]
+  },
+  {
+    "MonsterId": 166,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 7.72,
+    "Y": 82.63,
+    "Followers": [
+      252
+    ]
   },
   {
     "MonsterId": 222,
@@ -260,6 +349,19 @@
     "Y": 85.52
   },
   {
+    "MonsterId": 166,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 10.45,
+    "Y": 85.52,
+    "Followers": [
+      252
+    ]
+  },
+  {
     "MonsterId": 222,
     "Area": "The Parchland",
     "Time": "Day",
@@ -267,12 +369,38 @@
     "Boss": false,
     "Map": "field",
     "X": 20.33,
-    "Y": 87.55
+    "Y": 87.55,
+    "Followers": [
+      273
+    ]
+  },
+  {
+    "MonsterId": 166,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 20.33,
+    "Y": 87.55,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 222,
     "Area": "The Parchland",
     "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 33.67,
+    "Y": 92.52
+  },
+  {
+    "MonsterId": 166,
+    "Area": "The Parchland",
+    "Time": "Night",
     "Where": null,
     "Boss": false,
     "Map": "field",
@@ -297,7 +425,11 @@
     "Boss": false,
     "Map": "field",
     "X": 59.52,
-    "Y": 81.81
+    "Y": 81.81,
+    "Followers": [
+      218,
+      273
+    ]
   },
   {
     "MonsterId": 229,
@@ -307,7 +439,10 @@
     "Boss": false,
     "Map": "field",
     "X": 41.67,
-    "Y": 82.6
+    "Y": 82.6,
+    "Followers": [
+      273
+    ]
   },
   {
     "MonsterId": 229,
@@ -317,7 +452,11 @@
     "Boss": false,
     "Map": "field",
     "X": 91.55,
-    "Y": 86.81
+    "Y": 86.81,
+    "Followers": [
+      101,
+      229
+    ]
   },
   {
     "MonsterId": 229,
@@ -327,7 +466,10 @@
     "Boss": false,
     "Map": "field",
     "X": 85.74,
-    "Y": 88.36
+    "Y": 88.36,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 229,
@@ -337,7 +479,10 @@
     "Boss": false,
     "Map": "field",
     "X": 47.21,
-    "Y": 88.67
+    "Y": 88.67,
+    "Followers": [
+      273
+    ]
   },
   {
     "MonsterId": 229,
@@ -347,7 +492,10 @@
     "Boss": false,
     "Map": "field",
     "X": 80.9,
-    "Y": 89.83
+    "Y": 89.83,
+    "Followers": [
+      101
+    ]
   },
   {
     "MonsterId": 229,
@@ -357,7 +505,11 @@
     "Boss": false,
     "Map": "field",
     "X": 55.76,
-    "Y": 90.26
+    "Y": 90.26,
+    "Followers": [
+      218,
+      273
+    ]
   },
   {
     "MonsterId": 252,
@@ -367,7 +519,10 @@
     "Boss": false,
     "Map": "field",
     "X": 27.1,
-    "Y": 64.98
+    "Y": 64.98,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 252,
@@ -377,7 +532,10 @@
     "Boss": false,
     "Map": "field",
     "X": 23.74,
-    "Y": 68.36
+    "Y": 68.36,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 252,
@@ -387,7 +545,10 @@
     "Boss": false,
     "Map": "field",
     "X": 16.57,
-    "Y": 69.6
+    "Y": 69.6,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 252,
@@ -397,7 +558,10 @@
     "Boss": false,
     "Map": "field",
     "X": 7.36,
-    "Y": 71.77
+    "Y": 71.77,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 252,
@@ -407,7 +571,10 @@
     "Boss": false,
     "Map": "field",
     "X": 13.69,
-    "Y": 72.07
+    "Y": 72.07,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 252,
@@ -417,7 +584,10 @@
     "Boss": false,
     "Map": "field",
     "X": 21,
-    "Y": 75.1
+    "Y": 75.1,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 252,
@@ -427,7 +597,12 @@
     "Boss": false,
     "Map": "field",
     "X": 27.21,
-    "Y": 77.33
+    "Y": 77.33,
+    "Followers": [
+      644,
+      273,
+      218
+    ]
   },
   {
     "MonsterId": 273,
@@ -437,7 +612,10 @@
     "Boss": false,
     "Map": "field",
     "X": 47.33,
-    "Y": 68.02
+    "Y": 68.02,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 273,
@@ -447,7 +625,10 @@
     "Boss": false,
     "Map": "field",
     "X": 54.71,
-    "Y": 70.1
+    "Y": 70.1,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 273,
@@ -457,7 +638,10 @@
     "Boss": false,
     "Map": "field",
     "X": 71.62,
-    "Y": 70.86
+    "Y": 70.86,
+    "Followers": [
+      218
+    ]
   },
   {
     "MonsterId": 273,
@@ -467,7 +651,11 @@
     "Boss": false,
     "Map": "field",
     "X": 52.29,
-    "Y": 74.64
+    "Y": 74.64,
+    "Followers": [
+      644,
+      218
+    ]
   },
   {
     "MonsterId": 273,
@@ -477,7 +665,10 @@
     "Boss": false,
     "Map": "field",
     "X": 68.21,
-    "Y": 75.43
+    "Y": 75.43,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 273,
@@ -487,7 +678,11 @@
     "Boss": false,
     "Map": "field",
     "X": 33.74,
-    "Y": 77.79
+    "Y": 77.79,
+    "Followers": [
+      644,
+      229
+    ]
   },
   {
     "MonsterId": 273,
@@ -497,7 +692,10 @@
     "Boss": false,
     "Map": "field",
     "X": 34.43,
-    "Y": 83.86
+    "Y": 83.86,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 273,
@@ -507,7 +705,10 @@
     "Boss": false,
     "Map": "field",
     "X": 54.55,
-    "Y": 85.98
+    "Y": 85.98,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 273,
@@ -517,7 +718,10 @@
     "Boss": false,
     "Map": "field",
     "X": 38.26,
-    "Y": 88.67
+    "Y": 88.67,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 273,
@@ -527,7 +731,10 @@
     "Boss": false,
     "Map": "field",
     "X": 48.95,
-    "Y": 91.21
+    "Y": 91.21,
+    "Followers": [
+      644
+    ]
   },
   {
     "MonsterId": 313,
@@ -547,7 +754,25 @@
     "Boss": false,
     "Map": "field",
     "X": 77.6,
-    "Y": 72.31
+    "Y": 72.31,
+    "Followers": [
+      218,
+      101
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 77.6,
+    "Y": 72.31,
+    "Followers": [
+      218,
+      149
+    ]
   },
   {
     "MonsterId": 643,
@@ -557,7 +782,23 @@
     "Boss": false,
     "Map": "field",
     "X": 68.69,
-    "Y": 80.76
+    "Y": 80.76,
+    "Followers": [
+      101
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.69,
+    "Y": 80.76,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 643,
@@ -567,7 +808,23 @@
     "Boss": false,
     "Map": "field",
     "X": 49.07,
-    "Y": 82.71
+    "Y": 82.71,
+    "Followers": [
+      273
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 49.07,
+    "Y": 82.71,
+    "Followers": [
+      273
+    ]
   },
   {
     "MonsterId": 643,
@@ -577,7 +834,23 @@
     "Boss": false,
     "Map": "field",
     "X": 82.86,
-    "Y": 83.55
+    "Y": 83.55,
+    "Followers": [
+      229
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 82.86,
+    "Y": 83.55,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 643,
@@ -587,7 +860,23 @@
     "Boss": false,
     "Map": "field",
     "X": 27.06,
-    "Y": 81.31
+    "Y": 81.31,
+    "Followers": [
+      229
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Parchland",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 27.06,
+    "Y": 81.31,
+    "Followers": [
+      229
+    ]
   },
   {
     "MonsterId": 644,
@@ -597,7 +886,11 @@
     "Boss": false,
     "Map": "field",
     "X": 64.07,
-    "Y": 71.83
+    "Y": 71.83,
+    "Followers": [
+      273,
+      218
+    ]
   },
   {
     "MonsterId": 644,
@@ -607,7 +900,10 @@
     "Boss": false,
     "Map": "field",
     "X": 38.64,
-    "Y": 72.29
+    "Y": 72.29,
+    "Followers": [
+      273
+    ]
   },
   {
     "MonsterId": 644,
@@ -617,7 +913,11 @@
     "Boss": false,
     "Map": "field",
     "X": 48.62,
-    "Y": 72.43
+    "Y": 72.43,
+    "Followers": [
+      273,
+      218
+    ]
   },
   {
     "MonsterId": 644,
@@ -627,7 +927,11 @@
     "Boss": false,
     "Map": "field",
     "X": 60.26,
-    "Y": 73.29
+    "Y": 73.29,
+    "Followers": [
+      273,
+      218
+    ]
   },
   {
     "MonsterId": 644,
@@ -637,7 +941,11 @@
     "Boss": false,
     "Map": "field",
     "X": 42.6,
-    "Y": 73.76
+    "Y": 73.76,
+    "Followers": [
+      273,
+      229
+    ]
   },
   {
     "MonsterId": 644,
@@ -647,7 +955,11 @@
     "Boss": false,
     "Map": "field",
     "X": 26.14,
-    "Y": 73.88
+    "Y": 73.88,
+    "Followers": [
+      218,
+      273
+    ]
   },
   {
     "MonsterId": 101,
@@ -657,7 +969,10 @@
     "Boss": false,
     "Map": "field",
     "X": 11.6,
-    "Y": 6.33
+    "Y": 6.33,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 101,
@@ -667,7 +982,11 @@
     "Boss": false,
     "Map": "field",
     "X": 32.66,
-    "Y": 11.46
+    "Y": 11.46,
+    "Followers": [
+      140,
+      140
+    ]
   },
   {
     "MonsterId": 101,
@@ -677,7 +996,11 @@
     "Boss": false,
     "Map": "field",
     "X": 32.64,
-    "Y": 11.8
+    "Y": 11.8,
+    "Followers": [
+      140,
+      140
+    ]
   },
   {
     "MonsterId": 140,
@@ -687,7 +1010,10 @@
     "Boss": false,
     "Map": "field",
     "X": 45.81,
-    "Y": 20.36
+    "Y": 20.36,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -697,7 +1023,10 @@
     "Boss": false,
     "Map": "field",
     "X": 15.48,
-    "Y": 14.64
+    "Y": 14.64,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -707,7 +1036,10 @@
     "Boss": false,
     "Map": "field",
     "X": 56.83,
-    "Y": 14.74
+    "Y": 14.74,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -717,7 +1049,10 @@
     "Boss": false,
     "Map": "field",
     "X": 9.29,
-    "Y": 16.57
+    "Y": 16.57,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -727,7 +1062,11 @@
     "Boss": false,
     "Map": "field",
     "X": 45.88,
-    "Y": 17.33
+    "Y": 17.33,
+    "Followers": [
+      260,
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -737,7 +1076,11 @@
     "Boss": false,
     "Map": "field",
     "X": 24.95,
-    "Y": 19.38
+    "Y": 19.38,
+    "Followers": [
+      260,
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -757,7 +1100,10 @@
     "Boss": false,
     "Map": "field",
     "X": 5.95,
-    "Y": 20.14
+    "Y": 20.14,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -767,7 +1113,10 @@
     "Boss": false,
     "Map": "field",
     "X": 38.95,
-    "Y": 21.1
+    "Y": 21.1,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 140,
@@ -787,7 +1136,10 @@
     "Boss": false,
     "Map": "field",
     "X": 88.76,
-    "Y": 22.4
+    "Y": 22.4,
+    "Followers": [
+      645
+    ]
   },
   {
     "MonsterId": 140,
@@ -797,7 +1149,11 @@
     "Boss": false,
     "Map": "field",
     "X": 49.76,
-    "Y": 29.05
+    "Y": 29.05,
+    "Followers": [
+      260,
+      142
+    ]
   },
   {
     "MonsterId": 140,
@@ -807,7 +1163,10 @@
     "Boss": false,
     "Map": "field",
     "X": 52.14,
-    "Y": 34.05
+    "Y": 34.05,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 142,
@@ -827,7 +1186,10 @@
     "Boss": false,
     "Map": "field",
     "X": 62.33,
-    "Y": 8.6
+    "Y": 8.6,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 142,
@@ -847,7 +1209,11 @@
     "Boss": false,
     "Map": "field",
     "X": 55.79,
-    "Y": 24.17
+    "Y": 24.17,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 142,
@@ -857,7 +1223,11 @@
     "Boss": false,
     "Map": "field",
     "X": 34.67,
-    "Y": 26.24
+    "Y": 26.24,
+    "Followers": [
+      260,
+      236
+    ]
   },
   {
     "MonsterId": 142,
@@ -867,7 +1237,10 @@
     "Boss": false,
     "Map": "field",
     "X": 66.64,
-    "Y": 28.33
+    "Y": 28.33,
+    "Followers": [
+      236
+    ]
   },
   {
     "MonsterId": 142,
@@ -877,7 +1250,11 @@
     "Boss": false,
     "Map": "field",
     "X": 82.68,
-    "Y": 28.36
+    "Y": 28.36,
+    "Followers": [
+      260,
+      236
+    ]
   },
   {
     "MonsterId": 142,
@@ -897,7 +1274,25 @@
     "Boss": false,
     "Map": "field",
     "X": 24.95,
-    "Y": 4.71
+    "Y": 4.71,
+    "Followers": [
+      140,
+      236
+    ]
+  },
+  {
+    "MonsterId": 254,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 24.95,
+    "Y": 4.71,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 205,
@@ -907,12 +1302,40 @@
     "Boss": false,
     "Map": "field",
     "X": 49.45,
-    "Y": 10.45
+    "Y": 10.45,
+    "Followers": [
+      140,
+      236
+    ]
+  },
+  {
+    "MonsterId": 254,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 49.45,
+    "Y": 10.45,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 205,
     "Area": "The Sogswamp",
     "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.33,
+    "Y": 14.95
+  },
+  {
+    "MonsterId": 254,
+    "Area": "The Sogswamp",
+    "Time": "Night",
     "Where": null,
     "Boss": false,
     "Map": "field",
@@ -927,7 +1350,25 @@
     "Boss": false,
     "Map": "field",
     "X": 67.8,
-    "Y": 19.25
+    "Y": 19.25,
+    "Followers": [
+      142,
+      236
+    ]
+  },
+  {
+    "MonsterId": 254,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 67.8,
+    "Y": 19.25,
+    "Followers": [
+      142,
+      236
+    ]
   },
   {
     "MonsterId": 205,
@@ -937,7 +1378,27 @@
     "Boss": false,
     "Map": "field",
     "X": 58,
-    "Y": 19.98
+    "Y": 19.98,
+    "Followers": [
+      260,
+      236,
+      140
+    ]
+  },
+  {
+    "MonsterId": 254,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 58,
+    "Y": 19.98,
+    "Followers": [
+      260,
+      236,
+      140
+    ]
   },
   {
     "MonsterId": 205,
@@ -947,7 +1408,25 @@
     "Boss": false,
     "Map": "field",
     "X": 30.01,
-    "Y": 28.66
+    "Y": 28.66,
+    "Followers": [
+      142,
+      260
+    ]
+  },
+  {
+    "MonsterId": 254,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 30.01,
+    "Y": 28.66,
+    "Followers": [
+      142,
+      260
+    ]
   },
   {
     "MonsterId": 236,
@@ -957,7 +1436,10 @@
     "Boss": false,
     "Map": "field",
     "X": 36,
-    "Y": 6.5
+    "Y": 6.5,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 236,
@@ -967,7 +1449,10 @@
     "Boss": false,
     "Map": "field",
     "X": 58.12,
-    "Y": 10.4
+    "Y": 10.4,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 236,
@@ -977,7 +1462,10 @@
     "Boss": false,
     "Map": "field",
     "X": 36.21,
-    "Y": 13.7
+    "Y": 13.7,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 236,
@@ -987,7 +1475,10 @@
     "Boss": false,
     "Map": "field",
     "X": 36.71,
-    "Y": 14.28
+    "Y": 14.28,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 236,
@@ -997,7 +1488,10 @@
     "Boss": false,
     "Map": "field",
     "X": 62.17,
-    "Y": 18.24
+    "Y": 18.24,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 236,
@@ -1007,7 +1501,10 @@
     "Boss": false,
     "Map": "field",
     "X": 15.74,
-    "Y": 21
+    "Y": 21,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 236,
@@ -1017,7 +1514,11 @@
     "Boss": false,
     "Map": "field",
     "X": 16.67,
-    "Y": 21.88
+    "Y": 21.88,
+    "Followers": [
+      140,
+      260
+    ]
   },
   {
     "MonsterId": 236,
@@ -1037,7 +1538,11 @@
     "Boss": false,
     "Map": "field",
     "X": 61.71,
-    "Y": 23.17
+    "Y": 23.17,
+    "Followers": [
+      260,
+      142
+    ]
   },
   {
     "MonsterId": 236,
@@ -1047,7 +1552,10 @@
     "Boss": false,
     "Map": "field",
     "X": 61.48,
-    "Y": 27.76
+    "Y": 27.76,
+    "Followers": [
+      142
+    ]
   },
   {
     "MonsterId": 236,
@@ -1077,7 +1585,10 @@
     "Boss": false,
     "Map": "field",
     "X": 45.79,
-    "Y": 32.38
+    "Y": 32.38,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 260,
@@ -1087,7 +1598,11 @@
     "Boss": false,
     "Map": "field",
     "X": 40.31,
-    "Y": 10.86
+    "Y": 10.86,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 260,
@@ -1097,7 +1612,11 @@
     "Boss": false,
     "Map": "field",
     "X": 50.43,
-    "Y": 15.36
+    "Y": 15.36,
+    "Followers": [
+      236,
+      236
+    ]
   },
   {
     "MonsterId": 260,
@@ -1107,7 +1626,11 @@
     "Boss": false,
     "Map": "field",
     "X": 44.74,
-    "Y": 19.36
+    "Y": 19.36,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 260,
@@ -1117,7 +1640,10 @@
     "Boss": false,
     "Map": "field",
     "X": 24.12,
-    "Y": 21.76
+    "Y": 21.76,
+    "Followers": [
+      142
+    ]
   },
   {
     "MonsterId": 260,
@@ -1127,7 +1653,11 @@
     "Boss": false,
     "Map": "field",
     "X": 51.14,
-    "Y": 23.36
+    "Y": 23.36,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 260,
@@ -1137,7 +1667,11 @@
     "Boss": false,
     "Map": "field",
     "X": 27.6,
-    "Y": 24.33
+    "Y": 24.33,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 260,
@@ -1147,7 +1681,10 @@
     "Boss": false,
     "Map": "field",
     "X": 37.81,
-    "Y": 30.02
+    "Y": 30.02,
+    "Followers": [
+      142
+    ]
   },
   {
     "MonsterId": 505,
@@ -1167,7 +1704,25 @@
     "Boss": false,
     "Map": "field",
     "X": 39.86,
-    "Y": 17.24
+    "Y": 17.24,
+    "Followers": [
+      140,
+      236
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 39.86,
+    "Y": 17.24,
+    "Followers": [
+      140,
+      236
+    ]
   },
   {
     "MonsterId": 643,
@@ -1177,7 +1732,25 @@
     "Boss": false,
     "Map": "field",
     "X": 80.54,
-    "Y": 24.76
+    "Y": 24.76,
+    "Followers": [
+      645,
+      140
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 80.54,
+    "Y": 24.76,
+    "Followers": [
+      645,
+      140
+    ]
   },
   {
     "MonsterId": 643,
@@ -1187,7 +1760,25 @@
     "Boss": false,
     "Map": "field",
     "X": 42.94,
-    "Y": 30.74
+    "Y": 30.74,
+    "Followers": [
+      140,
+      260
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 42.94,
+    "Y": 30.74,
+    "Followers": [
+      140,
+      260
+    ]
   },
   {
     "MonsterId": 643,
@@ -1197,7 +1788,25 @@
     "Boss": false,
     "Map": "field",
     "X": 49.14,
-    "Y": 36.1
+    "Y": 36.1,
+    "Followers": [
+      140,
+      142
+    ]
+  },
+  {
+    "MonsterId": 149,
+    "Area": "The Sogswamp",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 49.14,
+    "Y": 36.1,
+    "Followers": [
+      140,
+      142
+    ]
   },
   {
     "MonsterId": 645,
@@ -1207,7 +1816,10 @@
     "Boss": false,
     "Map": "field",
     "X": 76.75,
-    "Y": 17.63
+    "Y": 17.63,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 645,
@@ -1217,7 +1829,10 @@
     "Boss": false,
     "Map": "field",
     "X": 79,
-    "Y": 17.64
+    "Y": 17.64,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 645,
@@ -1227,7 +1842,10 @@
     "Boss": false,
     "Map": "field",
     "X": 78,
-    "Y": 19.5
+    "Y": 19.5,
+    "Followers": [
+      140
+    ]
   },
   {
     "MonsterId": 645,
@@ -1237,7 +1855,10 @@
     "Boss": false,
     "Map": "field",
     "X": 76.05,
-    "Y": 30.1
+    "Y": 30.1,
+    "Followers": [
+      142
+    ]
   },
   {
     "MonsterId": 101,
@@ -1247,7 +1868,10 @@
     "Boss": false,
     "Map": "field",
     "X": 73.5,
-    "Y": 38.57
+    "Y": 38.57,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 101,
@@ -1257,7 +1881,11 @@
     "Boss": false,
     "Map": "field",
     "X": 14.29,
-    "Y": 40.5
+    "Y": 40.5,
+    "Followers": [
+      106,
+      128
+    ]
   },
   {
     "MonsterId": 101,
@@ -1327,7 +1955,10 @@
     "Boss": false,
     "Map": "field",
     "X": 72.39,
-    "Y": 50.43
+    "Y": 50.43,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 106,
@@ -1337,7 +1968,10 @@
     "Boss": false,
     "Map": "field",
     "X": 8.05,
-    "Y": 27.26
+    "Y": 27.26,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 106,
@@ -1347,7 +1981,10 @@
     "Boss": false,
     "Map": "field",
     "X": 12.38,
-    "Y": 27.64
+    "Y": 27.64,
+    "Followers": [
+      128
+    ]
   },
   {
     "MonsterId": 106,
@@ -1367,7 +2004,11 @@
     "Boss": false,
     "Map": "field",
     "X": 11.64,
-    "Y": 33.19
+    "Y": 33.19,
+    "Followers": [
+      187,
+      128
+    ]
   },
   {
     "MonsterId": 106,
@@ -1377,7 +2018,10 @@
     "Boss": false,
     "Map": "field",
     "X": 85.05,
-    "Y": 34.67
+    "Y": 34.67,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 106,
@@ -1387,7 +2031,10 @@
     "Boss": false,
     "Map": "field",
     "X": 87.14,
-    "Y": 36.62
+    "Y": 36.62,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 106,
@@ -1397,7 +2044,11 @@
     "Boss": false,
     "Map": "field",
     "X": 32.93,
-    "Y": 40.6
+    "Y": 40.6,
+    "Followers": [
+      128,
+      116
+    ]
   },
   {
     "MonsterId": 106,
@@ -1407,7 +2058,10 @@
     "Boss": false,
     "Map": "field",
     "X": 95.38,
-    "Y": 42.62
+    "Y": 42.62,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 106,
@@ -1417,7 +2071,10 @@
     "Boss": false,
     "Map": "field",
     "X": 15.85,
-    "Y": 45.46
+    "Y": 45.46,
+    "Followers": [
+      128
+    ]
   },
   {
     "MonsterId": 106,
@@ -1437,7 +2094,10 @@
     "Boss": false,
     "Map": "field",
     "X": 21.1,
-    "Y": 50.02
+    "Y": 50.02,
+    "Followers": [
+      116
+    ]
   },
   {
     "MonsterId": 106,
@@ -1447,7 +2107,10 @@
     "Boss": false,
     "Map": "field",
     "X": 92,
-    "Y": 50.02
+    "Y": 50.02,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 106,
@@ -1457,7 +2120,10 @@
     "Boss": false,
     "Map": "field",
     "X": 26.07,
-    "Y": 50.17
+    "Y": 50.17,
+    "Followers": [
+      116
+    ]
   },
   {
     "MonsterId": 106,
@@ -1467,7 +2133,10 @@
     "Boss": false,
     "Map": "field",
     "X": 36.9,
-    "Y": 51.12
+    "Y": 51.12,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 106,
@@ -1477,12 +2146,29 @@
     "Boss": false,
     "Map": "field",
     "X": 38.02,
-    "Y": 56.17
+    "Y": 56.17,
+    "Followers": [
+      116,
+      187
+    ]
   },
   {
     "MonsterId": 106,
     "Area": "Witherwood Plains",
     "Time": "Day",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 32.71,
+    "Y": 40.24,
+    "Followers": [
+      101
+    ]
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
     "Where": null,
     "Boss": false,
     "Map": "field",
@@ -1497,7 +2183,10 @@
     "Boss": false,
     "Map": "field",
     "X": 31.02,
-    "Y": 36.69
+    "Y": 36.69,
+    "Followers": [
+      128
+    ]
   },
   {
     "MonsterId": 116,
@@ -1517,7 +2206,10 @@
     "Boss": false,
     "Map": "field",
     "X": 31.24,
-    "Y": 53.45
+    "Y": 53.45,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1527,7 +2219,10 @@
     "Boss": false,
     "Map": "field",
     "X": 19.88,
-    "Y": 30.24
+    "Y": 30.24,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1547,7 +2242,10 @@
     "Boss": false,
     "Map": "field",
     "X": 27.52,
-    "Y": 38.19
+    "Y": 38.19,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1557,7 +2255,10 @@
     "Boss": false,
     "Map": "field",
     "X": 7.93,
-    "Y": 38.38
+    "Y": 38.38,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1567,7 +2268,10 @@
     "Boss": false,
     "Map": "field",
     "X": 8.29,
-    "Y": 38.86
+    "Y": 38.86,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1577,7 +2281,10 @@
     "Boss": false,
     "Map": "field",
     "X": 7.12,
-    "Y": 39.76
+    "Y": 39.76,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1587,7 +2294,11 @@
     "Boss": false,
     "Map": "field",
     "X": 20.1,
-    "Y": 39.93
+    "Y": 39.93,
+    "Followers": [
+      116,
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1597,7 +2308,11 @@
     "Boss": false,
     "Map": "field",
     "X": 18.57,
-    "Y": 40.36
+    "Y": 40.36,
+    "Followers": [
+      116,
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1607,7 +2322,10 @@
     "Boss": false,
     "Map": "field",
     "X": 36.43,
-    "Y": 43.81
+    "Y": 43.81,
+    "Followers": [
+      116
+    ]
   },
   {
     "MonsterId": 128,
@@ -1617,7 +2335,10 @@
     "Boss": false,
     "Map": "field",
     "X": 9.21,
-    "Y": 51.02
+    "Y": 51.02,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 128,
@@ -1640,6 +2361,16 @@
     "Y": 34.9
   },
   {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 77.38,
+    "Y": 34.9
+  },
+  {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "Time": "Day",
@@ -1647,7 +2378,25 @@
     "Boss": false,
     "Map": "field",
     "X": 18.67,
-    "Y": 35.93
+    "Y": 35.93,
+    "Followers": [
+      128,
+      106
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 18.67,
+    "Y": 35.93,
+    "Followers": [
+      128,
+      106
+    ]
   },
   {
     "MonsterId": 171,
@@ -1657,13 +2406,39 @@
     "Boss": false,
     "Map": "field",
     "X": 79.48,
-    "Y": 35.95
+    "Y": 35.95,
+    "Followers": [
+      106
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 79.48,
+    "Y": 35.95,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "Time": "Day",
     "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 68.98,
+    "Y": 39.36
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
     "Boss": false,
     "Map": "field",
     "X": 68.98,
@@ -1677,13 +2452,39 @@
     "Boss": false,
     "Map": "field",
     "X": 39.45,
-    "Y": 40.07
+    "Y": 40.07,
+    "Followers": [
+      116
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 39.45,
+    "Y": 40.07,
+    "Followers": [
+      116
+    ]
   },
   {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "Time": "Day",
     "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 95.55,
+    "Y": 40.79
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
     "Boss": false,
     "Map": "field",
     "X": 95.55,
@@ -1700,10 +2501,36 @@
     "Y": 42.74
   },
   {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 83.83,
+    "Y": 42.74,
+    "Followers": [
+      106
+    ]
+  },
+  {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "Time": "Day",
     "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 78.52,
+    "Y": 43.4,
+    "Followers": [
+      187
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
     "Boss": false,
     "Map": "field",
     "X": 78.52,
@@ -1720,6 +2547,16 @@
     "Y": 44.05
   },
   {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 43.19,
+    "Y": 44.05
+  },
+  {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "Time": "Day",
@@ -1727,13 +2564,41 @@
     "Boss": false,
     "Map": "field",
     "X": 22.64,
-    "Y": 44.1
+    "Y": 44.1,
+    "Followers": [
+      128,
+      106
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 22.64,
+    "Y": 44.1,
+    "Followers": [
+      128,
+      106
+    ]
   },
   {
     "MonsterId": 171,
     "Area": "Witherwood Plains",
     "Time": "Day",
     "Where": null,
+    "Boss": false,
+    "Map": "field",
+    "X": 65.98,
+    "Y": 47.14
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
     "Boss": false,
     "Map": "field",
     "X": 65.98,
@@ -1747,7 +2612,25 @@
     "Boss": false,
     "Map": "field",
     "X": 47.33,
-    "Y": 50.83
+    "Y": 50.83,
+    "Followers": [
+      128,
+      187
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 47.33,
+    "Y": 50.83,
+    "Followers": [
+      128,
+      187
+    ]
   },
   {
     "MonsterId": 171,
@@ -1757,7 +2640,23 @@
     "Boss": false,
     "Map": "field",
     "X": 63.38,
-    "Y": 52.48
+    "Y": 52.48,
+    "Followers": [
+      187
+    ]
+  },
+  {
+    "MonsterId": 259,
+    "Area": "Witherwood Plains",
+    "Time": "Night",
+    "Where": "Low air",
+    "Boss": false,
+    "Map": "field",
+    "X": 63.38,
+    "Y": 52.48,
+    "Followers": [
+      187
+    ]
   },
   {
     "MonsterId": 187,
@@ -1797,7 +2696,10 @@
     "Boss": false,
     "Map": "field",
     "X": 70.4,
-    "Y": 52.76
+    "Y": 52.76,
+    "Followers": [
+      116
+    ]
   },
   {
     "MonsterId": 187,
@@ -1807,7 +2709,10 @@
     "Boss": false,
     "Map": "field",
     "X": 82.86,
-    "Y": 53.79
+    "Y": 53.79,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 187,
@@ -1827,7 +2732,10 @@
     "Boss": false,
     "Map": "field",
     "X": 78.9,
-    "Y": 56.69
+    "Y": 56.69,
+    "Followers": [
+      116
+    ]
   },
   {
     "MonsterId": 187,
@@ -1837,7 +2745,10 @@
     "Boss": false,
     "Map": "field",
     "X": 47.4,
-    "Y": 58.88
+    "Y": 58.88,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 187,
@@ -1847,7 +2758,10 @@
     "Boss": false,
     "Map": "field",
     "X": 41.36,
-    "Y": 60.21
+    "Y": 60.21,
+    "Followers": [
+      106
+    ]
   },
   {
     "MonsterId": 187,
@@ -1857,7 +2771,10 @@
     "Boss": false,
     "Map": "field",
     "X": 74.36,
-    "Y": 49.3
+    "Y": 49.3,
+    "Followers": [
+      101
+    ]
   },
   {
     "MonsterId": 320,
@@ -1877,7 +2794,10 @@
     "Boss": false,
     "Map": "shrine-1",
     "X": 50.18,
-    "Y": 22.87
+    "Y": 22.87,
+    "Followers": [
+      188
+    ]
   },
   {
     "MonsterId": 103,
@@ -1897,7 +2817,10 @@
     "Boss": false,
     "Map": "shrine-1",
     "X": 49.76,
-    "Y": 79.18
+    "Y": 79.18,
+    "Followers": [
+      188
+    ]
   },
   {
     "MonsterId": 188,
@@ -1907,7 +2830,10 @@
     "Boss": false,
     "Map": "shrine-1",
     "X": 64.69,
-    "Y": 26.55
+    "Y": 26.55,
+    "Followers": [
+      103
+    ]
   },
   {
     "MonsterId": 188,
@@ -1967,7 +2893,10 @@
     "Boss": false,
     "Map": "shrine-1",
     "X": 47.62,
-    "Y": 49.35
+    "Y": 49.35,
+    "Followers": [
+      260
+    ]
   },
   {
     "MonsterId": 191,
@@ -1977,7 +2906,10 @@
     "Boss": false,
     "Map": "shrine-1",
     "X": 56.48,
-    "Y": 56.86
+    "Y": 56.86,
+    "Followers": [
+      260
+    ]
   },
   {
     "MonsterId": 191,
@@ -2197,7 +3129,10 @@
     "Boss": false,
     "Map": "spelunk",
     "X": 76.2,
-    "Y": 65.83
+    "Y": 65.83,
+    "Followers": [
+      238
+    ]
   },
   {
     "MonsterId": 194,
@@ -2207,7 +3142,10 @@
     "Boss": false,
     "Map": "spelunk",
     "X": 51.4,
-    "Y": 44.16
+    "Y": 44.16,
+    "Followers": [
+      157
+    ]
   },
   {
     "MonsterId": 194,
@@ -2217,7 +3155,10 @@
     "Boss": false,
     "Map": "spelunk",
     "X": 66.09,
-    "Y": 52.44
+    "Y": 52.44,
+    "Followers": [
+      238
+    ]
   },
   {
     "MonsterId": 194,
@@ -2227,7 +3168,10 @@
     "Boss": false,
     "Map": "spelunk",
     "X": 45.15,
-    "Y": 55.55
+    "Y": 55.55,
+    "Followers": [
+      238
+    ]
   },
   {
     "MonsterId": 238,
@@ -2257,7 +3201,10 @@
     "Boss": false,
     "Map": "spelunk",
     "X": 53.97,
-    "Y": 53.1
+    "Y": 53.1,
+    "Followers": [
+      194
+    ]
   },
   {
     "MonsterId": 238,
@@ -2267,6 +3214,9 @@
     "Boss": false,
     "Map": "spelunk",
     "X": 74.15,
-    "Y": 58.93
+    "Y": 58.93,
+    "Followers": [
+      157
+    ]
   }
 ]

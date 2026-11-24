@@ -10,7 +10,7 @@ import { SkillUnlocks } from "@/components/skill-unlocks";
 import { SynthIcon } from "@/components/synth-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SpotMap } from "@/components/spot-map-link";
-import { BUSH_LIST, grassPlace, grassSummary } from "@/lib/bush-spots";
+import { BUSH_LIST, grassOdds, grassPlace } from "@/lib/bush-spots";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import growthCurveRows from "@/data/dqm4/GrowthCurve.json";
 import { cn, publicAsset } from "@/lib/utils";
@@ -218,8 +218,8 @@ function DetailSheet({ id }: { id: string }) {
                   </Link>
                 </p>
                 <p className="mt-1 text-sm font-bold text-parchment">
-                  {grassPlace(row.area, "the field map")}. Shake the grass there. {grassSummary(row.weights)}. Heavy
-                  is 100. Light is 20. One heavy entry equals five light entries. No single clump is marked.
+                  {grassPlace(row.area, "the field map")}. Shake the grass there. {grassOdds(row.area, row.weights)}. No
+                  single clump is marked.
                 </p>
               </li>
             ))}

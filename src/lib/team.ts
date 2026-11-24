@@ -1,10 +1,13 @@
 import { familyLabel } from "@/components/family-icon";
+import { BUSH_LIST, BUSH_SPOTS, bushDetail, grassDetail } from "@/lib/bush-spots";
 import {
   familyMembers,
   monster,
   parentKey,
+  type Family,
   type Monster,
   type ParentRef,
+  type Rank,
   type ScoutSpot,
 } from "@/lib/monsters";
 
@@ -312,11 +315,20 @@ export type TimelineMark = {
 
 export type TimelineScout = {
   id: string;
+  name: string;
+  family: Family;
+  rank: Rank;
+  /** Any monster of this family and rank fills the catch. The player has not picked a species. */
+  wildcard: boolean;
+  /** Species that can fill the catch and spawn in this zone. */
+  spotIds: string[];
   lines: string[];
   /** Party monsters this catch is for, when it is not that monster itself. */
   targets: string[];
   /** Have it paths that record this catch. One species can fill several slots. */
   marks: TimelineMark[];
+  /** No standing spawn. Shown only while Rare spawns is on. */
+  rare: boolean;
 };
 
 export type TimelineZone = {
@@ -334,22 +346,76 @@ export type ScoutTimeline = {
   blocked: TimelineBlock[];
 };
 
+type ScoutHit = {
+  id: string;
+  area: number;
+  wildcard?: { family: Family; rank: Rank };
+};
+
+export type TimelineOptions = {
+  /** Zone bosses such as Treeface. Off leaves them under No scout. */
+  bosses?: boolean;
+  /** Chance spawns with no standing point, such as Slime Stack. */
+  rares?: boolean;
+};
+
+type TimelineFlags = {
+  bosses: boolean;
+  rares: boolean;
+};
+
+function timelineFlags(options?: TimelineOptions): TimelineFlags {
+  return { bosses: options?.bosses === true, rares: options?.rares === true };
+}
+
+function standingSpots(m: Monster, bosses: boolean): ScoutSpot[] {
+  return m.habitats.filter((spot) => bosses || !spot.boss);
+}
+
+type ChanceStop = { area: string; line: string };
+
+/** Grass rows and placed thickets. Used when the monster has no standing spawn. */
+function chanceStops(m: Monster): ChanceStop[] {
+  const grass = BUSH_LIST.filter((row) => row.id === m.id).map((row) => ({
+    area: row.area,
+    line: grassDetail(row.area, row.weights),
+  }));
+  const bushes = BUSH_SPOTS.filter((spot) => spot.id === m.id).map((spot) => ({
+    area: spot.area,
+    line: bushDetail(spot.area, spot.odds),
+  }));
+  return [...grass, ...bushes];
+}
+
+function catchPlan(m: Monster, flags: TimelineFlags): { area: number; lines: string[]; rare: boolean } | null {
+  const standing = standingSpots(m, flags.bosses);
+  if (standing.length) {
+    const area = Math.min(...standing.map((spot) => areaIndex(spot.area)));
+    const lines = standing
+      .filter((spot) => areaIndex(spot.area) === area)
+      .map((spot) => (spot.boss ? `${spotLine(spot)} · Area boss` : spotLine(spot)));
+    return { area, lines, rare: false };
+  }
+  if (!flags.rares) return null;
+  const chances = chanceStops(m);
+  if (!chances.length) return null;
+  const area = Math.min(...chances.map((stop) => areaIndex(stop.area)));
+  return {
+    area,
+    lines: chances.filter((stop) => areaIndex(stop.area) === area).map((stop) => stop.line),
+    rare: true,
+  };
+}
+
 type ScoutNeed = {
   area: number;
-  scouts: { id: string; area: number }[];
+  scouts: ScoutHit[];
   marks: { id: string; path: string }[];
 };
 
 type NeedMemo = Map<string, ScoutNeed | "no">;
 
 const NOTHING: ScoutNeed = { area: -1, scouts: [], marks: [] };
-
-function spotsInEarliestArea(m: Monster): ScoutSpot[] {
-  const spots = scoutSpots(m);
-  if (!spots.length) return [];
-  const earliest = Math.min(...spots.map((spot) => areaIndex(spot.area)));
-  return spots.filter((spot) => areaIndex(spot.area) === earliest);
-}
 
 function ownedKey(path: string, owned: ReadonlySet<string>): string {
   const marks: string[] = [];
@@ -380,6 +446,7 @@ function needAt(
   seen: Set<string>,
   memo: NeedMemo,
   picks: Readonly<Record<string, string>>,
+  flags: TimelineFlags,
 ): ScoutNeed | null {
   const key = `${path}\n${id}\n${ownedKey(path, owned)}\n${pickKey(path, picks)}`;
   const cached = memo.get(key);
@@ -394,12 +461,11 @@ function needAt(
     memo.set(key, "no");
     return null;
   }
-  const spots = spotsInEarliestArea(m);
-  if (spots.length) {
-    const area = areaIndex(spots[0].area);
+  const caught = catchPlan(m, flags);
+  if (caught) {
     const plan = {
-      area,
-      scouts: [{ id: m.id, area }],
+      area: caught.area,
+      scouts: [{ id: m.id, area: caught.area }],
       marks: [{ id: m.id, path }],
     };
     memo.set(key, plan);
@@ -423,18 +489,18 @@ function needAt(
     }
     const part =
       parent.type === "species"
-        ? needAt(parent.id, child, owned, next, memo, picks)
-        : needFamily(parent, child, owned, next, memo, picks);
+        ? needAt(parent.id, child, owned, next, memo, picks, flags)
+        : needFamily(parent, child, owned, next, memo, picks, flags);
     if (!part) return null;
     parts.push(part);
   }
-  const byId = new Map<string, number>();
+  const byId = new Map<string, ScoutHit>();
   const marks: { id: string; path: string }[] = [];
   const seenMarks = new Set<string>();
   for (const part of parts) {
     for (const scout of part.scouts) {
       const prev = byId.get(scout.id);
-      if (prev == null || scout.area < prev) byId.set(scout.id, scout.area);
+      if (!prev || scout.area < prev.area) byId.set(scout.id, scout);
     }
     for (const mark of part.marks) {
       const token = `${mark.id}\n${mark.path}`;
@@ -443,7 +509,7 @@ function needAt(
       marks.push(mark);
     }
   }
-  const scouts = [...byId].map(([scoutId, area]) => ({ id: scoutId, area }));
+  const scouts = [...byId.values()];
   const plan = {
     area: scouts.length ? Math.max(...scouts.map((scout) => scout.area)) : -1,
     scouts,
@@ -460,28 +526,30 @@ function needFamily(
   seen: Set<string>,
   memo: NeedMemo,
   picks: Readonly<Record<string, string>>,
+  flags: TimelineFlags,
 ): ScoutNeed | null {
   if (owned.has(path)) return NOTHING;
-  const chosen = picks[path];
-  if (chosen && familyMembers(parent.family, parent.rank).some((member) => member.id === chosen)) {
-    return needAt(chosen, path, owned, seen, memo, picks);
-  }
   const members = familyMembers(parent.family, parent.rank);
-  let best: ScoutNeed | null = null;
-  const synth: Monster[] = [];
-  for (const member of members) {
-    if (!earliestScout(member)) {
-      synth.push(member);
-      continue;
-    }
-    const plan = needAt(member.id, path, owned, new Set(seen), memo, picks);
-    if (!plan) continue;
-    if (!best || betterNeed(plan, best)) best = plan;
-    if (plan.scouts.length === 0 || (plan.area === 0 && plan.scouts.length === 1)) return plan;
+  const chosen = picks[path];
+  if (chosen && members.some((member) => member.id === chosen)) {
+    return needAt(chosen, path, owned, seen, memo, picks, flags);
   }
-  if (best?.area === 0) return best;
-  for (const member of synth) {
-    const plan = needAt(member.id, path, owned, new Set(seen), memo, picks);
+  const scoutable = members.flatMap((member) => {
+    const caught = catchPlan(member, flags);
+    return caught ? [{ area: caught.area }] : [];
+  });
+  if (scoutable.length) {
+    const area = Math.min(...scoutable.map((spot) => spot.area));
+    const id = `family:${parent.family}:${parent.rank}`;
+    return {
+      area,
+      scouts: [{ id, area, wildcard: { family: parent.family, rank: parent.rank } }],
+      marks: [{ id, path }],
+    };
+  }
+  let best: ScoutNeed | null = null;
+  for (const member of members) {
+    const plan = needAt(member.id, path, owned, new Set(seen), memo, picks, flags);
     if (!plan) continue;
     if (!best || betterNeed(plan, best)) best = plan;
   }
@@ -495,9 +563,69 @@ function blockLine(id: string): string {
   return "No scout leads to this monster.";
 }
 
+function presentScout(
+  id: string,
+  area: number,
+  wildcard: { family: Family; rank: Rank } | undefined,
+  targets: Set<string>,
+  marks: TimelineMark[],
+  flags: TimelineFlags,
+): TimelineScout {
+  const sortedTargets = [...targets].sort((a, b) => a.localeCompare(b));
+  if (wildcard) {
+    const rankLabel = wildcard.rank === "Any" ? "Any Rank" : `${wildcard.rank} Rank`;
+    const members = familyMembers(wildcard.family, wildcard.rank).filter((member) => {
+      const caught = catchPlan(member, flags);
+      return caught != null && caught.area === area;
+    });
+    const lines: string[] = [];
+    const seen = new Set<string>();
+    for (const member of members) {
+      const caught = catchPlan(member, flags);
+      if (!caught) continue;
+      for (const line of caught.lines) {
+        const text = `${member.name} · ${line}`;
+        if (seen.has(text)) continue;
+        seen.add(text);
+        lines.push(text);
+      }
+    }
+    return {
+      id,
+      name: `${familyLabel(wildcard.family)} - ${rankLabel}`,
+      family: wildcard.family,
+      rank: wildcard.rank,
+      wildcard: true,
+      spotIds: members.map((member) => member.id),
+      lines,
+      targets: sortedTargets,
+      marks,
+      rare: members.length > 0 && members.every((member) => catchPlan(member, flags)?.rare === true),
+    };
+  }
+  const row = monster(id);
+  const caught = catchPlan(row, flags);
+  return {
+    id,
+    name: row.name,
+    family: row.family,
+    rank: row.rank,
+    wildcard: false,
+    spotIds: [row.id],
+    lines: caught?.lines ?? [],
+    targets: sortedTargets,
+    marks,
+    rare: caught?.rare === true,
+  };
+}
+
 /** Scouts that build the party, grouped by the earliest zone each catch appears. */
-export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline {
-  const scouts = new Map<string, { area: number; targets: Set<string>; marks: TimelineMark[] }>();
+export function scoutTimeline(members: readonly TimelineMember[], options?: TimelineOptions): ScoutTimeline {
+  const flags = timelineFlags(options);
+  const scouts = new Map<
+    string,
+    { area: number; targets: Set<string>; marks: TimelineMark[]; wildcard?: { family: Family; rank: Rank } }
+  >();
   const blocked: TimelineBlock[] = [];
   const seenBlocked = new Set<string>();
   const memo: NeedMemo = new Map();
@@ -506,7 +634,7 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
     const monsterRow = knownMonster(member.id);
     if (!monsterRow) continue;
     const owned = new Set(member.owned);
-    const plan = needAt(member.id, member.id, owned, new Set(), memo, member.picks ?? {});
+    const plan = needAt(member.id, member.id, owned, new Set(), memo, member.picks ?? {}, flags);
     if (!plan) {
       if (!seenBlocked.has(member.id)) {
         seenBlocked.add(member.id);
@@ -523,7 +651,7 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
       if (!row) {
         const targets = new Set<string>();
         if (mark.id !== member.id) targets.add(monsterRow.name);
-        scouts.set(mark.id, { area: scout.area, targets, marks: [entry] });
+        scouts.set(mark.id, { area: scout.area, targets, marks: [entry], wildcard: scout.wildcard });
         seenHere.add(mark.id);
         continue;
       }
@@ -538,16 +666,8 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
   for (let area = 0; area < CAMPAIGN_AREAS.length; area += 1) {
     const rows = [...scouts]
       .filter(([, scout]) => scout.area === area)
-      .map(([id, scout]) => {
-        const m = monster(id);
-        return {
-          id,
-          lines: spotsInEarliestArea(m).map(spotLine),
-          targets: [...scout.targets].sort((a, b) => a.localeCompare(b)),
-          marks: scout.marks,
-        };
-      })
-      .sort((a, b) => monster(a.id).name.localeCompare(monster(b.id).name));
+      .map(([id, scout]) => presentScout(id, area, scout.wildcard, scout.targets, scout.marks, flags))
+      .sort((a, b) => a.name.localeCompare(b.name));
     if (rows.length) zones.push({ area: CAMPAIGN_AREAS[area], scouts: rows });
   }
 
@@ -555,12 +675,9 @@ export function scoutTimeline(members: readonly TimelineMember[]): ScoutTimeline
   if (later.length) {
     zones.push({
       area: "Somewhere else",
-      scouts: later.map(([id, scout]) => ({
-        id,
-        lines: spotsInEarliestArea(monster(id)).map(spotLine),
-        targets: [...scout.targets].sort((a, b) => a.localeCompare(b)),
-        marks: scout.marks,
-      })),
+      scouts: later
+        .map(([id, scout]) => presentScout(id, scout.area, scout.wildcard, scout.targets, scout.marks, flags))
+        .sort((a, b) => a.name.localeCompare(b.name)),
     });
   }
 

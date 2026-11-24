@@ -23,9 +23,21 @@ export type MapPin = {
   y: number;
   hot: boolean;
   boss: boolean;
+  bush: boolean;
   picked: boolean;
   name: string;
   detail: string;
+};
+
+/** A chance spawn with no coordinate. Drawn under the zone name, not on a pin. */
+export type MapFloat = {
+  key: string;
+  id: string;
+  family: Family;
+  name: string;
+  detail: string;
+  area: string;
+  picked: boolean;
 };
 
 export function MapMarkToggle({
@@ -98,7 +110,7 @@ function MapMarkers({ markers, compact }: { markers: readonly MapMarker[]; compa
   ));
 }
 
-function PinPortrait({ pin, px }: { pin: MapPin; px: number }) {
+function PinPortrait({ pin, px }: { pin: { id: string; family: Family }; px: number }) {
   if (!HAVE_PORTRAIT.has(pin.id)) {
     return <FamilyIcon family={pin.family} size="sm" framed={false} />;
   }
@@ -115,6 +127,92 @@ function PinPortrait({ pin, px }: { pin: MapPin; px: number }) {
   );
 }
 
+function BushMark({ pin, portrait }: { pin: MapPin; portrait: boolean }) {
+  const px = pin.picked ? 44 : pin.hot ? 40 : 36;
+  const word = (
+    <span
+      className={cn(
+        "whitespace-nowrap rounded-sm px-1.5 py-0.5 text-center font-display text-sm font-extrabold leading-none",
+        pin.picked ? "bg-chrome text-gold" : "bg-gold text-chrome",
+      )}
+    >
+      Bush
+    </span>
+  );
+  if (!portrait) {
+    return (
+      <span className="flex flex-col items-center rounded-sm border-4 border-gold bg-parchment shadow-[0_0_0_3px_var(--color-chrome)]">
+        <span className="m-1 size-5 rounded-sm bg-gold" />
+        {word}
+      </span>
+    );
+  }
+  return (
+    <span className="relative flex">
+      <span className="grid place-items-center rounded-sm border-4 border-gold bg-parchment shadow-[0_0_0_3px_var(--color-chrome)]">
+        <PinPortrait pin={pin} px={px} />
+      </span>
+      <span className="absolute bottom-full left-1/2 z-10 mb-0.5 -translate-x-1/2">{word}</span>
+    </span>
+  );
+}
+
+function GrassTray({
+  label,
+  floats,
+  marks,
+  onPick,
+}: {
+  label: MapLabel;
+  floats: readonly MapFloat[];
+  marks: MapMarks;
+  onPick?: (id: string) => void;
+}) {
+  if (!floats.length) return null;
+  const portrait = marks === "portrait";
+  const rows = [...floats].sort((a, b) => a.name.localeCompare(b.name));
+  return (
+    <div
+      className="absolute z-50 flex -translate-x-1/2 items-center gap-0.5"
+      style={{ left: `${label.x}%`, top: `calc(${label.y}% + 0.85rem)` }}
+    >
+      <span className="rounded-sm bg-gold px-1 py-0.5 font-display text-xs font-extrabold leading-none text-chrome">
+        Grass
+      </span>
+      <div className="flex items-center gap-0.5">
+        {rows.map((float) => (
+          <button
+            key={float.key}
+            type="button"
+            aria-label={`${float.name}. ${float.detail}`}
+            aria-pressed={float.picked}
+            onClick={() => onPick?.(float.id)}
+            className={cn(
+              "grid size-[clamp(1.15rem,8cqmin,2.25rem)] shrink-0 place-items-center overflow-hidden rounded-sm border-2 border-gold bg-parchment shadow-[0_0_0_2px_var(--color-chrome)]",
+              float.picked && "ring-2 ring-gold",
+            )}
+          >
+            {portrait ? (
+              HAVE_PORTRAIT.has(float.id) ? (
+                <img
+                  src={publicAsset(`portraits/${float.id}.png`)}
+                  alt=""
+                  draggable={false}
+                  className="size-full object-contain"
+                />
+              ) : (
+                <FamilyIcon family={float.family} size="sm" framed={false} />
+              )
+            ) : (
+              <span className="size-1/2 rounded-sm bg-gold" />
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function SpawnPins({
   pins,
   compact,
@@ -126,7 +224,13 @@ function SpawnPins({
   marks: MapMarks;
   onPick?: (key: string) => void;
 }) {
-  const ordered = [...pins].sort((a, b) => Number(a.hot) - Number(b.hot) || Number(a.picked) - Number(b.picked));
+  const ordered = [...pins].sort(
+    (a, b) =>
+      Number(a.bush) - Number(b.bush) ||
+      Number(a.hot) - Number(b.hot) ||
+      Number(a.picked) - Number(b.picked) ||
+      a.y - b.y,
+  );
   return ordered.map((pin) => {
     const portrait = marks === "portrait";
     if (compact) {
@@ -134,19 +238,21 @@ function SpawnPins({
         <span
           key={pin.key}
           className={cn(
-            "pointer-events-none absolute z-30 grid size-4 -translate-x-1/2 -translate-y-1/2 place-items-center overflow-hidden rounded-sm bg-parchment ring-1 ring-white",
-            pin.boss && "ring-rank",
+            "pointer-events-none absolute z-30 grid -translate-x-1/2 -translate-y-1/2 place-items-center overflow-hidden rounded-sm bg-parchment",
+            pin.bush ? "z-50 size-6 border-2 border-gold" : "size-4 ring-1",
+            !pin.bush && (pin.boss ? "ring-rank" : "ring-white"),
           )}
           style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
         >
-          <PinPortrait pin={pin} px={14} />
+          <PinPortrait pin={pin} px={pin.bush ? 18 : 14} />
         </span>
       ) : (
         <span
           key={pin.key}
           className={cn(
-            "pointer-events-none absolute z-30 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full border border-chrome",
-            pin.boss ? "bg-rank" : "bg-gold",
+            "pointer-events-none absolute z-30 -translate-x-1/2 -translate-y-1/2 border border-chrome",
+            pin.bush ? "z-50 size-4 rounded-sm bg-gold" : "size-1.5 rounded-full",
+            !pin.bush && (pin.boss ? "bg-rank" : "bg-gold"),
           )}
           style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
         />
@@ -160,22 +266,26 @@ function SpawnPins({
         aria-pressed={pin.picked}
         onClick={() => onPick?.(pin.key)}
         className={cn(
-          "absolute z-30 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center",
-          portrait
-            ? pin.picked
-              ? "z-40 size-11"
-              : pin.hot
-                ? "size-9"
-                : "size-7"
-            : pin.picked
-              ? "z-40 size-8"
-              : pin.hot
-                ? "size-6"
-                : "size-4",
+          "absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center",
+          pin.bush ? "z-50" : "z-30",
+          !pin.bush &&
+            (portrait
+              ? pin.picked
+                ? "z-40 size-11"
+                : pin.hot
+                  ? "size-9"
+                  : "size-7"
+              : pin.picked
+                ? "z-40 size-8"
+                : pin.hot
+                  ? "size-6"
+                  : "size-4"),
         )}
         style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
       >
-        {portrait ? (
+        {pin.bush ? (
+          <BushMark pin={pin} portrait={portrait} />
+        ) : portrait ? (
           <span
             data-pin=""
             className={cn(
@@ -212,6 +322,9 @@ export function MapView({
   compact = false,
   fit = false,
   marks = "portrait",
+  hotLabels = [],
+  floats = [],
+  onFloat,
 }: {
   src: string;
   markers: readonly MapMarker[];
@@ -221,25 +334,57 @@ export function MapView({
   compact?: boolean;
   fit?: boolean;
   marks?: MapMarks;
+  /** Area names to mark as the place to shake grass. */
+  hotLabels?: readonly string[];
+  /** Chance spawns with no coordinate, grouped under the zone name. */
+  floats?: readonly MapFloat[];
+  onFloat?: (id: string) => void;
 }) {
   return (
     <div
-      className="relative mx-auto overflow-hidden rounded-xl border-2 border-gold-ring bg-chrome"
+      className="@container relative mx-auto overflow-hidden rounded-xl border-2 border-gold-ring bg-chrome"
       style={fit ? { width: "min(100cqw, 100cqh)", aspectRatio: "1" } : undefined}
     >
       <img src={publicAsset(src)} alt="" className={cn("block", fit ? "h-full w-full" : "w-full")} />
       <MapMarkers markers={markers} compact={compact} />
-      <SpawnPins pins={pins} compact={compact} marks={marks} onPick={onPick} />
+      <SpawnPins pins={pins.filter((pin) => !pin.bush)} compact={compact} marks={marks} onPick={onPick} />
+      {compact
+        ? null
+        : labels
+            .filter((label) => !hotLabels.includes(label.name))
+            .map((label) => (
+              <span
+                key={label.name}
+                className="pointer-events-none absolute z-40 -translate-x-1/2 -translate-y-1/2 rounded-md bg-chrome px-1.5 py-0.5 font-display text-xs font-extrabold text-gold"
+                style={{ left: `${label.x}%`, top: `${label.y}%` }}
+              >
+                {label.name}
+              </span>
+            ))}
+      <SpawnPins pins={pins.filter((pin) => pin.bush)} compact={compact} marks={marks} onPick={onPick} />
+      {compact
+        ? null
+        : labels
+            .filter((label) => hotLabels.includes(label.name))
+            .map((label) => (
+              <span
+                key={label.name}
+                className="pointer-events-none absolute z-50 -translate-x-1/2 -translate-y-1/2 rounded-md border-2 border-chrome bg-gold px-1.5 py-0.5 font-display text-xs font-extrabold text-chrome"
+                style={{ left: `${label.x}%`, top: `${label.y}%` }}
+              >
+                {label.name}
+              </span>
+            ))}
       {compact
         ? null
         : labels.map((label) => (
-            <span
-              key={label.name}
-              className="pointer-events-none absolute z-50 -translate-x-1/2 -translate-y-1/2 rounded-md bg-chrome px-1.5 py-0.5 font-display text-xs font-extrabold text-gold"
-              style={{ left: `${label.x}%`, top: `${label.y}%` }}
-            >
-              {label.name}
-            </span>
+            <GrassTray
+              key={`grass-${label.name}`}
+              label={label}
+              floats={floats.filter((float) => float.area === label.name)}
+              marks={marks}
+              onPick={onFloat}
+            />
           ))}
     </div>
   );

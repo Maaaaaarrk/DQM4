@@ -1,0 +1,20 @@
+[
+  { "MonsterId": 218, "Area": "The Parchland", "Map": "field", "Weights": [20, 20, 20] },
+  { "MonsterId": 229, "Area": "The Parchland", "Map": "field", "Weights": [100, 20, 20] },
+  { "MonsterId": 252, "Area": "The Parchland", "Map": "field", "Weights": [20, 20] },
+  { "MonsterId": 273, "Area": "The Parchland", "Map": "field", "Weights": [100, 20] },
+  { "MonsterId": 644, "Area": "The Parchland", "Map": "field", "Weights": [100, 20] },
+  { "MonsterId": 106, "Area": "Witherwood Plains", "Map": "field", "Weights": [20] },
+  { "MonsterId": 119, "Area": "Witherwood Plains", "Map": "field", "Weights": [20] },
+  { "MonsterId": 187, "Area": "Witherwood Plains", "Map": "field", "Weights": [100, 20] },
+  { "MonsterId": 243, "Area": "Witherwood Plains", "Map": "field", "Weights": [20, 20, 20] },
+  { "MonsterId": 252, "Area": "Witherwood Plains", "Map": "field", "Weights": [20] },
+  { "MonsterId": 273, "Area": "Witherwood Plains", "Map": "field", "Weights": [20] },
+  { "MonsterId": 663, "Area": "Witherwood Plains", "Map": "field", "Weights": [100, 100, 20] },
+  { "MonsterId": 119, "Area": "The Sogswamp", "Map": "field", "Weights": [100, 20, 20, 20] },
+  { "MonsterId": 140, "Area": "The Sogswamp", "Map": "field", "Weights": [100, 20, 20] },
+  { "MonsterId": 236, "Area": "The Sogswamp", "Map": "field", "Weights": [20] },
+  { "MonsterId": 243, "Area": "The Sogswamp", "Map": "field", "Weights": [100, 20, 20, 20] },
+  { "MonsterId": 260, "Area": "The Sogswamp", "Map": "field", "Weights": [100] },
+  { "MonsterId": 663, "Area": "The Sogswamp", "Map": "field", "Weights": [20, 20, 20] }
+]

@@ -11,9 +11,9 @@ export type GameMap = {
 };
 
 const FIELD_LABELS: MapLabel[] = [
-  { name: "The Sogswamp", x: 51.41, y: 17.17 },
-  { name: "Witherwood Plains", x: 47.11, y: 43.82 },
-  { name: "The Parchland", x: 47.31, y: 73.54 },
+  { name: "The Sogswamp", x: 30, y: 15 },
+  { name: "Witherwood Plains", x: 40, y: 50 },
+  { name: "The Parchland", x: 36, y: 73.5 },
 ];
 
 const FIELD_TITLE = "The Parchland, Witherwood Plains, The Sogswamp";

@@ -10,6 +10,7 @@ import { SkillUnlocks } from "@/components/skill-unlocks";
 import { SynthIcon } from "@/components/synth-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SpotMap } from "@/components/spot-map-link";
+import { BUSH_LIST, grassPlace, grassSummary } from "@/lib/bush-spots";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import growthCurveRows from "@/data/dqm4/GrowthCurve.json";
 import { cn, publicAsset } from "@/lib/utils";
@@ -145,6 +146,7 @@ function MissingMonster() {
 function DetailSheet({ id }: { id: string }) {
   const m = monster(id);
   const skill = m.skill ? SKILLS[m.skill] : null;
+  const grass = BUSH_LIST.filter((row) => row.id === m.id);
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
@@ -185,7 +187,7 @@ function DetailSheet({ id }: { id: string }) {
       </section>
 
       <Section title="Habitat">
-        {m.habitats.length ? (
+        {m.habitats.length || grass.length ? (
           <ul className="grid gap-2 sm:grid-cols-2">
             {m.habitats.map((spot, index) => {
               const detail = [spot.time ?? "Day and night", spot.where].filter(Boolean).join(" · ");
@@ -203,6 +205,24 @@ function DetailSheet({ id }: { id: string }) {
                 </li>
               );
             })}
+            {grass.map((row) => (
+              <li key={`grass-${row.area}`} className="rounded-xl border-2 border-gold/40 bg-chrome px-3 py-2">
+                <p className="flex flex-wrap items-center gap-2 font-display text-base font-extrabold text-gold">
+                  <span>{row.area}</span>
+                  <Link
+                    to="/maps"
+                    search={{ map: row.map, area: row.area, monsters: m.id }}
+                    className="rounded-md border-2 border-gold px-2 py-0.5 font-display text-xs font-extrabold text-gold"
+                  >
+                    Map
+                  </Link>
+                </p>
+                <p className="mt-1 text-sm font-bold text-parchment">
+                  {grassPlace(row.area, "the field map")}. Shake the grass there. {grassSummary(row.weights)}. Heavy
+                  is 100. Light is 20. One heavy entry equals five light entries. No single clump is marked.
+                </p>
+              </li>
+            ))}
           </ul>
         ) : (
           <Empty>This monster has no natural habitat.</Empty>

@@ -1,0 +1,142 @@
+[
+  {
+    "MonsterId": 644,
+    "Area": "The Parchland",
+    "Map": "field",
+    "X": 58.26,
+    "Y": 75.81,
+    "Odds": [
+      { "Kind": "monster", "Name": "Burr Baby", "NameJa": "とげぼうず", "Weight": 60 },
+      { "Kind": "item", "Name": "Cottontop", "NameJa": "コットン草", "Weight": 10 },
+      { "Kind": "item", "Name": "Wing of Bat", "NameJa": "蝙蝠の羽", "Weight": 10 },
+      { "Kind": "item", "Name": "Glass Frit", "NameJa": "磨き砂", "Weight": 10 },
+      { "Kind": "item", "Name": "Beast Bone", "NameJa": "獣の骨", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 119,
+    "Area": "Witherwood Plains",
+    "Map": "field",
+    "X": 24.13,
+    "Y": 52.23,
+    "Odds": [
+      { "Kind": "monster", "Name": "Bludgerigar", "NameJa": "ピッキー", "Weight": 60 },
+      { "Kind": "item", "Name": "Slimedrop", "NameJa": "スライムゼリー", "Weight": 10 },
+      { "Kind": "item", "Name": "Iron Ore", "NameJa": "鉄鉱石", "Weight": 10 },
+      { "Kind": "item", "Name": "Faerie Fluff", "NameJa": "ようせいの綿花", "Weight": 10 },
+      { "Kind": "item", "Name": "Flurry Feather", "NameJa": "風切りの羽", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 663,
+    "Area": "The Sogswamp",
+    "Map": "field",
+    "X": 52.77,
+    "Y": 14.81,
+    "Odds": [
+      { "Kind": "monster", "Name": "Gloomy Grublin", "NameJa": "メソコボルト", "Weight": 60 },
+      { "Kind": "item", "Name": "Toad Oil", "NameJa": "ガマの油", "Weight": 10 },
+      { "Kind": "item", "Name": "Slimedrop", "NameJa": "スライムゼリー", "Weight": 10 },
+      { "Kind": "item", "Name": "Cottontop", "NameJa": "コットン草", "Weight": 10 },
+      { "Kind": "item", "Name": "Pink Pine", "NameJa": "きれいな枝", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 252,
+    "Area": "The Parchland",
+    "Map": "field",
+    "X": 27.17,
+    "Y": 85.74,
+    "Odds": [
+      { "Kind": "monster", "Name": "Stark Raven", "NameJa": "おおがらす", "Weight": 60 },
+      { "Kind": "item", "Name": "Wing of Bat", "NameJa": "蝙蝠の羽", "Weight": 10 },
+      { "Kind": "item", "Name": "Flintstone", "NameJa": "漬け物石", "Weight": 10 },
+      { "Kind": "item", "Name": "Snakeskin", "NameJa": "へびのぬけがら", "Weight": 10 },
+      { "Kind": "item", "Name": "Beast Bone", "NameJa": "獣の骨", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 140,
+    "Area": "The Sogswamp",
+    "Map": "field",
+    "X": 64.51,
+    "Y": 33.2,
+    "Odds": [
+      { "Kind": "monster", "Name": "Cumaulus", "NameJa": "ギズモ", "Weight": 60 },
+      { "Kind": "item", "Name": "Toad Oil", "NameJa": "ガマの油", "Weight": 10 },
+      { "Kind": "item", "Name": "Hardy Hide", "NameJa": "獣の皮", "Weight": 10 },
+      { "Kind": "item", "Name": "Pink Pine", "NameJa": "きれいな枝", "Weight": 10 },
+      { "Kind": "item", "Name": "Sparkly Sap", "NameJa": "かがやきの樹液", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 218,
+    "Area": "Witherwood Plains",
+    "Map": "field",
+    "X": 15.49,
+    "Y": 42.49,
+    "Odds": [
+      { "Kind": "monster", "Name": "Platypunk", "NameJa": "ももんじゃ", "Weight": 60 },
+      { "Kind": "item", "Name": "Narspicious", "NameJa": "妖草", "Weight": 10 },
+      { "Kind": "item", "Name": "Snakeskin", "NameJa": "へびのぬけがら", "Weight": 10 },
+      { "Kind": "item", "Name": "Cottontop", "NameJa": "コットン草", "Weight": 10 },
+      { "Kind": "item", "Name": "Slimedrop", "NameJa": "スライムゼリー", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 106,
+    "Area": "Witherwood Plains",
+    "Map": "field",
+    "X": 58.99,
+    "Y": 41.61,
+    "Odds": [
+      { "Kind": "monster", "Name": "Fright Bulb", "NameJa": "マンドラ", "Weight": 60 },
+      { "Kind": "item", "Name": "Mirrorstone", "NameJa": "かがみ石", "Weight": 10 },
+      { "Kind": "item", "Name": "Small Scale", "NameJa": "小さな鱗", "Weight": 10 },
+      { "Kind": "item", "Name": "Faerie Fluff", "NameJa": "ようせいの綿花", "Weight": 10 },
+      { "Kind": "item", "Name": "Snakeskin", "NameJa": "へびのぬけがら", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 236,
+    "Area": "The Sogswamp",
+    "Map": "field",
+    "X": 76.13,
+    "Y": 19.8,
+    "Odds": [
+      { "Kind": "monster", "Name": "Shell Slime", "NameJa": "スライムつむり", "Weight": 60 },
+      { "Kind": "item", "Name": "Toad Oil", "NameJa": "ガマの油", "Weight": 10 },
+      { "Kind": "item", "Name": "Wing of Bat", "NameJa": "蝙蝠の羽", "Weight": 10 },
+      { "Kind": "item", "Name": "Copper Ore", "NameJa": "銅の鉱石", "Weight": 10 },
+      { "Kind": "item", "Name": "Celestial Skein", "NameJa": "あまつゆのいと", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 273,
+    "Area": "The Parchland",
+    "Map": "field",
+    "X": 22.06,
+    "Y": 76.51,
+    "Odds": [
+      { "Kind": "monster", "Name": "Skipper", "NameJa": "スキッパー", "Weight": 60 },
+      { "Kind": "item", "Name": "Hardy Hide", "NameJa": "獣の皮", "Weight": 10 },
+      { "Kind": "item", "Name": "Flintstone", "NameJa": "漬け物石", "Weight": 10 },
+      { "Kind": "item", "Name": "Snakeskin", "NameJa": "へびのぬけがら", "Weight": 10 },
+      { "Kind": "item", "Name": "Pink Pine", "NameJa": "きれいな枝", "Weight": 10 }
+    ]
+  },
+  {
+    "MonsterId": 260,
+    "Area": "The Sogswamp",
+    "Map": "field",
+    "X": 8.04,
+    "Y": 20.56,
+    "Odds": [
+      { "Kind": "monster", "Name": "Toady", "NameJa": "フロッガー", "Weight": 60 },
+      { "Kind": "item", "Name": "Small Scale", "NameJa": "小さな鱗", "Weight": 10 },
+      { "Kind": "item", "Name": "Snakeskin", "NameJa": "へびのぬけがら", "Weight": 10 },
+      { "Kind": "item", "Name": "Wing of Bat", "NameJa": "蝙蝠の羽", "Weight": 10 },
+      { "Kind": "item", "Name": "Lamplight", "NameJa": "ふしぎなひだね", "Weight": 10 }
+    ]
+  }
+]

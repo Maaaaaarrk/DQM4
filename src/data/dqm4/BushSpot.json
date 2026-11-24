@@ -5,6 +5,13 @@
     "Map": "field",
     "X": 58.26,
     "Y": 75.81,
+    "Members": [
+      { "MonsterId": 644, "Weight": 20 },
+      { "MonsterId": 252, "Weight": 20 },
+      { "MonsterId": 218, "Weight": 20 },
+      { "MonsterId": 229, "Weight": 20 },
+      { "MonsterId": 273, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Burr Baby", "NameJa": "とげぼうず", "Weight": 60 },
       { "Kind": "item", "Name": "Cottontop", "NameJa": "コットン草", "Weight": 10 },
@@ -19,6 +26,13 @@
     "Map": "field",
     "X": 24.13,
     "Y": 52.23,
+    "Members": [
+      { "MonsterId": 119, "Weight": 20 },
+      { "MonsterId": 106, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 20 },
+      { "MonsterId": 187, "Weight": 20 },
+      { "MonsterId": 663, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Bludgerigar", "NameJa": "ピッキー", "Weight": 60 },
       { "Kind": "item", "Name": "Slimedrop", "NameJa": "スライムゼリー", "Weight": 10 },
@@ -33,6 +47,13 @@
     "Map": "field",
     "X": 52.77,
     "Y": 14.81,
+    "Members": [
+      { "MonsterId": 663, "Weight": 20 },
+      { "MonsterId": 119, "Weight": 20 },
+      { "MonsterId": 236, "Weight": 20 },
+      { "MonsterId": 140, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Gloomy Grublin", "NameJa": "メソコボルト", "Weight": 60 },
       { "Kind": "item", "Name": "Toad Oil", "NameJa": "ガマの油", "Weight": 10 },
@@ -47,6 +68,13 @@
     "Map": "field",
     "X": 27.17,
     "Y": 85.74,
+    "Members": [
+      { "MonsterId": 252, "Weight": 20 },
+      { "MonsterId": 229, "Weight": 20 },
+      { "MonsterId": 273, "Weight": 20 },
+      { "MonsterId": 218, "Weight": 20 },
+      { "MonsterId": 644, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Stark Raven", "NameJa": "おおがらす", "Weight": 60 },
       { "Kind": "item", "Name": "Wing of Bat", "NameJa": "蝙蝠の羽", "Weight": 10 },
@@ -61,6 +89,13 @@
     "Map": "field",
     "X": 64.51,
     "Y": 33.2,
+    "Members": [
+      { "MonsterId": 140, "Weight": 20 },
+      { "MonsterId": 119, "Weight": 20 },
+      { "MonsterId": 663, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 20 },
+      { "MonsterId": 260, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Cumaulus", "NameJa": "ギズモ", "Weight": 60 },
       { "Kind": "item", "Name": "Toad Oil", "NameJa": "ガマの油", "Weight": 10 },
@@ -75,6 +110,13 @@
     "Map": "field",
     "X": 15.49,
     "Y": 42.49,
+    "Members": [
+      { "MonsterId": 218, "Weight": 20 },
+      { "MonsterId": 252, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 20 },
+      { "MonsterId": 273, "Weight": 20 },
+      { "MonsterId": 663, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Platypunk", "NameJa": "ももんじゃ", "Weight": 60 },
       { "Kind": "item", "Name": "Narspicious", "NameJa": "妖草", "Weight": 10 },
@@ -89,6 +131,13 @@
     "Map": "field",
     "X": 58.99,
     "Y": 41.61,
+    "Members": [
+      { "MonsterId": 106, "Weight": 20 },
+      { "MonsterId": 119, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 20 },
+      { "MonsterId": 663, "Weight": 20 },
+      { "MonsterId": 187, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Fright Bulb", "NameJa": "マンドラ", "Weight": 60 },
       { "Kind": "item", "Name": "Mirrorstone", "NameJa": "かがみ石", "Weight": 10 },
@@ -103,6 +152,13 @@
     "Map": "field",
     "X": 76.13,
     "Y": 19.8,
+    "Members": [
+      { "MonsterId": 236, "Weight": 20 },
+      { "MonsterId": 663, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 20 },
+      { "MonsterId": 140, "Weight": 20 },
+      { "MonsterId": 119, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Shell Slime", "NameJa": "スライムつむり", "Weight": 60 },
       { "Kind": "item", "Name": "Toad Oil", "NameJa": "ガマの油", "Weight": 10 },
@@ -117,6 +173,13 @@
     "Map": "field",
     "X": 22.06,
     "Y": 76.51,
+    "Members": [
+      { "MonsterId": 273, "Weight": 20 },
+      { "MonsterId": 252, "Weight": 20 },
+      { "MonsterId": 218, "Weight": 20 },
+      { "MonsterId": 644, "Weight": 20 },
+      { "MonsterId": 229, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Skipper", "NameJa": "スキッパー", "Weight": 60 },
       { "Kind": "item", "Name": "Hardy Hide", "NameJa": "獣の皮", "Weight": 10 },
@@ -131,6 +194,13 @@
     "Map": "field",
     "X": 8.04,
     "Y": 20.56,
+    "Members": [
+      { "MonsterId": 260, "Weight": 20 },
+      { "MonsterId": 119, "Weight": 20 },
+      { "MonsterId": 243, "Weight": 20 },
+      { "MonsterId": 663, "Weight": 20 },
+      { "MonsterId": 140, "Weight": 100 }
+    ],
     "Odds": [
       { "Kind": "monster", "Name": "Toady", "NameJa": "フロッガー", "Weight": 60 },
       { "Kind": "item", "Name": "Small Scale", "NameJa": "小さな鱗", "Weight": 10 },

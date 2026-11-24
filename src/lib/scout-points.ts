@@ -5,6 +5,8 @@ export type ScoutFollower = {
   monsterId: number;
   id: string;
   name: string;
+  /** Set on a bush member. The share of the numbers stored on that bush. */
+  share?: string;
 };
 
 export type ScoutPoint = {

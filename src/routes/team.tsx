@@ -6,11 +6,11 @@ import { HaveFlag } from "@/components/have-flag";
 import { MonsterSprite } from "@/components/monster-sprite";
 import { RankBadge } from "@/components/rank-badge";
 import { TreeViewport, type TreeViewportHandle } from "@/components/tree-viewport";
-import { MapMarkToggle, MapView, type MapFloat, type MapMarks, type MapPin } from "@/components/zone-map";
+import { MapMarkToggle, MapView, type MapMarks, type MapPin } from "@/components/zone-map";
 import { SiteFooter } from "@/components/site-footer";
 import { SpotMap } from "@/components/spot-map-link";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
-import { BUSH_SPOTS, bushDetail } from "@/lib/bush-spots";
+import { BUSH_SPOTS, bushGroupLine } from "@/lib/bush-spots";
 import { mapById, mapForArea, type GameMap } from "@/lib/game-maps";
 import { anchorDetail, followerDetail, pointLine, SCOUT_POINTS, type ScoutPoint } from "@/lib/scout-points";
 import { renderTeamImage } from "@/lib/team-image";
@@ -747,6 +747,7 @@ function AreaRoute({
 function zonePicture(
   area: string,
   scouts: readonly TimelineScout[],
+  rares: boolean,
 ): { map: GameMap; points: ScoutPoint[]; bushes: typeof BUSH_SPOTS } | null {
   const map = mapById(mapForArea(area) ?? "");
   if (!map) return null;
@@ -757,8 +758,12 @@ function zonePicture(
       point.area === area &&
       (wanted.has(point.id) || point.followers.some((follower) => wanted.has(follower.id))),
   );
-  const bushes = BUSH_SPOTS.filter((spot) => spot.map === map.id && spot.area === area && wanted.has(spot.id));
-  if (!points.length && !bushes.length && !scouts.some((scout) => scout.rare)) return null;
+  const bushes = rares
+    ? BUSH_SPOTS.filter(
+        (spot) => spot.map === map.id && spot.area === area && spot.members.some((member) => wanted.has(member.id)),
+      )
+    : [];
+  if (!points.length && !bushes.length) return null;
   return { map, points, bushes };
 }
 
@@ -814,19 +819,32 @@ function zonePins(
       },
     ];
   });
-  const thickets = bushes.map((spot, index) => ({
-    key: `bush-${spot.id}@${index}`,
-    id: spot.id,
-    family: monster(spot.id).family,
-    x: spot.x,
-    y: spot.y,
-    hot: true,
-    boss: false,
-    bush: true,
-    picked: pickedIds.has(spot.id),
-    name: spot.name,
-    detail: bushDetail(spot.area, spot.odds),
-  }));
+  const thickets = bushes.map((spot, index) => {
+    const shown = spot.members.filter((member) => wanted.has(member.id));
+    const key = `bush-${spot.monsterId}@${index}`;
+    return {
+      key,
+      id: spot.id,
+      family: monster(spot.id).family,
+      x: spot.x,
+      y: spot.y,
+      hot: shown.length > 0,
+      boss: false,
+      bush: true,
+      picked: shown.some((member) => pickedIds.has(member.id)),
+      name: "Bush",
+      detail: bushGroupLine(spot.area, shown),
+      party: shown.map((member, slot) => ({
+        key: `${member.id}@${key}-f${slot}`,
+        id: member.id,
+        family: monster(member.id).family,
+        name: member.name,
+        detail: `${member.share}. ${spot.area} · Bush.`,
+        picked: pickedIds.has(member.id),
+        hot: true,
+      })),
+    };
+  });
   return [...standing, ...thickets];
 }
 
@@ -835,44 +853,27 @@ function TimelineZoneCard({
   zoneIndex,
   progress,
   marks,
+  rares,
   onScouted,
 }: {
   zone: TimelineZone;
   zoneIndex: number;
   progress: number;
   marks: MapMarks;
+  rares: boolean;
   onScouted: (marks: TimelineMark[]) => void;
 }) {
   const open = areaIndex(zone.area);
   const reached = open < CAMPAIGN_AREAS.length && open <= progress;
   const mapId = mapForArea(zone.area);
   const spotIds = [...new Set(zone.scouts.flatMap((scout) => scout.spotIds))];
-  const picture = zonePicture(zone.area, zone.scouts);
-  const showGrass = zone.scouts.some((scout) => scout.rare);
+  const picture = zonePicture(zone.area, zone.scouts, rares);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const selected = zone.scouts.find((scout) => scout.id === selectedId) ?? null;
   const pickedIds = new Set(selected ? selected.spotIds : selectedId ? [selectedId] : []);
   const wantedIds = new Set(zone.scouts.flatMap((scout) => scout.spotIds));
   const pins = picture ? zonePins(picture.points, picture.bushes, pickedIds, wantedIds) : [];
-  const grassFloats: MapFloat[] = zone.scouts.flatMap((scout) => {
-    if (!scout.rare || scout.wildcard) return [];
-    const pinned =
-      picture?.points.some((point) => point.id === scout.id || point.followers.some((follower) => follower.id === scout.id)) ||
-      picture?.bushes.some((spot) => spot.id === scout.id);
-    if (pinned) return [];
-    return [
-      {
-        key: `grass-${zone.area}-${scout.id}`,
-        id: scout.id,
-        family: scout.family,
-        name: scout.name,
-        detail: scout.lines.join(" "),
-        area: zone.area,
-        picked: selectedId === scout.id,
-      },
-    ];
-  });
   const chosen =
     pins.find((pin) => pin.key === selectedKey) ??
     pins.find((pin) => pin.night?.key === selectedKey)?.night ??
@@ -1002,24 +1003,25 @@ function TimelineZoneCard({
               labels={picture.map.labels}
               pins={pins}
               marks={marks}
-              hotLabels={showGrass ? [zone.area] : []}
-              floats={grassFloats}
-              onFloat={(id) => {
-                setSelectedId(id);
-                setSelectedKey(null);
-              }}
               onPick={(key) => {
                 setSelectedKey(key);
-                const mark =
-                  pins.find((pin) => pin.key === key) ??
-                  pins.find((pin) => pin.night?.key === key)?.night ??
-                  pins.flatMap((pin) => pin.party ?? []).find((member) => member.key === key);
+                const pin = pins.find((item) => item.key === key);
+                const night = pins.find((item) => item.night?.key === key)?.night;
+                const member = pins.flatMap((item) => item.party ?? []).find((item) => item.key === key);
+                if (pin?.bush) {
+                  const scout = pin.party?.find((item) => zone.scouts.some((row) => row.id === item.id));
+                  setSelectedId(scout?.id ?? pin.id);
+                  return;
+                }
+                const mark = pin ?? night ?? member;
                 setSelectedId(mark ? mark.id : key.slice(0, key.lastIndexOf("@")));
               }}
             />
             <p className="mt-2 text-xs font-bold text-parchment">
               {chosen
-                ? `${chosen.name}. ${chosen.detail}`
+                ? "bush" in chosen && chosen.bush
+                  ? chosen.detail
+                  : `${chosen.name}. ${chosen.detail}`
                 : selected?.rare
                   ? `${selectedName}. ${selected.lines.join(" ")}`
                   : selectedId && selectedCount > 0
@@ -1109,6 +1111,7 @@ function ScoutTimelinePanel({
               zoneIndex={zoneIndex}
               progress={progress}
               marks={marks}
+              rares={rares}
               onScouted={onScouted}
             />
           ))}

@@ -1,5 +1,5 @@
 import { familyLabel } from "@/components/family-icon";
-import { BUSH_LIST, BUSH_SPOTS, bushDetail, grassDetail } from "@/lib/bush-spots";
+import { BUSH_SPOTS, bushAreaLine } from "@/lib/bush-spots";
 import {
   familyMembers,
   monster,
@@ -374,17 +374,17 @@ function standingSpots(m: Monster, bosses: boolean): ScoutSpot[] {
 
 type ChanceStop = { area: string; line: string };
 
-/** Grass rows and placed thickets. Used when the monster has no standing spawn. */
+/** Bushes this monster can come from. Used when it has no standing spawn. */
 function chanceStops(m: Monster): ChanceStop[] {
-  const grass = BUSH_LIST.filter((row) => row.id === m.id).map((row) => ({
-    area: row.area,
-    line: grassDetail(row.area, row.weights),
-  }));
-  const bushes = BUSH_SPOTS.filter((spot) => spot.id === m.id).map((spot) => ({
-    area: spot.area,
-    line: bushDetail(spot.area, spot.odds),
-  }));
-  return [...grass, ...bushes];
+  const byArea = new Map<string, string[]>();
+  for (const spot of BUSH_SPOTS) {
+    const member = spot.members.find((row) => row.id === m.id);
+    if (!member) continue;
+    const shares = byArea.get(spot.area) ?? [];
+    shares.push(member.share);
+    byArea.set(spot.area, shares);
+  }
+  return [...byArea].map(([area, shares]) => ({ area, line: bushAreaLine(shares) }));
 }
 
 function catchPlan(m: Monster, flags: TimelineFlags): { area: number; lines: string[]; rare: boolean } | null {

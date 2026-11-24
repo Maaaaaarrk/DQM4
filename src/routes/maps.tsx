@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
-import { MapMarkToggle, MapView, type MapFloat, type MapMarks, type MapPin } from "@/components/zone-map";
+import { BushNumber, GrassIcon, MapMarkToggle, MapView, type MapMarks, type MapPin } from "@/components/zone-map";
 import { SiteFooter } from "@/components/site-footer";
 import { SynthlineWordmark } from "@/components/synthline-wordmark";
 import { GAME_MAPS, mapById } from "@/lib/game-maps";
 import { MONSTERS } from "@/lib/monsters";
-import { BUSH_LIST, BUSH_SPOTS, bushDetail, grassDetail, grassOdds, grassSide, type BushOdd } from "@/lib/bush-spots";
+import { BUSH_SPOTS, bushGroupLine, type BushSpot } from "@/lib/bush-spots";
 import { anchorDetail, followerDetail, pointInvolves, SCOUT_POINTS, type ScoutFollower, type ScoutPoint } from "@/lib/scout-points";
 import { cn } from "@/lib/utils";
 
@@ -48,8 +48,8 @@ type MapSpot = {
   map: string;
   x: number;
   y: number;
-  odds: BushOdd[] | null;
   followers: ScoutFollower[];
+  find?: BushSpot["find"];
 };
 
 /** Day and night include scouts with no time limit. */
@@ -67,7 +67,6 @@ function spotsOn(mapId: string): MapSpot[] {
   const scouts: MapSpot[] = SCOUT_POINTS.filter((point) => point.map === mapId).map((point) => ({
     ...point,
     bush: false,
-    odds: null,
   }));
   const bushes: MapSpot[] = BUSH_SPOTS.filter((spot) => spot.map === mapId).map((spot) => ({
     monsterId: spot.monsterId,
@@ -81,8 +80,13 @@ function spotsOn(mapId: string): MapSpot[] {
     map: spot.map,
     x: spot.x,
     y: spot.y,
-    odds: spot.odds,
-    followers: [],
+    find: spot.find,
+    followers: spot.members.map((member) => ({
+      monsterId: member.monsterId,
+      id: member.id,
+      name: member.name,
+      share: member.share,
+    })),
   }));
   return [...scouts, ...bushes];
 }
@@ -97,19 +101,26 @@ function withKeys(spots: readonly MapSpot[]): { spot: MapSpot; key: string }[] {
   });
 }
 
+function memberLine(spot: MapSpot, follower: ScoutFollower): string {
+  if (follower.share) return `${follower.share}. ${spot.area} · Bush.`;
+  return followerDetail(spot, follower);
+}
+
 function toPin(
   row: { spot: MapSpot; key: string },
   active: ReadonlySet<string>,
   selectedId: string | null,
+  selectedKey: string | null,
   nightRow?: { spot: MapSpot; key: string },
 ): MapPin {
   const { spot, key } = row;
-  const party = spot.followers.map((follower, index) => ({
+  const shown = spot.bush ? spot.followers.filter((follower) => active.has(follower.id)) : spot.followers;
+  const party = shown.map((follower, index) => ({
     key: `${follower.id}@${key}-f${index}`,
     id: follower.id,
     family: MONSTERS[follower.id].family,
     name: follower.name,
-    detail: followerDetail(spot, follower),
+    detail: memberLine(spot, follower),
     picked: follower.id === selectedId && active.has(follower.id),
     hot: active.has(follower.id),
   }));
@@ -120,12 +131,12 @@ function toPin(
     family: MONSTERS[spot.id].family,
     x: spot.x,
     y: spot.y,
-    hot: active.has(spot.id),
+    hot: spot.bush ? shown.length > 0 : active.has(spot.id),
     boss: spot.boss,
     bush: spot.bush,
-    picked: spot.id === selectedId && active.has(spot.id),
-    name: spot.name,
-    detail: spot.bush && spot.odds ? bushDetail(spot.area, spot.odds) : anchorDetail(spot),
+    picked: spot.bush ? key === selectedKey : spot.id === selectedId && active.has(spot.id),
+    name: spot.bush ? "Bush" : spot.name,
+    detail: spot.bush ? bushGroupLine(spot.area, shown) : anchorDetail(spot),
     party: party.length ? party : undefined,
     night: night
       ? {
@@ -145,16 +156,17 @@ function pinsFor(
   rows: readonly { spot: MapSpot; key: string }[],
   active: ReadonlySet<string>,
   selectedId: string | null,
+  selectedKey: string | null,
   when: When,
 ): MapPin[] {
-  if (when !== "all") return rows.map((row) => toPin(row, active, selectedId));
+  if (when !== "all") return rows.map((row) => toPin(row, active, selectedId, selectedKey));
   return rows.flatMap((row) => {
     if (row.spot.time === "Night" && rows.some((day) => day.spot.time === "Day" && sameSpot(day.spot, row.spot))) return [];
     const night =
       row.spot.time === "Day"
         ? rows.find((other) => other.spot.time === "Night" && sameSpot(other.spot, row.spot))
         : undefined;
-    return [toPin(row, active, selectedId, night)];
+    return [toPin(row, active, selectedId, selectedKey, night)];
   });
 }
 
@@ -181,14 +193,12 @@ function MapsPage() {
   const [shown, setShown] = useState<Set<string> | null>(null);
   const [when, setWhen] = useState<When>("all");
   const [scoutsOnly, setScoutsOnly] = useState(true);
-  const [grassPick, setGrassPick] = useState(false);
 
   useEffect(() => {
     setSelectedId(requested.length === 1 ? requested[0] : null);
     setSelectedKey(null);
     setShown(null);
     setWhen("all");
-    setGrassPick(false);
   }, [search.map, search.area, search.monsters, requested]);
 
   useEffect(() => {
@@ -208,31 +218,26 @@ function MapsPage() {
   const keyed = useMemo(() => (open ? withKeys(spotsOn(open.id)) : []), [open]);
   const mapPoints = useMemo(() => keyed.map((row) => row.spot), [keyed]);
 
-  const grassRows = BUSH_LIST.filter(
-    (row) => open && row.map === open.id && (!search.area || row.area === search.area),
-  );
   const chips = [
     ...new Map(
-      [
-        ...mapPoints.flatMap((point) => [point.id, ...point.followers.map((follower) => follower.id)]),
-        ...grassRows.map((row) => row.id),
-      ].map((id) => [id, MONSTERS[id]]),
+      mapPoints.flatMap((point) => [point.id, ...point.followers.map((follower) => follower.id)]).map((id) => [id, MONSTERS[id]]),
     ).values(),
   ]
     .filter((monster) => monster)
     .sort((a, b) => a.name.localeCompare(b.name));
   const chipIds = chips.map((monster) => monster.id);
-  /** Bush or elite border only when that is the monster's only mark on this view. */
+  const hasTime = mapPoints.some(
+    (point) => (!search.area || point.area === search.area) && (point.time === "Day" || point.time === "Night"),
+  );
+  const shownWhen = hasTime ? when : "all";
+  /** Bush or elite border only when every mark for this monster on the view is that kind. */
   function chipKind(id: string): "bush" | "elite" | null {
     const points = mapPoints.filter(
       (point) => (!search.area || point.area === search.area) && pointInvolves(point, id),
     );
-    const bush = points.some((point) => point.bush && point.id === id);
-    const elite = points.some((point) => point.boss && point.id === id);
-    const other = points.some((point) => !(point.bush && point.id === id) && !(point.boss && point.id === id));
-    if (other || (bush && elite)) return null;
-    if (bush) return "bush";
-    if (elite) return "elite";
+    if (!points.length) return null;
+    if (points.every((point) => point.bush)) return "bush";
+    if (points.every((point) => point.boss && point.id === id)) return "elite";
     return null;
   }
   const defaultIds = requested.length ? requested.filter((id) => chipIds.includes(id)) : chipIds;
@@ -240,7 +245,7 @@ function MapsPage() {
 
   function spotCount(id: string): number {
     return mapPoints.filter(
-      (point) => pointInvolves(point, id) && (!search.area || point.area === search.area) && passesWhen(point, when),
+      (point) => pointInvolves(point, id) && (!search.area || point.area === search.area) && passesWhen(point, shownWhen),
     ).length;
   }
 
@@ -249,72 +254,50 @@ function MapsPage() {
   const matchedRows = keyed.filter(
     (row) =>
       (!search.area || row.spot.area === search.area) &&
-      passesWhen(row.spot, when) &&
+      passesWhen(row.spot, shownWhen) &&
       (active.has(row.spot.id) || row.spot.followers.some((follower) => active.has(follower.id))),
   );
   const visibleRows = matchedRows;
-  const pins = open ? pinsFor(visibleRows, active, selectedId, when) : [];
   const chosenRow = visibleRows.find((row) => row.key === selectedKey);
   const chosen = chosenRow?.spot ?? null;
-  const selectedBushes = visibleRows.filter((row) => row.spot.bush && row.spot.id === selectedId);
-  const oddsRow =
-    chosen?.bush && chosen.odds
-      ? chosen
-      : !chosen && selectedId && selectedBushes.length === 1 && visibleRows.filter((row) => row.spot.id === selectedId).length === 1
-        ? selectedBushes[0].spot
-        : null;
   const hotCount = selectedId ? spotCount(selectedId) : 0;
   const selectedName = selectedId ? MONSTERS[selectedId]?.name : "";
-  const missing = requested.filter(
-    (id) => !mapPoints.some((point) => pointInvolves(point, id)) && !grassRows.some((row) => row.id === id),
-  );
-  const pickedGrass = selectedId ? grassRows.filter((row) => row.id === selectedId) : [];
-  const explainGrass = Boolean(
-    selectedId &&
-      selectedName &&
-      pickedGrass.length &&
-      active.has(selectedId) &&
-      (hotCount === 0 || grassPick) &&
-      !noneOn,
-  );
-  const grassFloats: MapFloat[] = noneOn
-    ? []
-    : grassRows.flatMap((row) => {
-          if (!active.has(row.id)) return [];
-          const anchored = mapPoints.some(
-            (point) => pointInvolves(point, row.id) && point.area === row.area && passesWhen(point, when),
-          );
-          if (anchored) return [];
-          const species = MONSTERS[row.id];
-          if (!species) return [];
-          return [
-            {
-              key: `grass-${row.area}-${row.id}`,
-              id: row.id,
-              family: species.family,
-              name: row.name,
-              detail: grassDetail(row.area, row.weights),
-              area: row.area,
-              picked: selectedId === row.id && active.has(row.id),
-            },
-          ];
-        });
+  const missing = requested.filter((id) => !mapPoints.some((point) => pointInvolves(point, id)));
+  const bushGroups: { area: string; rows: typeof visibleRows }[] = [];
+  for (const row of visibleRows) {
+    if (!row.spot.bush || !row.spot.followers.some((member) => active.has(member.id))) continue;
+    const found = bushGroups.find((group) => group.area === row.spot.area);
+    if (found) found.rows.push(row);
+    else bushGroups.push({ area: row.spot.area, rows: [row] });
+  }
+  const bushNumbers = new Map<string, number>();
+  for (const group of bushGroups) {
+    for (const row of group.rows) bushNumbers.set(row.key, bushNumbers.size + 1);
+  }
+  const pins = (open ? pinsFor(visibleRows, active, selectedId, selectedKey, shownWhen) : []).map((pin) => {
+    const mark = bushNumbers.get(pin.key);
+    return mark ? { ...pin, mark } : pin;
+  });
   const caption = (() => {
     if (noneOn) return "No monsters selected.";
-    if (explainGrass && selectedName) {
-      const places = pickedGrass.map((row) => grassDetail(row.area, row.weights)).join(" ");
-      return `${selectedName}. ${places} The gold names on the map are where you shake.`;
-    }
-    const chosenMember = chosenRow ? undefined : pins.find((pin) => pin.party?.some((member) => member.key === selectedKey))?.party?.find((member) => member.key === selectedKey);
+    const chosenMember = chosenRow
+      ? undefined
+      : pins.find((pin) => pin.party?.some((member) => member.key === selectedKey))?.party?.find((member) => member.key === selectedKey);
     if (chosenMember) return `${chosenMember.name}. ${chosenMember.detail}`;
+    if (chosen?.bush && chosenRow) {
+      const line = bushGroupLine(chosen.area, chosen.followers.filter((member) => active.has(member.id)));
+      const items = chosen.find?.items.map((item) => `${item.name} ${item.share}`).join(", ");
+      const mark = bushNumbers.get(chosenRow.key);
+      const body = items ? `${line.replace(/\.$/, "")}. ${items}.` : line;
+      return mark ? `${mark}. ${body}` : body;
+    }
     if (selectedId && selectedName && hotCount > 0 && active.has(selectedId)) {
-      if (oddsRow) return `${selectedName} · ${oddsRow.area} · Bush`;
       return chosen
-        ? `${selectedName}. ${chosen.bush && chosen.odds ? bushDetail(chosen.area, chosen.odds) : anchorDetail(chosen)}`
+        ? `${selectedName}. ${anchorDetail(chosen)}`
         : `${selectedName} · ${hotCount} ${hotCount === 1 ? "spot" : "spots"}`;
     }
-    if (when === "day") return "Scouts you can find in the day.";
-    if (when === "night") return "Scouts you can find at night.";
+    if (shownWhen === "day") return "Scouts you can find in the day.";
+    if (shownWhen === "night") return "Scouts you can find at night.";
     if (requested.length || search.area) {
       return marks === "portrait" ? "Portraits are the scouts for this stop." : "Gold marks are the scouts for this stop.";
     }
@@ -386,9 +369,8 @@ function MapsPage() {
           role="dialog"
           aria-modal="true"
           aria-label={search.area || open.title}
-          className="fixed inset-0 z-50 bg-chrome p-3"
+          className="fixed inset-0 z-50 grid grid-rows-[auto_auto_auto_minmax(0,1fr)] gap-2 bg-chrome p-3"
         >
-          <div className="mx-auto grid h-full min-h-0 w-full max-w-5xl grid-rows-[auto_auto_minmax(0,1fr)] gap-2 rounded-2xl bg-chrome p-3">
             <div className="flex items-center justify-between gap-3">
               <h2 className="min-w-0 font-display text-base font-extrabold text-gold">{search.area || open.title}</h2>
               <div className="flex shrink-0 items-center gap-2">
@@ -403,29 +385,32 @@ function MapsPage() {
                 </button>
               </div>
             </div>
-            <div>
-              <p className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold text-parchment">
-                <span className="inline-flex items-center gap-1">
-                  <span className="size-3 rounded-sm border-2 border-grass bg-parchment" />
-                  Green border: shake the grass in that part of the map. No single clump is marked.
+            <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-bold text-parchment">
+              <span className="inline-flex items-center gap-1">
+                <GrassIcon className="size-4" />
+                Green mark: a bush. Its number matches the list. Portraits beside it have a green border and are the monsters in that bush.
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <span className="inline-flex items-end gap-0.5">
+                  <span className="size-3.5 rounded-sm border-2 border-gold-ring bg-parchment" />
+                  <span className="size-2 rounded-sm border-2 border-gold-ring bg-parchment" />
                 </span>
-                <span className="inline-flex items-center gap-1">
-                  <span className="size-3 rounded-sm border-2 border-bush bg-bush" />
-                  Dark green: a bush.
-                </span>
-                <span className="inline-flex items-center gap-1">
-                  <span className="inline-flex items-end gap-0.5">
-                    <span className="size-3.5 rounded-sm border-2 border-gold-ring bg-parchment" />
-                    <span className="size-2 rounded-sm border-2 border-gold-ring bg-parchment" />
-                  </span>
-                  The larger mark leads. Smaller marks beside it follow that leader.
-                </span>
+                The larger mark leads. Smaller marks beside it follow that leader.
+              </span>
+              {hasTime ? (
                 <span>One portrait holds both: day on the left of the yellow slash, night on the right.</span>
-                <span className="inline-flex items-center gap-1">
-                  <span className="size-3 rounded-sm border-2 border-elite bg-parchment" />
-                  Red border and a large portrait: an elite.
+              ) : null}
+              <span className="inline-flex items-center gap-1">
+                <span className="size-3 rounded-sm border-2 border-elite bg-parchment" />
+                Red border and a large portrait: an elite.
+              </span>
+              {bushGroups.length ? (
+                <span>
+                  Each numbered row is one bush. That number is on its grass. The figures on the row add up to the whole bush. Items are the outcomes that are not a monster.
                 </span>
-              </p>
+              ) : null}
+            </p>
+            <div className="min-h-0 max-h-56 overflow-auto lg:max-h-none">
               <div className="flex flex-wrap items-center gap-2">
                 <div role="group" aria-label="Monsters" className="inline-flex rounded-md border-2 border-gold p-0.5">
                   <button
@@ -446,7 +431,6 @@ function MapsPage() {
                       setShown(new Set());
                       setSelectedId(null);
                       setSelectedKey(null);
-                      setGrassPick(false);
                     }}
                     className={cn(
                       "rounded px-2 py-0.5 font-display text-xs font-extrabold",
@@ -456,128 +440,56 @@ function MapsPage() {
                     None
                   </button>
                 </div>
-                <div role="group" aria-label="When they appear" className="inline-flex flex-wrap rounded-md border-2 border-gold p-0.5">
-                  {(
-                    [
-                      ["all", "All"],
-                      ["day", "Day"],
-                      ["night", "Night"],
-                    ] as const
-                  ).map(([id, label]) => (
-                    <button
-                      key={id}
-                      type="button"
-                      aria-pressed={when === id}
-                      onClick={() => {
-                        setWhen(id);
-                        setSelectedKey(null);
-                      }}
-                      className={cn(
-                        "rounded px-2 py-0.5 font-display text-xs font-extrabold",
-                        when === id ? "bg-gold text-chrome" : "text-gold",
-                      )}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
+                {hasTime ? (
+                  <div role="group" aria-label="When they appear" className="inline-flex flex-wrap rounded-md border-2 border-gold p-0.5">
+                    {(
+                      [
+                        ["all", "All"],
+                        ["day", "Day"],
+                        ["night", "Night"],
+                      ] as const
+                    ).map(([id, label]) => (
+                      <button
+                        key={id}
+                        type="button"
+                        aria-pressed={when === id}
+                        onClick={() => {
+                          setWhen(id);
+                          setSelectedKey(null);
+                        }}
+                        className={cn(
+                          "rounded px-2 py-0.5 font-display text-xs font-extrabold",
+                          when === id ? "bg-gold text-chrome" : "text-gold",
+                        )}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
-              <p className="mt-2 text-sm font-bold text-parchment">{caption}</p>
-              {!noneOn && grassRows.some((row) => active.has(row.id)) ? (
-                <div className="mt-2">
-                  <p className="text-xs font-bold text-parchment">
-                    A green border under a zone name is a monster with no marked spot in that part. Odds are that
-                    monster's share of the grass there.
-                  </p>
-                  <ul aria-label="Shaking grass" className="mt-1 flex max-h-40 flex-col gap-1 overflow-auto">
-                    {["The Parchland", "Witherwood Plains", "The Sogswamp"].map((area) => {
-                      const rows = grassRows
-                        .filter((row) => row.area === area && active.has(row.id))
-                        .sort((a, b) => a.name.localeCompare(b.name));
-                      if (!rows.length) return null;
-                      return (
-                        <li key={area} className="flex flex-wrap items-center gap-1.5">
-                          <span className="font-display text-xs font-extrabold text-gold">
-                            {grassSide(area) ? `${area}, ${grassSide(area)}` : area}
-                          </span>
-                          {rows.map((row) => {
-                            const picked = selectedId === row.id;
-                            return (
-                              <button
-                                key={`${area}-${row.id}`}
-                                type="button"
-                                aria-label={`${row.name}. ${grassDetail(row.area, row.weights)}`}
-                                onClick={() => {
-                                  setSelectedKey(null);
-                                  setGrassPick(true);
-                                  setSelectedId(row.id);
-                                  setShown(new Set(active).add(row.id));
-                                }}
-                                className={cn(
-                                  "rounded-md border-2 border-gold px-2 py-0.5 font-display text-xs font-extrabold",
-                                  picked ? "bg-gold text-chrome" : "text-gold",
-                                )}
-                              >
-                                {row.name}
-                                <span className={cn("ml-1", picked ? "text-chrome" : "text-parchment")}>
-                                  {grassOdds(row.area, row.weights)}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ) : null}
-              {oddsRow?.odds && !grassPick ? (
-                <ul aria-label="Spawn odds" className="mt-1 flex flex-wrap gap-1.5">
-                  {oddsRow.odds.map((odd) => (
-                    <li
-                      key={`${odd.kind}-${odd.nameJa}`}
-                      className={cn(
-                        "rounded-md border-2 border-gold px-2 py-0.5 font-display text-xs font-extrabold",
-                        odd.kind === "monster" ? "bg-gold text-chrome" : "text-gold",
-                      )}
-                    >
-                      {odd.name}
-                      <span className={cn("ml-1", odd.kind === "monster" ? "text-chrome" : "text-parchment")}>{odd.weight}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-              {missing.length ? (
-                <p className="mt-1 text-xs font-bold text-parchment">
-                  {missing.map((id) => MONSTERS[id].name).join(", ")} {missing.length === 1 ? "has" : "have"} no
-                  marked spot.
-                </p>
-              ) : null}
               {chips.length ? (
-                <div className="mt-2 flex max-h-24 flex-wrap gap-1.5 overflow-auto">
+                <div className="mt-2 flex flex-wrap gap-1.5">
                   {chips.map((monster) => {
                     const count = spotCount(monster.id);
-                    const listed = grassRows.some((row) => row.id === monster.id);
                     const inSet = active.has(monster.id);
-                    const focused = selectedId === monster.id && inSet && (count > 0 || listed);
+                    const focused = selectedId === monster.id && inSet && count > 0;
                     const kind = chipKind(monster.id);
                     return (
                       <button
                         key={monster.id}
                         type="button"
-                        disabled={count === 0 && !listed}
-                        aria-pressed={inSet && (count > 0 || listed)}
+                        disabled={count === 0}
+                        aria-pressed={inSet && count > 0}
                         onClick={() => {
                           setSelectedKey(null);
                           const next = new Set(active);
                           if (next.has(monster.id)) {
                             next.delete(monster.id);
                             if (selectedId === monster.id) setSelectedId(null);
-                            setGrassPick(false);
                           } else {
                             next.add(monster.id);
                             setSelectedId(monster.id);
-                            setGrassPick(false);
                           }
                           setShown(next);
                         }}
@@ -594,35 +506,66 @@ function MapsPage() {
                   })}
                 </div>
               ) : null}
+              {bushGroups.length ? (
+                <ul aria-label="Bushes" className="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 md:grid-cols-2 xl:grid-cols-3">
+                  {bushGroups.map((group) => (
+                    <li key={group.area}>
+                      <p className="font-display text-xs font-extrabold text-gold">{group.area}</p>
+                      <ul className="mt-0.5 flex flex-col gap-0.5">
+                        {group.rows.map((row) => {
+                          const members = row.spot.followers.filter((member) => active.has(member.id));
+                          const mark = bushNumbers.get(row.key);
+                          const find = row.spot.find;
+                          return (
+                            <li key={row.key} className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                              <span className="inline-flex items-center gap-1">
+                                {mark != null ? <BushNumber n={mark} className="shrink-0" /> : null}
+                                <GrassIcon className="size-4 shrink-0" />
+                              </span>
+                              {find?.items.length ? (
+                                <span className="text-xs font-bold text-parchment">
+                                  {find.items.map((item) => `${item.name} ${item.share}`).join(", ")}
+                                </span>
+                              ) : null}
+                              {members.map((member) => (
+                                <span key={member.id} className="font-display text-xs font-extrabold text-gold">
+                                  {member.name} <span className="text-parchment">{member.share}</span>
+                                </span>
+                              ))}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              <p className="mt-2 text-sm font-bold text-parchment">{caption}</p>
+              {missing.length ? (
+                <p className="mt-1 text-xs font-bold text-parchment">
+                  {missing.map((id) => MONSTERS[id].name).join(", ")} {missing.length === 1 ? "has" : "have"} no
+                  marked spot.
+                </p>
+              ) : null}
             </div>
-            <div className="flex h-full min-h-0 items-start justify-center" style={{ containerType: "size" }}>
+            <div className="grid min-h-0 min-w-0 place-items-center" style={{ containerType: "size" }}>
               <MapView
                 src={open.src}
                 markers={open.markers}
                 labels={open.labels}
                 pins={pins}
                 marks={marks}
-                hotLabels={explainGrass ? pickedGrass.map((row) => row.area) : []}
-                floats={grassFloats}
-                onFloat={(id) => {
-                  setSelectedKey(null);
-                  setGrassPick(true);
-                  setSelectedId(id);
-                  setShown(new Set(active).add(id));
-                }}
                 fit
                 onPick={(key) => {
                   const row = keyed.find((item) => item.key === key);
                   const member = pins.flatMap((pin) => pin.party ?? []).find((item) => item.key === key);
                   const id = row?.spot.id ?? member?.id;
                   if (!id) return;
-                  setGrassPick(false);
                   setSelectedKey(key);
                   setSelectedId(id);
                 }}
               />
             </div>
-          </div>
         </div>
       ) : null}
       <SiteFooter />
